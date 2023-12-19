@@ -1,27 +1,20 @@
+@import url("https://use.typekit.net/lrm0kaj.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --Brand-Black: 17, 26, 73;
+  --White: 255, 255, 255;
+  --Unfinished-Grey: 198, 200, 231;
+  --font-header: "nagel-variable", sans-serif;
+  --font-body: "cofo-sans-variable", sans-serif;
+  font-size: 18px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--Brand-Black));
+  font-family: var(--font-body);
+  font-weight: 300;
 }
