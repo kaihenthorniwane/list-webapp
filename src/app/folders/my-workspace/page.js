@@ -1,9 +1,9 @@
-import Breadcrumbs from "@/components/Navigation/Breadcrumbs";
+import FolderTitle from "@/components/Navigation/FolderTitle";
 
 export default function Folder() {
   return (
-    <main className="py-4 px-5">
-      <Breadcrumbs
+    <div className="px-5 py-5">
+      <FolderTitle
         crumbNameAndLinkArray={[
           {
             link: "/folders",
@@ -14,9 +14,9 @@ export default function Folder() {
             name: "My Workspace",
           },
         ]}
+        headerText={"My Workspace"}
       />
-      <h1 className="font-header text-24">Hello world!</h1>
       <p>Hello world!</p>
-    </main>
+    </div>
   );
 }
