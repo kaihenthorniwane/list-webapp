@@ -23,7 +23,7 @@ export default function Folders() {
     signIn("google");
     return (
       <div>
-        <p>Signing you in with google. Click here if this doesn't work:</p>
+        <p>Signing you in with google. Click here if this does not work:</p>
         <button onClick={() => signIn("google")}>Sign in with Google</button>
       </div>
     );
