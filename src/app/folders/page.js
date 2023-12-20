@@ -3,7 +3,8 @@
 import FolderTitle from "@/components/Navigation/FolderTitle";
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import SignOutButton from "@/components/SignOutButton";
+import SignInGoogle from "@/components/Navigation/SignInGoogle";
+// import SignOutButton from "@/components/SignOutButton";
 
 const folderData = [
   {
@@ -21,12 +22,7 @@ export default function Folders() {
 
   if (status === "unauthenticated") {
     signIn("google");
-    return (
-      <div>
-        <p>Signing you in with google. Click here if this does not work:</p>
-        <button onClick={() => signIn("google")}>Sign in with Google</button>
-      </div>
-    );
+    return <SignInGoogle />;
   }
   // if (status === "authenticated") {
   //   return (

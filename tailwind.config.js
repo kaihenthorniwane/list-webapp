@@ -28,6 +28,19 @@ module.exports = {
         500: 500,
         700: 700,
       },
+      backgroundColor: {
+        "Brand-Black": "#111A49",
+        "Brand-White": "#FFFFFF",
+      },
+      // Adding custom text colors
+      textColor: {
+        "Brand-Black": "#111A49",
+        "Brand-White": "#FFFFFF",
+      },
+      // Adding custom easing (transition timing function)
+      transitionTimingFunction: {
+        "fast-easing": "cubic-bezier(.06,.9,.15,1)", // Example easing function
+      },
     },
   },
   plugins: [],
