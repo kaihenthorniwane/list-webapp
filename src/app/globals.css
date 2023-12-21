@@ -16,6 +16,7 @@ body {
   color: rgb(var(--Brand-Black));
   font-family: var(--font-body);
   font-weight: 300;
+  font-style: oblique 0deg;
 }
 
 .folder-svg > svg {
