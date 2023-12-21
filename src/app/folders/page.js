@@ -4,7 +4,7 @@ import FolderTitle from "@/components/Navigation/FolderTitle";
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
-import FolderCard from "@/components/Cards/FolderCard";
+import FolderCard from "@/components/Cards/FolderCard/FolderCard";
 // import SignOutButton from "@/components/SignOutButton";
 
 export default function Folders() {
@@ -21,7 +21,6 @@ export default function Folders() {
           }
           const folderData = await response.json();
           setFolders(folderData);
-          console.log(folderData);
         } catch (error) {
           setFolders([{ folder_id: "folder did not render" }]);
           console.error("Failed to fetch folders:", error.message);

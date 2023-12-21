@@ -17,3 +17,18 @@ body {
   font-family: var(--font-body);
   font-weight: 300;
 }
+
+.folder-svg > svg {
+  width: 100%;
+  z-index: -1;
+  max-height: 9.125rem;
+}
+
+.folder-svg {
+  display: flex;
+  width: 100%;
+}
+
+.folder-back > svg {
+  max-height: 11.125rem;
+}
