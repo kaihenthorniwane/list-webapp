@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
 import FolderCard from "@/components/Cards/FolderCard/FolderCard";
+import { NotesProvider } from "@/contexts/NotesContext";
 // import SignOutButton from "@/components/SignOutButton";
 
 export default function Folders() {
@@ -43,15 +44,18 @@ export default function Folders() {
             headerText={"Folders"}
             crumbNameAndLinkArray={undefined}
           />
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
-            {folders.map((folder, index) => (
-              <FolderCard
-                key={index}
-                folder_id={folder.folder_id}
-                folder_name={folder.folder_name}
-              />
-            ))}
-          </div>
+          <NotesProvider>
+            {/* Wrap the FolderCard components with NotesProvider */}
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
+              {folders.map((folder, index) => (
+                <FolderCard
+                  key={index}
+                  folder_id={folder.folder_id}
+                  folder_name={folder.folder_name}
+                />
+              ))}
+            </div>
+          </NotesProvider>
         </div>
       </div>
     );
