@@ -20,11 +20,11 @@ export async function GET(request, { params }) {
 
   // If authenticated, fetch folders
   try {
-    const user_id = params.user_id; // Assuming 'user_id' is passed in the route
-    console.log("Requested folders for user id: " + user_id);
+    const folder_id = params.folder_id; // Assuming 'user_id' is passed in the route
+    console.log("Requested notes for folder id: " + folder_id);
 
     const dbFolders =
-      await sql`SELECT * FROM folders WHERE user_id = ${user_id}`;
+      await sql`SELECT * FROM notes WHERE folder_id = ${folder_id} LIMIT 3`;
 
     return new Response(JSON.stringify(dbFolders.rows), {
       headers: {

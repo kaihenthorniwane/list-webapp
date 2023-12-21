@@ -76,7 +76,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/sign-in", // The route to the sign-in page
+    signIn: "/folders", // The route to the sign-in page
     // Define other custom pages if necessary
   },
   callbacks: {

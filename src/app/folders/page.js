@@ -37,16 +37,21 @@ export default function Folders() {
     // If there's a session, render the folder titles
 
     return (
-      <div className="px-5 py-5 flex flex-col gap-4 overflow-hidden">
-        <FolderTitle headerText={"Folders"} crumbNameAndLinkArray={undefined} />
-        <div className="flex flex-col gap-5">
-          {folders.map((folder, index) => (
-            <FolderCard
-              key={index}
-              folder_id={folder.folder_id}
-              folder_name={folder.folder_name}
-            />
-          ))}
+      <div className="px-5 py-5 flex flex-col items-center overflow-hidden">
+        <div className="w-full max-w-4xl flex flex-col gap-4">
+          <FolderTitle
+            headerText={"Folders"}
+            crumbNameAndLinkArray={undefined}
+          />
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
+            {folders.map((folder, index) => (
+              <FolderCard
+                key={index}
+                folder_id={folder.folder_id}
+                folder_name={folder.folder_name}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );
