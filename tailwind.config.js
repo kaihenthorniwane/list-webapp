@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         // Define a custom font family for your header class
-        header: ['"nagel-variable"', "sans"],
+        header: ["nagel-variable", "sans"],
         // Define a custom font family for your body class
-        body: ['"cofo-sans-variable"', "sans"],
+        body: ["cofo-sans-variable", "sans"],
       },
       fontSize: {
         38: "2.375rem", // 38px
@@ -26,6 +26,7 @@ module.exports = {
         400: 400,
         450: 450,
         500: 500,
+        600: 600,
         700: 700,
       },
       backgroundColor: {
@@ -40,6 +41,13 @@ module.exports = {
       // Adding custom easing (transition timing function)
       transitionTimingFunction: {
         "fast-easing": "cubic-bezier(.06,.9,.15,1)", // Example easing function
+      },
+      height: {
+        "folder-card": "12.75rem", //Folder card height
+      },
+      maxHeight: {
+        "folder-front": "9.125rem", // Folder front height
+        "folder-back": "11.125rem", // Folder back height
       },
     },
   },

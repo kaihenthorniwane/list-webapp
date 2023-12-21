@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
 import FolderCard from "@/components/Cards/FolderCard";
-import SignOutButton from "@/components/SignOutButton";
+// import SignOutButton from "@/components/SignOutButton";
 
 export default function Folders() {
   const { data: session, status } = useSession();
@@ -38,12 +38,26 @@ export default function Folders() {
     // If there's a session, render the folder titles
 
     return (
-      <div className="px-5 py-5 flex flex-col">
+      <div className="px-5 py-5 flex flex-col gap-4 overflow-hidden">
         <FolderTitle headerText={"Folders"} crumbNameAndLinkArray={undefined} />
-        {folders.map((folder, index) => (
-          <FolderCard key={index} folder_id={folder.folder_id} />
-        ))}
+        <div className="flex flex-col gap-5">
+          {folders.map((folder, index) => (
+            <FolderCard
+              key={index}
+              folder_id={folder.folder_id}
+              folder_name={folder.folder_name}
+            />
+          ))}
+        </div>
       </div>
     );
   }
 }
+
+// if (status === "authenticated") {
+//   return (
+//     <div>
+//       <SignOutButton />
+//     </div>
+//   );
+// }
