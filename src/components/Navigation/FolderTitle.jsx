@@ -3,7 +3,7 @@ import Breadcrumbs from "./Breadcrumbs";
 
 const FolderTitle = ({ crumbNameAndLinkArray, headerText }) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 no-drag-mobile">
       {crumbNameAndLinkArray ? (
         <Breadcrumbs crumbNameAndLinkArray={crumbNameAndLinkArray} />
       ) : (

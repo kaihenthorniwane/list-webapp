@@ -16,7 +16,6 @@ body {
   color: rgb(var(--Brand-Black));
   font-family: var(--font-body);
   font-weight: 300;
-  font-style: normal;
 }
 
 .folder-svg > svg {
