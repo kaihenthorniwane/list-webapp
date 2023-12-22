@@ -16,9 +16,7 @@ body {
   color: rgb(var(--Brand-Black));
   font-family: var(--font-body);
   font-weight: 300;
-}
-
-.brand-transition-hover {
+  font-style: normal;
 }
 
 .folder-svg > svg {
