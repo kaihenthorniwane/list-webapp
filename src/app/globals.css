@@ -18,6 +18,9 @@ body {
   font-weight: 300;
 }
 
+.brand-transition-hover {
+}
+
 .folder-svg > svg {
   width: 100%;
   z-index: -1;
@@ -31,4 +34,45 @@ body {
 
 .folder-back > svg {
   max-height: 11.125rem;
+}
+
+.brand-button-transition > *,
+.brand-button-transition .note-card-class {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(
+    0.06,
+    0.9,
+    0.15,
+    1
+  ); /* Assuming 'fast-easing' corresponds to this bezier curve */
+  transform: translateY(0);
+}
+
+.brand-button-transition:hover {
+  cursor: pointer;
+}
+
+.brand-button-transition:hover > * {
+  transform: translateY(
+    -0.5rem
+  ); /* Tailwind's '-translate-y-1' usually means -0.25rem */
+}
+
+.brand-button-transition:hover .note-card-class,
+.brand-button-transition:active .note-card-class {
+  transform: translateY(
+    -0.75rem
+  ); /* Tailwind's '-translate-y-1' usually means -0.25rem */
+}
+
+.brand-button-transition:active > * {
+  transform: translateY(
+    0.25rem
+  ); /* Tailwind's 'translate-y-1' usually means 0.25rem */
+}
+
+.no-drag * {
+  -webkit-user-drag: none;
+  user-select: none;
 }

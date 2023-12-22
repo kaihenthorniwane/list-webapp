@@ -2,13 +2,14 @@ import React from "react";
 
 const FolderBack = () => {
   return (
-    <div className="flex absolute z-[-3] left-0 right-0 top-0">
-      <img src="/svg/Folder Back Left.svg" />
+    <div className="flex absolute z-[-3] left-0 right-0 top-0 no-drag">
+      <img src="/svg/Folder Back Left.svg" draggable="false" />
       <div className="folder-svg folder-back">
         <svg
           viewBox="0 0 100 178"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
+          draggable="false"
         >
           <g id="Folder Back Middle">
             <g id="Rectangle 52">
@@ -25,7 +26,7 @@ const FolderBack = () => {
           </g>
         </svg>
       </div>
-      <img src="/svg/Folder Back Right.svg" />
+      <img src="/svg/Folder Back Right.svg" draggable="false" />
     </div>
   );
 };

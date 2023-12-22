@@ -46,7 +46,7 @@ export default function Folders() {
           />
           <NotesProvider>
             {/* Wrap the FolderCard components with NotesProvider */}
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
+            <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
               {folders.map((folder, index) => (
                 <FolderCard
                   key={index}

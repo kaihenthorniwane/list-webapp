@@ -17,13 +17,15 @@ const SignInGoogle = function () {
         </div>
         <p className="font-body text-24 leading-tight">For the noteworthy.</p>
       </div>
-      <button
-        className="flex gap-3 bg-Brand-Black pb-5 pt-6 px-8 rounded-[1.5rem] transform transition transition-timing-function-fast-easing hover:opacity-50 hover:-translate-y-1 active:translate-y-1"
-        onClick={() => signIn("google")}
-      >
-        <img src="/svg/google-icon.svg" style={{ width: "1.4rem" }}></img>
-        <span className="text-Brand-White">Sign in with Google</span>
-      </button>
+      <div className="brand-button-transition">
+        <button
+          className="flex gap-3 bg-Brand-Black pb-5 pt-6 px-8 rounded-[1.5rem]"
+          onClick={() => signIn("google")}
+        >
+          <img src="/svg/google-icon.svg" style={{ width: "1.4rem" }}></img>
+          <span className="text-Brand-White">Sign in with Google</span>
+        </button>
+      </div>
     </div>
   );
 };

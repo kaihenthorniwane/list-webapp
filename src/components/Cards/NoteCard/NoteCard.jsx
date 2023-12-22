@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import FolderNoteBackground from "./FolderNoteBackground";
 
+const noteCardName = "note-card-class";
+
 const NoteCard = ({
   note_id,
   folder_id,
@@ -12,8 +14,8 @@ const NoteCard = ({
   const [currentVariant, setCurrentVariant] = useState(variant || "default"); //server rendered state
 
   const dimensionVariantStyles = {
-    default: "relative",
-    "folder-view": "relative h-24 p-4",
+    default: noteCardName + " relative",
+    "folder-view": noteCardName + " relative h-24 p-4",
   };
   const titleVariantStyles = {
     default: "font-24 font-600",
