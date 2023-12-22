@@ -67,19 +67,27 @@ body {
     transform: translateY(-0.75rem);
   }
 
-  .brand-button-transition:hover > *,
-  .brand-button-transition:active > *,
+  .brand-button-transition:hover > * {
+    transform: translateY(0rem);
+  }
+
+  .brand-button-transition:active > * {
+    transform: translateY(0.5rem);
+  }
+
   .brand-button-transition:hover .note-card-class {
     transform: translateY(-0.75rem);
   }
 
   .no-drag-mobile * {
     -webkit-user-drag: none;
+    -webkit-user-select: none;
     user-select: none;
   }
 }
 
 .no-drag * {
   -webkit-user-drag: none;
+  -webkit-user-select: none;
   user-select: none;
 }
