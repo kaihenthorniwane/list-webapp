@@ -81,6 +81,7 @@ body {
 
   .no-drag-mobile * {
     -webkit-user-drag: none;
+    -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
   }
@@ -88,6 +89,7 @@ body {
 
 .no-drag * {
   -webkit-user-drag: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
 }
