@@ -18,16 +18,16 @@ const NoteCard = ({
     "folder-view": noteCardName + " relative h-24 p-4",
   };
   const titleVariantStyles = {
-    default: "font-24 font-600",
-    "folder-view": "font-14 font-600",
+    default: "text-24 font-600",
+    "folder-view": "text-16 font-600",
   };
   const contentVariantStyles = {
-    default: "font-18 font-300",
-    "folder-view": "font-12 font-300 hidden",
+    default: "text-18 font-300",
+    "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
-    default: "font-14 font-300 block",
-    "folder-view": "font-12 font-300 hidden",
+    default: "text-14 font-300 block",
+    "folder-view": "text-12 font-300 hidden",
   };
   const noteBackground = {
     default: undefined,
