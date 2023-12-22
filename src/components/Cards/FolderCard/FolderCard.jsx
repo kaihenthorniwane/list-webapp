@@ -37,10 +37,10 @@ const FolderCard = ({ folder_id, folder_name }) => {
   };
 
   return (
-    <div className="brand-button-transition">
+    <div className="brand-button-transition no-drag-mobile">
       <div className=" flex p-5 flex-col justify-end gap-1 relative h-folder-card ">
         <FolderBack />
-        <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9">
+        <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
           {notes.map((note, index) => (
             <div
               key={index}
@@ -58,7 +58,7 @@ const FolderCard = ({ folder_id, folder_name }) => {
         </div>
 
         <FolderFront />
-        <span className="relative z-0 font-header text-24 font-600">
+        <span className="relative z-0 font-header text-24 font-600 ">
           {folder_name}
         </span>
       </div>

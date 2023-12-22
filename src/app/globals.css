@@ -72,6 +72,11 @@ body {
   .brand-button-transition:hover .note-card-class {
     transform: translateY(-0.75rem);
   }
+
+  .no-drag-mobile * {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
 }
 
 .no-drag * {
