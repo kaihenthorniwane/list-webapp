@@ -1,6 +1,9 @@
 import { sql } from "@vercel/postgres";
 import { getSession } from "next-auth/react";
 
+// Opt out of caching for all data requests in the route segment
+export const dynamic = "force-dynamic";
+
 export async function GET(request, { params }) {
   // Get the session
   const session = await getSession(request);
@@ -26,8 +29,8 @@ export async function GET(request, { params }) {
     const dbFolders =
       await sql`SELECT * FROM notes WHERE folder_id = ${folder_id}`;
 
-    console.log("new folders:");
-    console.log(dbFolders.rows);
+    // console.log("new folders:");
+    // console.log(dbFolders.rows);
     return new Response(JSON.stringify(dbFolders.rows), {
       headers: {
         "Content-Type": "application/json",

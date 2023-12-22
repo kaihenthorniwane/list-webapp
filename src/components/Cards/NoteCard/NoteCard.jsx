@@ -37,9 +37,18 @@ const NoteCard = ({
   function formatDate(dateString) {
     const date = new Date(dateString);
     const now = new Date();
-    const differenceInHours = Math.abs(now - date) / 36e5; // 36e5 is the scientific notation for 60*60*1000, converting milliseconds to hours
 
-    if (differenceInHours < 24) {
+    const differenceInSeconds = Math.abs(now - date) / 1000; // converting milliseconds to seconds
+    const differenceInMinutes = differenceInSeconds / 60; // converting seconds to minutes
+    const differenceInHours = differenceInMinutes / 60; // converting minutes to hours
+
+    if (differenceInHours < 1) {
+      if (differenceInMinutes < 1) {
+        return `${Math.floor(differenceInSeconds)} seconds ago`;
+      } else {
+        return `${Math.floor(differenceInMinutes)} minutes ago`;
+      }
+    } else if (differenceInHours < 24) {
       return `${Math.floor(differenceInHours)} hours ago`;
     } else {
       return date.toLocaleDateString("en-US", {
