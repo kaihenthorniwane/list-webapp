@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NoteCard from "../NoteCard/NoteCard";
 import FolderBack from "./FolderBack";
 import FolderFront from "./FolderFront";
+import Link from "next/link";
 import { useNotes } from "@/contexts/NotesContext"; // Adjust the import path as needed
 
 const FolderCard = ({ folder_id, folder_name }) => {
@@ -43,33 +44,32 @@ const FolderCard = ({ folder_id, folder_name }) => {
   // };
 
   return (
-    <a
-      className="brand-button-transition no-drag-mobile"
-      href={"/folders/" + folder_id}
-    >
-      <div className=" flex p-5 flex-col justify-end gap-1 relative h-folder-card ">
-        <FolderBack />
-        <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
-          {notes.map((note, index) => (
-            <div key={index} className="w-4/5 -mx-12 note-card-class">
-              <div style={{ transform: getRotationForNote(note.note_id) }}>
-                <NoteCard
-                  note_title={note.note_title}
-                  note_content={note.note_content}
-                  last_saved={note.last_saved}
-                  variant={"folder-view"}
-                />
+    <Link href={"/folders/" + folder_id}>
+      <div className="brand-button-transition">
+        <div className=" flex p-5 flex-col justify-end gap-1 relative h-folder-card ">
+          <FolderBack />
+          <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
+            {notes.map((note, index) => (
+              <div key={index} className="w-4/5 -mx-12 note-card-class">
+                <div style={{ transform: getRotationForNote(note.note_id) }}>
+                  <NoteCard
+                    note_title={note.note_title}
+                    note_content={note.note_content}
+                    last_saved={note.last_saved}
+                    variant={"folder-view"}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <FolderFront />
-        <span className="relative z-0 font-header text-24 font-600 ">
-          {folder_name}
-        </span>
+          <FolderFront />
+          <span className="relative z-0 font-header text-24 font-600 ">
+            {folder_name}
+          </span>
+        </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

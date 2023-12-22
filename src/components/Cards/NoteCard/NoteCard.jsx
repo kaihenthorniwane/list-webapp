@@ -34,6 +34,22 @@ const NoteCard = ({
     "folder-view": <FolderNoteBackground />,
   };
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const differenceInHours = Math.abs(now - date) / 36e5; // 36e5 is the scientific notation for 60*60*1000, converting milliseconds to hours
+
+    if (differenceInHours < 24) {
+      return `${Math.floor(differenceInHours)} hours ago`;
+    } else {
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
+    }
+  }
+
   return (
     <div className={dimensionVariantStyles[currentVariant]}>
       <div className="relative z-1">
@@ -46,7 +62,7 @@ const NoteCard = ({
           {note_content}
         </span>
         <span className={lastSavedVariantStyles[currentVariant]}>
-          {last_saved}
+          {formatDate(last_saved)}
         </span>
       </div>
       {noteBackground && noteBackground[currentVariant]}
