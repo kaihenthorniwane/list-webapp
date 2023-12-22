@@ -41,6 +41,12 @@ body {
   transition-timing-function: cubic-bezier(0.06, 0.9, 0.15, 1);
   transform: translateY(0);
 }
+.brand-button-transition .note-card-class:nth-child(2) {
+  transition-delay: 0.05s;
+}
+.brand-button-transition .note-card-class:nth-child(3) {
+  transition-delay: 0.1s;
+}
 
 .brand-button-transition:hover {
   cursor: pointer;
@@ -51,7 +57,7 @@ body {
 }
 
 .brand-button-transition:hover .note-card-class {
-  transform: translateY(-0.75rem);
+  transform: translateY(-1.25rem);
 }
 
 .brand-button-transition:active > * {

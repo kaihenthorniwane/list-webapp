@@ -48,17 +48,15 @@ const FolderCard = ({ folder_id, folder_name }) => {
         <FolderBack />
         <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
           {notes.map((note, index) => (
-            <div
-              key={index}
-              className="w-4/5 -mx-12" // Set width to 2/5 (40%) and add padding for separation
-              style={{ transform: getRotationForNote(note.note_id) }}
-            >
-              <NoteCard
-                note_title={note.note_title}
-                note_content={note.note_content}
-                last_saved={note.last_saved}
-                variant={"folder-view"}
-              />
+            <div key={index} className="w-4/5 -mx-12 note-card-class">
+              <div style={{ transform: getRotationForNote(note.note_id) }}>
+                <NoteCard
+                  note_title={note.note_title}
+                  note_content={note.note_content}
+                  last_saved={note.last_saved}
+                  variant={"folder-view"}
+                />
+              </div>
             </div>
           ))}
         </div>

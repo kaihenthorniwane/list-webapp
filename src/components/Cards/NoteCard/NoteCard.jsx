@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FolderNoteBackground from "./FolderNoteBackground";
 
-const noteCardName = "note-card-class";
+const noteCardName = "";
 
 const NoteCard = ({
   note_id,
