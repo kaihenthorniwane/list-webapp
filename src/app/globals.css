@@ -36,16 +36,12 @@ body {
   max-height: 11.125rem;
 }
 
+/* Existing styles */
 .brand-button-transition > *,
 .brand-button-transition .note-card-class {
   transition-property: transform, opacity;
   transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(
-    0.06,
-    0.9,
-    0.15,
-    1
-  ); /* Assuming 'fast-easing' corresponds to this bezier curve */
+  transition-timing-function: cubic-bezier(0.06, 0.9, 0.15, 1);
   transform: translateY(0);
 }
 
@@ -54,22 +50,28 @@ body {
 }
 
 .brand-button-transition:hover > * {
-  transform: translateY(
-    -0.5rem
-  ); /* Tailwind's '-translate-y-1' usually means -0.25rem */
+  transform: translateY(-0.5rem);
 }
 
-.brand-button-transition:hover .note-card-class,
-.brand-button-transition:active .note-card-class {
-  transform: translateY(
-    -0.75rem
-  ); /* Tailwind's '-translate-y-1' usually means -0.25rem */
+.brand-button-transition:hover .note-card-class {
+  transform: translateY(-0.75rem);
 }
 
 .brand-button-transition:active > * {
-  transform: translateY(
-    0.25rem
-  ); /* Tailwind's 'translate-y-1' usually means 0.25rem */
+  transform: translateY(0.25rem);
+}
+
+/* Media query for Tailwind CSS small breakpoint (max-width: 639px) */
+@media (max-width: 639px) {
+  .brand-button-transition .note-card-class {
+    transform: translateY(-0.75rem);
+  }
+
+  .brand-button-transition:hover > *,
+  .brand-button-transition:active > *,
+  .brand-button-transition:hover .note-card-class {
+    transform: translateY(-0.75rem);
+  }
 }
 
 .no-drag * {
