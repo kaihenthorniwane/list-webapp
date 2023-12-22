@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
 import FolderCard from "@/components/Cards/FolderCard/FolderCard";
 import { NotesProvider } from "@/contexts/NotesContext";
+import LoadingScreen from "@/components/Navigation/LoadingScreen";
 // import SignOutButton from "@/components/SignOutButton";
 
 export default function Folders() {
@@ -63,7 +64,7 @@ export default function Folders() {
       </div>
     );
   } else {
-    return <div>Loading</div>;
+    return <LoadingScreen />;
   }
 }
 
