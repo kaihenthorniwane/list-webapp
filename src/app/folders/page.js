@@ -19,7 +19,7 @@ export default function Folders() {
     async function fetchFolders() {
       if (status === "authenticated" && !foldersFetched) {
         try {
-          const response = await fetch("/api/folders/" + session.userId);
+          const response = await fetch("/api/getfolders/" + session.userId);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }

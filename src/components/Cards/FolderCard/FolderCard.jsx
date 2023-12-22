@@ -43,7 +43,10 @@ const FolderCard = ({ folder_id, folder_name }) => {
   // };
 
   return (
-    <div className="brand-button-transition no-drag-mobile">
+    <a
+      className="brand-button-transition no-drag-mobile"
+      href={"/folders/" + folder_id}
+    >
       <div className=" flex p-5 flex-col justify-end gap-1 relative h-folder-card ">
         <FolderBack />
         <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
@@ -66,7 +69,7 @@ const FolderCard = ({ folder_id, folder_name }) => {
           {folder_name}
         </span>
       </div>
-    </div>
+    </a>
   );
 };
 
