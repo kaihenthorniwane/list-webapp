@@ -10,13 +10,14 @@ const FolderCard = ({ folder_id, folder_name }) => {
   const [rotationAngles, setRotationAngles] = useState({});
 
   useEffect(() => {
+    console.log("folder id: " + folder_id);
     fetchNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
-  }, [folder_id, fetchNotes]);
+  }, [folder_id]);
 
   useEffect(() => {
     // Initialize rotation angles for notes
     const newRotationAngles = {};
-    notes.forEach((note, index) => {
+    notes.forEach((note) => {
       if (!rotationAngles[note.note_id]) {
         // Replace 'note.id' with a unique identifier for the note
         const minRotation = -7;
@@ -29,12 +30,17 @@ const FolderCard = ({ folder_id, folder_name }) => {
       ...prevAngles,
       ...newRotationAngles,
     }));
-  }, [notes]);
+  }, [notesData]);
 
   // Function to get the rotation for a note
   const getRotationForNote = (noteId) => {
     return `rotate(${rotationAngles[noteId]}deg)`; // Replace 'note.id' with the note's unique identifier
   };
+
+  // // Function to get the rotation for a note
+  // const getRotationForNote = (noteId) => {
+  //   return `rotate(4deg)`; // Replace 'note.id' with the note's unique identifier
+  // };
 
   return (
     <div className="brand-button-transition no-drag-mobile">

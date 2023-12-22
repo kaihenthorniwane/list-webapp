@@ -11,10 +11,12 @@ import { NotesProvider } from "@/contexts/NotesContext";
 export default function Folders() {
   const { data: session, status } = useSession();
   const [folders, setFolders] = useState([]);
+  const [foldersFetched, setFoldersFetched] = useState(false);
 
   useEffect(() => {
+    console.log("status changed to " + status);
     async function fetchFolders() {
-      if (status === "authenticated") {
+      if (status === "authenticated" && !foldersFetched) {
         try {
           const response = await fetch("/api/folders/" + session.userId);
           if (!response.ok) {
@@ -22,8 +24,8 @@ export default function Folders() {
           }
           const folderData = await response.json();
           setFolders(folderData);
+          setFoldersFetched(true);
         } catch (error) {
-          setFolders([{ folder_id: "folder did not render" }]);
           console.error("Failed to fetch folders:", error.message);
         }
       }
@@ -34,9 +36,8 @@ export default function Folders() {
 
   if (status === "unauthenticated") {
     return <SignInGoogle />;
-  } else {
+  } else if (status === "authenticated") {
     // If there's a session, render the folder titles
-
     return (
       <div className="px-5 py-5 flex flex-col items-center overflow-hidden">
         <div className="w-full max-w-4xl flex flex-col gap-4">
@@ -45,20 +46,24 @@ export default function Folders() {
             crumbNameAndLinkArray={undefined}
           />
           <NotesProvider>
-            {/* Wrap the FolderCard components with NotesProvider */}
             <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
-              {folders.map((folder, index) => (
-                <FolderCard
-                  key={index}
-                  folder_id={folder.folder_id}
-                  folder_name={folder.folder_name}
-                />
-              ))}
+              {folders.map((folder) => {
+                console.log("folders rendered");
+                return (
+                  <FolderCard
+                    key={folder.folder_id}
+                    folder_id={folder.folder_id}
+                    folder_name={folder.folder_name}
+                  />
+                );
+              })}
             </div>
           </NotesProvider>
         </div>
       </div>
     );
+  } else {
+    return <div>Loading</div>;
   }
 }
 

@@ -26,6 +26,8 @@ export async function GET(request, { params }) {
     const dbFolders =
       await sql`SELECT * FROM notes WHERE folder_id = ${folder_id} LIMIT 3`;
 
+    // console.log("new folders:");
+    // console.log(dbFolders.rows);
     return new Response(JSON.stringify(dbFolders.rows), {
       headers: {
         "Content-Type": "application/json",
