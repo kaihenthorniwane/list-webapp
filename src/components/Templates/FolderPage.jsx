@@ -2,15 +2,15 @@
 import React, { useState, useEffect } from "react";
 import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 import FolderTitle from "@/components/Navigation/FolderTitle";
-import { useNotes } from "@/contexts/NotesContext"; // Adjust the import path as needed
+import { useAllNotes } from "@/contexts/AllNotesContext"; // Adjust the import path as needed
 
 export default function FolderPage({ folder_id, folder_name }) {
-  const { notesData, fetchNotes } = useNotes(); // Use the custom hook
-  const notes = notesData[folder_id] || []; // Get the notes for this folder
+  const { allNotesData, fetchAllNotes } = useAllNotes(); // Use the custom hook
+  const notes = allNotesData[folder_id] || []; // Get the notes for this folder
 
   useEffect(() => {
     console.log("folder id: " + folder_id);
-    fetchNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
+    fetchAllNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
   }, [folder_id]);
 
   return (

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import FolderPage from "@/components/Templates/FolderPage";
 import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
-import { NotesProvider } from "@/contexts/NotesContext";
+import { AllNotesProvider } from "@/contexts/AllNotesContext";
 import LoadingScreen from "@/components/Navigation/LoadingScreen";
 // import SignOutButton from "@/components/SignOutButton";
 
@@ -38,9 +38,9 @@ export default function Folder({ params }) {
   } else if (status === "authenticated") {
     // If there's a session, render the folder titles
     return (
-      <NotesProvider>
+      <AllNotesProvider>
         <FolderPage folder_id={params.folder_id} folder_name={folderName} />
-      </NotesProvider>
+      </AllNotesProvider>
     );
   } else {
     return <LoadingScreen />;
