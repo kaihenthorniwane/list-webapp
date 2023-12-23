@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // Define a custom font family for your header class
-        header: ["degular-variable", "sans"],
+        header: ["degular-display", "sans"],
         // Define a custom font family for your body class
         body: ["cofo-sans-variable", "sans"],
       },

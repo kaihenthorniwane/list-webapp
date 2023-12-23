@@ -18,20 +18,20 @@ const NoteCard = ({
     "folder-view": noteCardName + " relative h-24 p-4",
   };
   const wrapperVariantStyles = {
-    default: "flex flex-col gap-3",
+    default: "flex flex-col gap-5",
     "folder-view": "flex flex-col",
   };
 
   const titleVariantStyles = {
-    default: "font-header text-28 font-600",
-    "folder-view": " text-16 font-600",
+    default: "font-header text-32 leading-none tracking-wide font-400",
+    "folder-view": " text-16 font-500",
   };
   const contentVariantStyles = {
     default: "leading-tight text-18 font-300",
     "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
-    default: "text-14 font-300 block",
+    default: "text-14 font-300 block leading-none",
     "folder-view": "text-12 font-300 hidden",
   };
   const noteBackground = {
@@ -67,12 +67,14 @@ const NoteCard = ({
   return (
     <div className={dimensionVariantStyles[currentVariant]}>
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
-        <div className="flex leading-tight gap-2">
-          <span className={"w-full " + titleVariantStyles[currentVariant]}>
+        <div className="flex leading-tight justify-between gap-2">
+          <span className={titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
-          <img src="/svg/NoteCard/Expand Icon.svg" />
-          <img src="/svg/NoteCard/MoreOptionsDots.svg" />
+          <div className="flex gap-2 flex-shrink-0 align-start">
+            <img src="/svg/NoteCard/Expand Icon.svg" />
+            <img src="/svg/NoteCard/MoreOptionsDots.svg" />
+          </div>
         </div>
         <span className={contentVariantStyles[currentVariant]}>
           {note_content}

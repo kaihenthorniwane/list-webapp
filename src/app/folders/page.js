@@ -41,13 +41,13 @@ export default function Folders() {
     // If there's a session, render the folder titles
     return (
       <div className="px-5 py-5 flex flex-col items-center overflow-hidden">
-        <div className="w-full max-w-4xl flex flex-col gap-4">
+        <div className="w-full max-w-4xl flex flex-col gap-8">
           <FolderTitle
             headerText={"Folders"}
             crumbNameAndLinkArray={undefined}
           />
           <NotesProvider>
-            <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-5 gap-x-10">
+            <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-10">
               {folders.map((folder) => {
                 console.log("folders rendered");
                 return (
