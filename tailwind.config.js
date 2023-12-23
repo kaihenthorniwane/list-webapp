@@ -9,14 +9,14 @@ module.exports = {
     extend: {
       fontFamily: {
         // Define a custom font family for your header class
-        header: ["nagel-variable", "sans"],
+        header: ["degular-variable", "sans"],
         // Define a custom font family for your body class
         body: ["cofo-sans-variable", "sans"],
       },
       fontSize: {
-        38: "2.375rem", // 38px
+        44: "2.75rem", // 38px
         32: "2rem", // 32px
-        24: "1.5rem", // 24px
+        28: "1.75rem", // 24px
         18: "1.125rem", //18px
         16: "1rem", //16px
         14: "0.875rem", // 14px

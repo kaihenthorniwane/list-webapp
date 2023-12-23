@@ -8,7 +8,7 @@
   --Brand-Black: 17, 26, 73;
   --White: 255, 255, 255;
   --Unfinished-Grey: 198, 200, 231;
-  --font-header: "nagel-variable", sans-serif;
+  --font-header: "degular-variable", sans-serif;
   --font-body: "cofo-sans-variable", sans-serif;
 }
 
@@ -16,6 +16,8 @@ body {
   color: rgb(var(--Brand-Black));
   font-family: var(--font-body);
   font-weight: 300;
+  font-variation-settings: "SLNT" 0;
+  font-style: normal;
 }
 
 .folder-svg > svg {

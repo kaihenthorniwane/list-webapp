@@ -11,7 +11,7 @@ const FolderTitle = ({ crumbNameAndLinkArray, headerText }) => {
           empty
         </div>
       )}
-      <h1 className="font-header text-38 font-400 leading-none">
+      <h1 className="font-header text-44 font-400 leading-none">
         {headerText}
       </h1>
     </div>

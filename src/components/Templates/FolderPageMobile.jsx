@@ -34,7 +34,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
 
       <FilterBarMobile />
 
-      <div className="max-w-4xl px-5 pb-5 flex flex-col gap-8">
+      <div className="max-w-4xl w-full px-5 pb-5 flex flex-col gap-8">
         {notes.map((note, index) => (
           <NoteCard
             key={index}

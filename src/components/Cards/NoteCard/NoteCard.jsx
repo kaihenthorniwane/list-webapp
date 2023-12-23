@@ -23,7 +23,7 @@ const NoteCard = ({
   };
 
   const titleVariantStyles = {
-    default: "font-header text-24 font-600",
+    default: "font-header text-28 font-600",
     "folder-view": " text-16 font-600",
   };
   const contentVariantStyles = {
