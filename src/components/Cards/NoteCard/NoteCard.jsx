@@ -17,12 +17,17 @@ const NoteCard = ({
     default: noteCardName + " relative",
     "folder-view": noteCardName + " relative h-24 p-4",
   };
+  const wrapperVariantStyles = {
+    default: "flex flex-col gap-3",
+    "folder-view": "flex flex-col",
+  };
+
   const titleVariantStyles = {
-    default: "text-24 font-600",
-    "folder-view": "text-16 font-600",
+    default: "font-header text-24 font-600",
+    "folder-view": " text-16 font-600",
   };
   const contentVariantStyles = {
-    default: "text-18 font-300",
+    default: "leading-tight text-18 font-300",
     "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
@@ -61,11 +66,13 @@ const NoteCard = ({
 
   return (
     <div className={dimensionVariantStyles[currentVariant]}>
-      <div className="relative z-1">
-        <div>
-          <span className={titleVariantStyles[currentVariant]}>
+      <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
+        <div className="flex leading-tight gap-2">
+          <span className={"w-full " + titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
+          <img src="/svg/NoteCard/Expand Icon.svg" />
+          <img src="/svg/NoteCard/MoreOptionsDots.svg" />
         </div>
         <span className={contentVariantStyles[currentVariant]}>
           {note_content}
