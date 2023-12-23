@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import FolderPage from "@/components/Templates/FolderPage";
+import FolderPageMobile from "@/components/Templates/FolderPageMobile";
 import { useSession } from "next-auth/react";
 import SignInGoogle from "@/components/Navigation/SignInGoogle";
 import { AllNotesProvider } from "@/contexts/AllNotesContext";
@@ -39,7 +39,10 @@ export default function Folder({ params }) {
     // If there's a session, render the folder titles
     return (
       <AllNotesProvider>
-        <FolderPage folder_id={params.folder_id} folder_name={folderName} />
+        <FolderPageMobile
+          folder_id={params.folder_id}
+          folder_name={folderName}
+        />
       </AllNotesProvider>
     );
   } else {
