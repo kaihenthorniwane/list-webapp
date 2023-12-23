@@ -34,6 +34,11 @@ module.exports = {
         "Brand-Black": "#111A49",
         "Brand-White": "#FFFFFF",
       },
+      backgroundImage: {
+        "White-Gradient-Down":
+          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
+        // You can add more custom gradients here
+      },
       // Adding custom text colors
       textColor: {
         "Brand-Black": "#111A49",

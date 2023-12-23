@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ({ label, iconType }) {
+export default function FilterTab({ label, iconType }) {
   const iconSrc = {
     default: "/svg/Filter/Filter Icon.svg",
     Filter: "/svg/Filter/Filter Icon.svg",
