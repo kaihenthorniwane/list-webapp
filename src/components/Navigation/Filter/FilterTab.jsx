@@ -17,7 +17,7 @@ export default function FilterTab({ label, iconType, selected }) {
           <img src="/svg/Filter/Dropdown Icon.svg" />
         </div>
       </div>
-      <TabBackground />
+      {selected && <TabBackground />}
     </div>
   );
 }
