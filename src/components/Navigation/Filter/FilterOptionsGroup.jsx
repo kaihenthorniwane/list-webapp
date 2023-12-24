@@ -1,9 +1,15 @@
 import React from "react";
 import FilterOptionCard from "./FilterOptionCard";
+import { motion } from "framer-motion";
+import { brandedBezier } from "@/utils/animationConstants";
 
 export default function FilterOptionsGroup({ filterOptionsCardArray }) {
   return (
-    <div className="w-full flex-shrink-0 gap-5 flex">
+    <motion.div
+      className="w-full flex-shrink-0 gap-5 flex"
+      layout
+      transition={{ duration: 0.5, ease: brandedBezier }}
+    >
       {filterOptionsCardArray.map((cardInfo, index) => (
         <FilterOptionCard
           key={index}
@@ -13,6 +19,6 @@ export default function FilterOptionsGroup({ filterOptionsCardArray }) {
           iconComponent={cardInfo.iconComponent}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
