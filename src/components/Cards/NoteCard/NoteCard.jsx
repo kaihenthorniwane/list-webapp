@@ -34,6 +34,7 @@ const NoteCard = ({
     default: "text-14 font-300 block leading-none",
     "folder-view": "text-12 font-300 hidden",
   };
+
   const noteBackground = {
     default: undefined,
     "folder-view": <FolderNoteBackground />,
@@ -71,10 +72,12 @@ const NoteCard = ({
           <span className={titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
-          <div className="flex gap-2 flex-shrink-0 align-start">
-            <img src="/svg/NoteCard/Expand Icon.svg" />
-            <img src="/svg/NoteCard/MoreOptionsDots.svg" />
-          </div>
+          {variant !== "folder-view" && (
+            <div className="flex gap-2 flex-shrink-0 align-start">
+              <img src="/svg/NoteCard/Expand Icon.svg" />
+              <img src="/svg/NoteCard/MoreOptionsDots.svg" />
+            </div>
+          )}
         </div>
         <span className={contentVariantStyles[currentVariant]}>
           {note_content}
