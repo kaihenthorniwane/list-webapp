@@ -13,7 +13,7 @@ export default function FilterOptionCard({
     >
       <div className="flex flex-col gap-1 relative z-[2]">
         <div className="flex gap-1 leading-none">{optionTitle}</div>
-        <div className="text-14 leading-none">{optionText}</div>
+        <div className="text-16 leading-none">{optionText}</div>
       </div>
       {isSelected && (
         <div className="bg-Brand-Black absolute z-[1] rounded-xl -top-2.5 -bottom-2.5 -left-2.5 -right-2.5" />
