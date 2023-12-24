@@ -30,6 +30,10 @@ module.exports = {
         600: 600,
         700: 700,
       },
+      colors: {
+        "Brand-Black": "#111A49",
+        "Brand-White": "#FFFFFF",
+      },
       backgroundColor: {
         "Brand-Black": "#111A49",
         "Brand-White": "#FFFFFF",

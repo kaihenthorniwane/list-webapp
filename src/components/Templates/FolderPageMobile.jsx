@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 import FolderTitle from "@/components/Navigation/FolderTitle";
 import { useAllNotes } from "@/contexts/AllNotesContext"; // Adjust the import path as needed
-import FilterBarMobile from "../Navigation/FilterBarMobile";
+import FilterBarMobile from "../Navigation/Filter/FilterBarMobile";
 
 export default function FolderPageMobile({ folder_id, folder_name }) {
   const { allNotesData, fetchAllNotes } = useAllNotes(); // Use the custom hook

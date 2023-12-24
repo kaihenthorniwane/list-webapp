@@ -11,6 +11,7 @@
   "dependencies": {
     "@rive-app/react-canvas": "^4.6.2",
     "@vercel/postgres": "^0.5.1",
+    "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
