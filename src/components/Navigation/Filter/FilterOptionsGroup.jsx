@@ -10,6 +10,7 @@ export default function FilterOptionsGroup({ filterOptionsCardArray }) {
           selected={cardInfo.selected}
           optionTitle={cardInfo.optionTitle}
           optionText={cardInfo.optionText}
+          iconComponent={cardInfo.iconComponent}
         />
       ))}
     </div>
