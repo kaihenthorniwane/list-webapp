@@ -42,8 +42,8 @@ export default function AllFilterOptions() {
               (dropDownState == "layout" ? "justify-start" : "justify-end")
             }
           >
-            <div className="absolute z-[1] bg-White-Gradient-Right w-5 left-0 top-0 bottom-0" />
-            <div className="absolute z-[1] bg-White-Gradient-Left w-5 right-0 top-0 bottom-0" />
+            <div className="absolute z-[1] bg-White-Gradient-Right w-2 left-0 top-0 bottom-0" />
+            <div className="absolute z-[1] bg-White-Gradient-Left w-2 right-0 top-0 bottom-0" />
             <FilterOptionsGroup
               filterOptionsCardArray={[
                 {
