@@ -6,7 +6,7 @@ import { brandedBezier } from "@/utils/animationConstants";
 import { PullHeightContext } from "./FilterBarMobile";
 
 export default function FilterTab({ label, iconType }) {
-  const [currentIcon, setCurrentIcon] = useState(iconType || "default"); //server rendered state
+  const currentIcon = iconType || "default"; //server rendered state
   const [isSelected, setIsSelected] = useState(false); //will use this to animate the tab arrow and background
   const { dropDownState, setDropDownState } = useContext(DropDownStateContext); //which dropdown is the filter tab on
   const dropDownStateName = label.toString().toLowerCase();
@@ -30,13 +30,22 @@ export default function FilterTab({ label, iconType }) {
   const iconSrc = {
     default: "/svg/Filter/Filter Icon.svg",
     Filter: "/svg/Filter/Filter Icon.svg",
-    Writer: "/svg/Filter/Writer Icon.svg",
+    writer: "/svg/Filter/Writer Icon.svg",
+    simple: "/svg/Filter/Simple Icon.svg",
+    grid: "/svg/Filter/Grid Icon.svg",
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.1, 1], // Jump up and then down
+    transition: { duration: 0.2 }, // Duration of the animation
   };
 
   return (
     <div className="relative" onClick={handleClick}>
-      <motion.div className="relative z-[1] flex items-center gap-2">
-        <img src={iconSrc[currentIcon]} />
+      <div className="relative z-[1] flex items-center gap-2">
+        <motion.div animate={pulseAnimation} key={currentIcon}>
+          <img width={27} height={27} src={iconSrc[currentIcon]} />
+        </motion.div>
         <div className="flex items-center leading-none">
           <span className="mt-0.5">{label}</span>
           <motion.div
@@ -46,7 +55,7 @@ export default function FilterTab({ label, iconType }) {
             <img src="/svg/Filter/Dropdown Icon.svg" />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
       <AnimatePresence>
         {isSelected && (
           <motion.div
