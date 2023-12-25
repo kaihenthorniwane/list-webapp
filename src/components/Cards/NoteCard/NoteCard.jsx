@@ -90,7 +90,7 @@ const NoteCard = ({
             {note_title}
           </span>
           {variant === "writer" && (
-            <div className="flex gap-2 flex-shrink-0 align-start">
+            <div className="flex mt-1.5 gap-2 flex-shrink-0 align-start">
               <img src="/svg/NoteCard/Expand Icon.svg" />
               <img src="/svg/NoteCard/MoreOptionsDots.svg" />
             </div>
