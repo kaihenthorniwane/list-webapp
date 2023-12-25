@@ -8,7 +8,7 @@ export default function FilterOptionsGroup({ filterOptionsCardArray }) {
     <motion.div
       className="w-full flex-shrink-0 gap-5 flex"
       layout
-      transition={{ duration: 0.5, ease: brandedBezier }}
+      transition={{ duration: 0.25, ease: brandedBezier }}
     >
       {filterOptionsCardArray.map((cardInfo, index) => (
         <FilterOptionCard
@@ -17,6 +17,8 @@ export default function FilterOptionsGroup({ filterOptionsCardArray }) {
           optionTitle={cardInfo.optionTitle}
           optionText={cardInfo.optionText}
           iconComponent={cardInfo.iconComponent}
+          contextToSet={cardInfo.contextToSet}
+          contextToGet={cardInfo.contextToGet}
         />
       ))}
     </motion.div>

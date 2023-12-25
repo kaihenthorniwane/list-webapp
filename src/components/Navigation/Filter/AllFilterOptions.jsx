@@ -10,9 +10,13 @@ import { AnimatePresence } from "framer-motion";
 import MenuOldestIcon from "./Icons/MenuOldestIcon";
 import MenuMagicIcon from "./Icons/MenuMagicIcon";
 import MenuNewestIcon from "./Icons/MenuNewestIcon";
+import { NoteFormatContext } from "@/components/Templates/FolderPageMobile";
+import { NoteOrderContext } from "@/components/Templates/FolderPageMobile";
 
 export default function AllFilterOptions() {
   const { dropDownState, setDropDownState } = useContext(DropDownStateContext);
+  const { noteFormat, setNoteFormat } = useContext(NoteFormatContext);
+  const { noteOrder, setNoteOrder } = useContext(NoteOrderContext);
 
   const openDropdownVariants = {
     close: { height: 0, transition: { duration: 0.025, ease: "linear" } },
@@ -34,7 +38,7 @@ export default function AllFilterOptions() {
         >
           <div
             className={
-              "w-full p-5 max-w-4xl flex gap-5 overflow-hidden " +
+              "w-full p-5 max-w-4xl flex gap-10 overflow-hidden " +
               (dropDownState == "layout" ? "justify-start" : "justify-end")
             }
           >
@@ -45,18 +49,24 @@ export default function AllFilterOptions() {
                   optionTitle: "Simple",
                   optionText: "Compact view with headlines",
                   iconComponent: MenuSimpleIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
                 },
                 {
                   selected: true,
                   optionTitle: "Writer",
                   optionText: "Feed of notes, like a blog",
                   iconComponent: MenuWriterIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
                 },
                 {
                   selected: false,
                   optionTitle: "Grid",
                   optionText: "Stack notes in columns",
                   iconComponent: MenuGridIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
                 },
               ]}
             />
@@ -67,18 +77,24 @@ export default function AllFilterOptions() {
                   optionTitle: "Oldest",
                   optionText: "See oldest notes first",
                   iconComponent: MenuOldestIcon,
+                  contextToSet: setNoteOrder,
+                  contextToGet: noteOrder,
                 },
                 {
                   selected: true,
                   optionTitle: "Newest",
                   optionText: "See newest notes first",
                   iconComponent: MenuNewestIcon,
+                  contextToSet: setNoteOrder,
+                  contextToGet: noteOrder,
                 },
                 {
                   selected: false,
                   optionTitle: "GPT-3.5",
                   optionText: "Order notes with a prompt",
                   iconComponent: MenuMagicIcon,
+                  contextToSet: setNoteOrder,
+                  contextToGet: noteOrder,
                 },
               ]}
             />
