@@ -38,10 +38,12 @@ export default function AllFilterOptions() {
         >
           <div
             className={
-              "w-full p-5 max-w-4xl flex gap-10 overflow-hidden " +
+              "w-full p-5 max-w-4xl flex gap-10 overflow-hidden relative " +
               (dropDownState == "layout" ? "justify-start" : "justify-end")
             }
           >
+            <div className="absolute z-[1] bg-White-Gradient-Right w-5 left-0 top-0 bottom-0" />
+            <div className="absolute z-[1] bg-White-Gradient-Left w-5 right-0 top-0 bottom-0" />
             <FilterOptionsGroup
               filterOptionsCardArray={[
                 {
