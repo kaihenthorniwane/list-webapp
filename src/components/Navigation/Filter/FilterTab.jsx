@@ -39,8 +39,16 @@ export default function FilterTab({ label, iconType }) {
   };
 
   const pulseAnimation = {
-    scale: [1, 1.1, 1], // Jump up and then down
-    transition: { duration: 0.2 }, // Duration of the animation
+    scale: [1, 1.1, 0.96, 1], // Jump up and then down
+    transition: {
+      duration: 0.5,
+      times: [0, 0.075, 0.55, 1],
+      ease: [
+        [0.09, 0.57, 0.29, 1],
+        [0.66, 0, 0.4, 0.99],
+        [0.66, 0, 0.4, 0.99],
+      ],
+    }, // Duration of the animation
   };
 
   return (

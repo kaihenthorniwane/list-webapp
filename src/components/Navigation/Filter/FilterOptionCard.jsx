@@ -11,24 +11,41 @@ export default function FilterOptionCard({
   contextToGet,
 }) {
   const optionName = optionTitle.toString().toLowerCase();
-  const [iconColor, setIconColor] = useState("rgb(var(--Brand-Black))");
+
+  const getCSSVariableValue = (variableName) => {
+    // Get the value of the CSS variable
+    const value = getComputedStyle(document.documentElement).getPropertyValue(
+      variableName
+    );
+
+    // Return the value, trimmed to remove extra whitespace
+    return value.trim();
+  };
+
+  // Usage
+  const brandBlackValue = getCSSVariableValue("--Brand-Black");
+  const whiteColorValue = getCSSVariableValue("--White");
+
+  const [iconColor, setIconColor] = useState("rgb(" + brandBlackValue + ")");
 
   const textStyles = {
     on: {
-      color: "rgb(var(--White))",
+      color: "rgb(" + whiteColorValue + ")",
       transition: {
         delay: 0,
+        duration: 0,
         onComplete: () => {
-          setIconColor("rgb(var(--White))");
+          setIconColor("rgb(" + whiteColorValue + ")");
         },
       },
     },
     off: {
-      color: "rgb(var(--Brand-Black))",
+      color: "rgb(" + brandBlackValue + ")",
       transition: {
         delay: 0.025,
+        duration: 0,
         onComplete: () => {
-          setIconColor("rgb(var(--Brand-Black))");
+          setIconColor("rgb(" + brandBlackValue + ")");
         },
       },
     },
