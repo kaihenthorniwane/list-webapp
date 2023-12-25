@@ -3,6 +3,7 @@ import TabBackground from "./TabBackground/TabBackground";
 import { DropDownStateContext } from "./FilterBarMobile";
 import { AnimatePresence, motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
+import { PullHeightContext } from "./FilterBarMobile";
 
 export default function FilterTab({ label, iconType }) {
   const [currentIcon, setCurrentIcon] = useState(iconType || "default"); //server rendered state
@@ -34,7 +35,7 @@ export default function FilterTab({ label, iconType }) {
 
   return (
     <div className="relative" onClick={handleClick}>
-      <div className="relative z-[1] flex items-center gap-2">
+      <motion.div className="relative z-[1] flex items-center gap-2">
         <img src={iconSrc[currentIcon]} />
         <div className="flex items-center leading-none">
           <span className="mt-0.5">{label}</span>
@@ -45,7 +46,7 @@ export default function FilterTab({ label, iconType }) {
             <img src="/svg/Filter/Dropdown Icon.svg" />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
       <AnimatePresence>
         {isSelected && (
           <motion.div
