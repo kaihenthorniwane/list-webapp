@@ -44,7 +44,7 @@ const NoteCard = ({
 
   const noteBackground = {
     writer: undefined,
-    simple: undefined,
+    simple: <FolderNoteBackground />,
     "folder-view": <FolderNoteBackground />,
   };
 

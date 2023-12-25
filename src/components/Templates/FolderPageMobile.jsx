@@ -19,6 +19,12 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
     fetchAllNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
   }, [folder_id]);
 
+  const wrapperVariantStyles = {
+    writer: "gap-8",
+    simple: "gap-4",
+    grid: "gap-8",
+  };
+
   return (
     <NoteOrderContext.Provider value={{ noteOrder, setNoteOrder }}>
       <NoteFormatContext.Provider value={{ noteFormat, setNoteFormat }}>
@@ -41,7 +47,12 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
 
           <FilterBarMobile />
 
-          <div className="max-w-4xl w-full px-5 pb-5 flex flex-col gap-8">
+          <div
+            className={
+              "max-w-4xl w-full px-5 pb-5 flex flex-col " +
+              wrapperVariantStyles[noteFormat]
+            }
+          >
             {notes.map((note, index) => (
               <NoteCard
                 key={index}
