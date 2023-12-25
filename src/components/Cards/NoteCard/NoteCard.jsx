@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import FolderNoteBackground from "./FolderNoteBackground";
+import { motion } from "framer-motion";
+import { brandedBezier } from "@/utils/animationConstants";
 
 const noteCardName = "";
 
@@ -11,32 +13,38 @@ const NoteCard = ({
   last_saved,
   variant,
 }) => {
-  const [currentVariant, setCurrentVariant] = useState(variant || "default"); //server rendered state
+  const currentVariant = variant || "writer"; //server rendered state
 
   const dimensionVariantStyles = {
-    default: noteCardName + " relative",
+    writer: noteCardName + " relative",
+    simple: noteCardName + " relative p-4",
     "folder-view": noteCardName + " relative h-24 p-4",
   };
   const wrapperVariantStyles = {
-    default: "flex flex-col gap-5",
+    writer: "flex flex-col gap-5",
+    simple: "flex flex-col gap-3",
     "folder-view": "flex flex-col",
   };
 
   const titleVariantStyles = {
-    default: "font-header text-32 leading-none tracking-wide font-400",
+    writer: "font-header text-32 leading-none tracking-wide font-400",
+    simple: "font-header text-32 leading-none tracking-wide font-400",
     "folder-view": " text-16 font-500",
   };
   const contentVariantStyles = {
-    default: "leading-tight text-18 font-300",
+    writer: "leading-tight text-18 font-300",
+    simple: "leading-tight text-18 font-300 line-clamp-1",
     "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
-    default: "text-14 font-300 block leading-none",
+    writer: "text-14 font-300 block leading-none",
+    simple: "text-14 font-300 block leading-none",
     "folder-view": "text-12 font-300 hidden",
   };
 
   const noteBackground = {
-    default: undefined,
+    writer: undefined,
+    simple: undefined,
     "folder-view": <FolderNoteBackground />,
   };
 
@@ -66,13 +74,22 @@ const NoteCard = ({
   }
 
   return (
-    <div className={dimensionVariantStyles[currentVariant]}>
+    <motion.div
+      layout
+      transition={{
+        layout: { duration: 0.3, ease: brandedBezier },
+      }}
+      className={
+        "transition-padding duration-300 ease-fast-easing" +
+        dimensionVariantStyles[currentVariant]
+      }
+    >
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
         <div className="flex leading-tight justify-between gap-2">
           <span className={titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
-          {variant !== "folder-view" && (
+          {variant === "writer" && (
             <div className="flex gap-2 flex-shrink-0 align-start">
               <img src="/svg/NoteCard/Expand Icon.svg" />
               <img src="/svg/NoteCard/MoreOptionsDots.svg" />
@@ -87,7 +104,7 @@ const NoteCard = ({
         </span>
       </div>
       {noteBackground && noteBackground[currentVariant]}
-    </div>
+    </motion.div>
   );
 };
 

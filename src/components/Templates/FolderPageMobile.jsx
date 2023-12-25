@@ -48,7 +48,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
                 note_title={note.note_title}
                 note_content={note.note_content}
                 last_saved={note.last_saved}
-                variant={"default"}
+                variant={noteFormat}
               />
             ))}
           </div>

@@ -43,10 +43,10 @@ module.exports = {
           "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
 
         "White-Gradient-Right":
-          "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
+          "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)", // custom gradient
 
         "White-Gradient-Left":
-          "linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
+          "linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)", // custom gradient
         // You can add more custom gradients here
       },
       // Adding custom text colors
