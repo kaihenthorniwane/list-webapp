@@ -10,7 +10,9 @@ export default function FilterOptionCard({
 
   return (
     <div
-      className={"w-full relative " + (isSelected ? "text-Brand-White" : "")}
+      className={
+        "w-full no-drag relative " + (isSelected ? "text-Brand-White" : "")
+      }
     >
       <div className="flex flex-col gap-2 relative z-[2]">
         <div className="flex gap-1 items-center leading-none">
