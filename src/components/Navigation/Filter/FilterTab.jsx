@@ -3,7 +3,10 @@ import TabBackground from "./TabBackground/TabBackground";
 import { DropDownStateContext } from "./FilterBarMobile";
 import { AnimatePresence, motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
-import { PullHeightContext } from "./FilterBarMobile";
+import FilterIcon from "./Icons/FilterIcon";
+import WriterIcon from "./Icons/WriterIcon";
+import SimpleIcon from "./Icons/SimpleIcon";
+import GridIcon from "./Icons/GridIcon";
 
 export default function FilterTab({ label, iconType }) {
   const currentIcon = iconType || "default"; //server rendered state
@@ -28,11 +31,11 @@ export default function FilterTab({ label, iconType }) {
   };
 
   const iconSrc = {
-    default: "/svg/Filter/Filter Icon.svg",
-    Filter: "/svg/Filter/Filter Icon.svg",
-    writer: "/svg/Filter/Writer Icon.svg",
-    simple: "/svg/Filter/Simple Icon.svg",
-    grid: "/svg/Filter/Grid Icon.svg",
+    default: <FilterIcon />,
+    Filter: <FilterIcon />,
+    writer: <WriterIcon />,
+    simple: <SimpleIcon />,
+    grid: <GridIcon />,
   };
 
   const pulseAnimation = {
@@ -44,7 +47,7 @@ export default function FilterTab({ label, iconType }) {
     <div className="relative" onClick={handleClick}>
       <div className="relative z-[1] flex items-center gap-2">
         <motion.div animate={pulseAnimation} key={currentIcon}>
-          <img width={27} height={27} src={iconSrc[currentIcon]} />
+          {iconSrc[currentIcon]}
         </motion.div>
         <div className="flex items-center leading-none">
           <span className="mt-0.5">{label}</span>
