@@ -75,10 +75,10 @@ const NoteCard = ({
 
   return (
     <motion.div
-      layout
-      transition={{
-        layout: { duration: 0.3, ease: brandedBezier },
-      }}
+      // layout
+      // transition={{
+      //   layout: { duration: 0.3, ease: brandedBezier },
+      // }}
       className={
         "transition-padding duration-300 ease-fast-easing" +
         dimensionVariantStyles[currentVariant]
