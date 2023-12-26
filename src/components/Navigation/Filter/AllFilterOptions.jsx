@@ -35,6 +35,8 @@ export default function AllFilterOptions() {
           initial="close"
           animate="open"
           exit="close"
+          layout
+          layoutRoot
         >
           <div
             className={

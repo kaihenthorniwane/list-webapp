@@ -8,7 +8,6 @@ export default function FilterOptionsGroup({ filterOptionsCardArray }) {
     <motion.div
       className="w-full flex-shrink-0 gap-5 flex"
       layout
-      layoutRoot
       transition={{ duration: 0.25, ease: brandedBezier }}
     >
       {filterOptionsCardArray.map((cardInfo, index) => (
