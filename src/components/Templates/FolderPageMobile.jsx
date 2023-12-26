@@ -20,9 +20,9 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   }, [folder_id]);
 
   const wrapperVariantStyles = {
-    writer: "gap-8",
-    simple: "gap-4",
-    grid: "gap-8",
+    writer: "flex flex-col gap-8",
+    simple: "flex flex-col gap-4",
+    grid: "grid grid-cols-2 gap-4",
   };
 
   return (
@@ -49,8 +49,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
 
           <div
             className={
-              "max-w-4xl w-full px-5 pb-5 flex flex-col " +
-              wrapperVariantStyles[noteFormat]
+              "max-w-4xl w-full px-5 pb-5 " + wrapperVariantStyles[noteFormat]
             }
           >
             {notes.map((note, index) => (

@@ -20,22 +20,26 @@ const NoteCard = ({
   const dimensionVariantStyles = {
     writer: noteCardName + " relative",
     simple: noteCardName + " relative p-5",
+    grid: noteCardName + " relative p-4 pb-10",
     "folder-view": noteCardName + " relative h-24 p-4",
   };
   const wrapperVariantStyles = {
     writer: "flex flex-col gap-5",
     simple: "flex flex-col gap-2.5",
+    grid: "flex flex-col gap-2",
     "folder-view": "flex flex-col",
   };
 
   const titleVariantStyles = {
     writer: "font-header text-32 leading-none tracking-wide font-400 mr-0",
     simple: "font-header text-28 leading-none tracking-wide font-400 mr-6",
+    grid: "font-header text-24 leading-none tracking-wide font-400 mr-2",
     "folder-view": " text-16 font-500",
   };
   const contentVariantStyles = {
     writer: "leading-tight text-18 font-300",
     simple: "leading-tight text-18 font-300 line-clamp-1",
+    grid: "leading-tight text-14 font-300 line-clamp-3",
     "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
@@ -43,11 +47,13 @@ const NoteCard = ({
     simple:
       "text-14 font-300 leading-none flex w-full items-center justify-between max-h-4",
     "folder-view": "text-12 font-300 hidden",
+    grid: "text-14 font-300 leading-none block",
   };
 
   const noteBackground = {
     writer: undefined,
     simple: <NoteBackground />,
+    grid: <FolderNoteBackground />,
     "folder-view": <FolderNoteBackground />,
   };
 
@@ -106,6 +112,11 @@ const NoteCard = ({
           {variant === "simple" && <MoreOptionsDots />}
         </div>
       </div>
+      {variant === "grid" && (
+        <div className="absolute z-[2] left-3 bottom-1.5">
+          <MoreOptionsDots />
+        </div>
+      )}
       {noteBackground && noteBackground[currentVariant]}
     </motion.div>
   );
