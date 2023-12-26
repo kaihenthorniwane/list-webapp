@@ -22,7 +22,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   //define top bounds
   const remToPixels = (rem) =>
     rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  const paddingForScrollAdjustment = remToPixels(10);
+  const paddingForScrollAdjustment = remToPixels(8);
 
   useEffect(() => {
     if (notesContainerDivRef.current) {
