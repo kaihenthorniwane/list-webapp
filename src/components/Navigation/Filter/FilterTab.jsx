@@ -59,12 +59,12 @@ export default function FilterTab({ label, iconType }) {
         </motion.div>
         <div className="flex items-center leading-none">
           <span className="mt-0.5">{label}</span>
-          <motion.div
+          {/* <motion.div
             animate={{ rotate: isSelected ? 180 : 0 }}
             transition={{ duration: 0.5, ease: brandedBezier }}
           >
             <img src="/svg/Filter/Dropdown Icon.svg" />
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
       <AnimatePresence>
@@ -81,7 +81,7 @@ export default function FilterTab({ label, iconType }) {
               scaleY: 0.8,
               transition: { duration: 0.025, ease: "linear" },
             }}
-            style={{ originY: 1, translateZ: 0 }}
+            style={{ originY: 1 }}
           >
             {isSelected && <TabBackground />}
           </motion.div>
