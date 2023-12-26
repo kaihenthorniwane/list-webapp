@@ -28,7 +28,7 @@ const NoteCard = ({
   };
 
   const titleVariantStyles = {
-    writer: "font-header text-32 leading-none tracking-wide font-400",
+    writer: "font-header text-32 leading-none tracking-wide font-400 mr-0",
     simple: "font-header text-32 leading-none tracking-wide font-400 mr-6",
     "folder-view": " text-16 font-500",
   };
@@ -87,7 +87,12 @@ const NoteCard = ({
     >
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
         <div className="flex leading-tight justify-between gap-2">
-          <span className={titleVariantStyles[currentVariant]}>
+          <span
+            className={
+              "transition-margin duration-300 ease-fast-easing " +
+              titleVariantStyles[currentVariant]
+            }
+          >
             {note_title}
           </span>
           {variant === "writer" && (
