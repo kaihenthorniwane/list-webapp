@@ -30,7 +30,7 @@ const NoteCard = ({
 
   const titleVariantStyles = {
     writer: "font-header text-32 leading-none tracking-wide font-400 mr-0",
-    simple: "font-header text-32 leading-none tracking-wide font-400 mr-6",
+    simple: "font-header text-28 leading-none tracking-wide font-400 mr-6",
     "folder-view": " text-16 font-500",
   };
   const contentVariantStyles = {
