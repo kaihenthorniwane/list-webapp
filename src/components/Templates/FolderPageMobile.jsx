@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 import FolderTitle from "@/components/Navigation/FolderTitle";
 import { useAllNotes } from "@/contexts/AllNotesContext"; // Adjust the import path as needed
@@ -13,6 +13,29 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   const [noteFormat, setNoteFormat] = useState("writer");
   const [noteOrder, setNoteOrder] = useState("newest");
   const notes = allNotesData[folder_id] || []; // Get the notes for this folder
+  const notesContainerDivRef = useRef(null);
+  const targetElementRef = useRef(null);
+
+  //define top bounds
+  const remToPixels = (rem) =>
+    rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const paddingForScrollAdjustment = remToPixels(10);
+
+  useEffect(() => {
+    // Loop through notes on note format change, fetch the first Y that is at least 3rem from the top
+    if (notesContainerDivRef.current) {
+      const existingNotes = notesContainerDivRef.current.children;
+      for (const note of existingNotes) {
+        const boundingBox = note.getBoundingClientRect();
+        if (boundingBox.top >= paddingForScrollAdjustment) {
+          targetElementRef.current = note; // Set target element ref
+          note.style.backgroundColor = "red"; // Set the background color to red
+          console.log(note); // Log the child element
+          break; // Break the loop
+        }
+      }
+    }
+  }, [noteFormat]);
 
   useEffect(() => {
     console.log("folder id: " + folder_id);
@@ -28,6 +51,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   return (
     <NoteOrderContext.Provider value={{ noteOrder, setNoteOrder }}>
       <NoteFormatContext.Provider value={{ noteFormat, setNoteFormat }}>
+        <div className="fixed w-full h-1 bg-black mt-[10rem] z-[10000]" />
         <div className=" flex flex-col items-center">
           <div className="px-5 pt-5 w-full max-w-4xl">
             <FolderTitle
@@ -51,6 +75,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             className={
               "max-w-4xl w-full px-5 pb-5 " + wrapperVariantStyles[noteFormat]
             }
+            ref={notesContainerDivRef}
           >
             {notes.map((note, index) => (
               <NoteCard
