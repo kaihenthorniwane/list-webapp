@@ -6,6 +6,12 @@ export default function MoreOptionsDots() {
       viewBox="0 0 27 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{
+        minWidth: "27px",
+        maxWidth: "27px",
+        minHeight: "27px",
+        maxHeight: "27px",
+      }}
     >
       <circle cx="5.90002" cy="13.5" r="1.90002" fill="#111A49" />
       <circle cx="13.5001" cy="13.5" r="1.90002" fill="#111A49" />
