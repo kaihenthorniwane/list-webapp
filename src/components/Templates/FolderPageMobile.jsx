@@ -17,6 +17,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   const notes = allNotesData[folder_id] || []; // Get the notes for this folder
   const notesContainerDivRef = useRef(null);
   const targetElementRef = useRef(null);
+  const animationFrameIdRef = useRef();
 
   //define top bounds
   const remToPixels = (rem) =>
@@ -31,36 +32,32 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
         if (boundingBox.top >= paddingForScrollAdjustment) {
           targetElementRef.current = note; // Set target element ref
           console.log(note); // Log the child element
-          setAppSetNoteFormat(userSetNoteFormat);
-
           const initialTop =
             targetElementRef.current.getBoundingClientRect().top;
           console.log("initial position y: " + initialTop);
 
-          let animationFrameId;
+          setAppSetNoteFormat(userSetNoteFormat);
 
           const adjustScroll = () => {
             const currentTop =
               targetElementRef.current.getBoundingClientRect().top;
             const diff = currentTop - initialTop;
-            if (Math.abs(diff) > 1) {
-              console.log("diff of " + diff);
-              window.scrollBy(0, diff);
-              animationFrameId = requestAnimationFrame(adjustScroll);
-            }
+            console.log("diff of " + diff);
+            window.scrollBy(0, diff);
+            animationFrameIdRef.current = requestAnimationFrame(adjustScroll);
           };
 
-          animationFrameId = requestAnimationFrame(adjustScroll);
+          animationFrameIdRef.current = requestAnimationFrame(adjustScroll);
 
           const cleanup = () => {
             console.log(
               "final element position: " +
                 targetElementRef.current.getBoundingClientRect().top
             );
-            cancelAnimationFrame(animationFrameId);
+            cancelAnimationFrame(animationFrameIdRef.current);
           };
 
-          setTimeout(cleanup, 500);
+          setTimeout(cleanup, 300);
 
           return cleanup;
         }
