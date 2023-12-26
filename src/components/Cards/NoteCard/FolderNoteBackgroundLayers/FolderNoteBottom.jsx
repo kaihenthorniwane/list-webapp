@@ -2,7 +2,6 @@ export default function FolderNoteBottom() {
   return (
     <svg
       preserveAspectRatio="none"
-      viewBox="0 0 168 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{
