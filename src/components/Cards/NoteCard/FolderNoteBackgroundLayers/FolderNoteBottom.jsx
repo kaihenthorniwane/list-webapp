@@ -12,22 +12,15 @@ export default function FolderNoteBottom() {
       }}
       className="w-full"
     >
-      <g clipPath="url(#clip0_292_9337)">
-        <mask id="path-1-inside-1_292_9337" fill="white">
-          <path d="M0 0H168V25H0V0Z" />
-        </mask>
-        <path d="M0 0H168V25H0V0Z" fill="white" />
-        <path
-          d="M168 24H0V26H168V24Z"
-          fill="#111A49"
-          mask="url(#path-1-inside-1_292_9337)"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_292_9337">
-          <rect width="168" height="25" fill="white" />
-        </clipPath>
-      </defs>
+      <mask id="path-1-inside-1_292_9337" fill="white">
+        <path d="M0 0H168V25H0V0Z" />
+      </mask>
+      <path d="M0 0H168V25H0V0Z" fill="white" />
+      <path
+        d="M168 24H0V26H168V24Z"
+        fill="#111A49"
+        mask="url(#path-1-inside-1_292_9337)"
+      />
     </svg>
   );
 }
