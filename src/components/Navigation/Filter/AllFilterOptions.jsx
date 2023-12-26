@@ -39,39 +39,11 @@ export default function AllFilterOptions() {
           <div
             className={
               "w-full p-5 max-w-4xl flex gap-10 overflow-hidden relative " +
-              (dropDownState == "layout" ? "justify-start" : "justify-end")
+              (dropDownState == "layout" ? "justify-end" : "justify-start")
             }
           >
             <div className="absolute z-[1] bg-White-Gradient-Right w-2 left-0 top-0 bottom-0" />
             <div className="absolute z-[1] bg-White-Gradient-Left w-2 right-0 top-0 bottom-0" />
-            <FilterOptionsGroup
-              filterOptionsCardArray={[
-                {
-                  selected: false,
-                  optionTitle: "Simple",
-                  optionText: "Compact view with headlines",
-                  iconComponent: MenuSimpleIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
-                },
-                {
-                  selected: true,
-                  optionTitle: "Writer",
-                  optionText: "Feed of notes, like a blog",
-                  iconComponent: MenuWriterIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
-                },
-                {
-                  selected: false,
-                  optionTitle: "Grid",
-                  optionText: "Stack notes in columns",
-                  iconComponent: MenuGridIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
-                },
-              ]}
-            />
             <FilterOptionsGroup
               filterOptionsCardArray={[
                 {
@@ -97,6 +69,34 @@ export default function AllFilterOptions() {
                   iconComponent: MenuMagicIcon,
                   contextToSet: setNoteOrder,
                   contextToGet: noteOrder,
+                },
+              ]}
+            />
+            <FilterOptionsGroup
+              filterOptionsCardArray={[
+                {
+                  selected: false,
+                  optionTitle: "Simple",
+                  optionText: "Compact view with headlines",
+                  iconComponent: MenuSimpleIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
+                },
+                {
+                  selected: true,
+                  optionTitle: "Writer",
+                  optionText: "Feed of notes, like a blog",
+                  iconComponent: MenuWriterIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
+                },
+                {
+                  selected: false,
+                  optionTitle: "Grid",
+                  optionText: "Stack notes in columns",
+                  iconComponent: MenuGridIcon,
+                  contextToSet: setNoteFormat,
+                  contextToGet: noteFormat,
                 },
               ]}
             />
