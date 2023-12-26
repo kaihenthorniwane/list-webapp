@@ -91,24 +91,24 @@ const NoteCard = ({
         <div className="flex leading-tight justify-between gap-2">
           <span
             className={
-              "transition-margin duration-300 ease-fast-easing " +
+              "transition duration-300 ease-fast-easing " +
               titleVariantStyles[currentVariant]
             }
           >
             {note_title}
           </span>
-          {/* {variant === "writer" && (
+          {variant === "writer" && (
             <div className="flex mt-1.5 gap-2 flex-shrink-0 align-start">
               <MoreOptionsDots />
             </div>
-          )} */}
+          )}
         </div>
         <span className={contentVariantStyles[currentVariant]}>
           {note_content}
         </span>
         <div className={lastSavedVariantStyles[currentVariant]}>
           {formatDate(last_saved)}
-          {/* {variant === "simple" && <MoreOptionsDots />} */}
+          {variant === "simple" && <MoreOptionsDots />}
         </div>
       </div>
       {noteBackground && noteBackground[currentVariant]}
