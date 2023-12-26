@@ -54,9 +54,9 @@ export default function FilterTab({ label, iconType }) {
   return (
     <div className="relative" onClick={handleClick}>
       <div className="relative z-[1] flex items-center gap-2">
-        {/* <motion.div animate={pulseAnimation} key={currentIcon}>
+        <motion.div animate={pulseAnimation} key={currentIcon}>
           {iconSrc[currentIcon]}
-        </motion.div> */}
+        </motion.div>
         <div className="flex items-center leading-none">
           <span className="mt-0.5">{label}</span>
           <motion.div
