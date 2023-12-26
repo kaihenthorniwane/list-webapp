@@ -3,6 +3,7 @@ import FolderNoteBackground from "./FolderNoteBackground";
 import { motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
 import NoteBackground from "./NoteBackground";
+import MoreOptionsDots from "./Icons/MoreOptionsDots";
 
 const noteCardName = "";
 
@@ -97,8 +98,8 @@ const NoteCard = ({
           </span>
           {variant === "writer" && (
             <div className="flex mt-1.5 gap-2 flex-shrink-0 align-start">
-              <img src="/svg/NoteCard/Expand Icon.svg" />
-              <img src="/svg/NoteCard/MoreOptionsDots.svg" />
+              {/* <img width={27} height={27} src="/svg/NoteCard/Expand Icon.svg" /> */}
+              <MoreOptionsDots />
             </div>
           )}
         </div>
