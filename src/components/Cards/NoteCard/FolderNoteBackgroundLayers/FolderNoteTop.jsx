@@ -12,18 +12,22 @@ export default function FolderNoteTop() {
       }}
       className="w-full"
     >
-      <mask id="path-1-inside-1_292_9338" fill="white">
-        <path d="M168 25L0 25L1.11565e-06 -1.61897e-07L168 2.86102e-05L168 25Z" />
-      </mask>
-      <path
-        d="M168 25L0 25L1.11565e-06 -1.61897e-07L168 2.86102e-05L168 25Z"
-        fill="white"
-      />
-      <path
-        d="M1.07102e-06 1L168 1.00003L168 -0.999971L1.16027e-06 -1L1.07102e-06 1Z"
-        fill="#111A49"
-        mask="url(#path-1-inside-1_292_9338)"
-      />
+      <g clipPath="url(#clip0_376_10020)">
+        <path d="M0 0L168 0L168 25L3.16592e-06 25L0 0Z" fill="white" />
+        <rect
+          x="168.34"
+          y="1"
+          width="168.681"
+          height="1"
+          transform="rotate(180 168.34 1)"
+          fill="#111A49"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_376_10020">
+          <rect width="168" height="25" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   );
 }
