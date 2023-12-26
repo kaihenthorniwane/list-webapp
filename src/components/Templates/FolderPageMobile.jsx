@@ -30,34 +30,34 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
       for (const note of existingNotes) {
         const boundingBox = note.getBoundingClientRect();
         if (boundingBox.top >= paddingForScrollAdjustment) {
-          targetElementRef.current = note; // Set target element ref
-          console.log(note); // Log the child element
+          targetElementRef.current = note;
+          console.log(note);
+
           const initialTop =
             targetElementRef.current.getBoundingClientRect().top;
           console.log("initial position y: " + initialTop);
 
           setAppSetNoteFormat(userSetNoteFormat);
 
-          const adjustScroll = () => {
-            const currentTop =
+          // Delay before starting the smooth scroll
+          const delayBeforeScroll = 100; // in milliseconds
+
+          setTimeout(() => {
+            const finalTop =
               targetElementRef.current.getBoundingClientRect().top;
-            const diff = currentTop - initialTop;
-            console.log("diff of " + diff);
-            window.scrollBy(0, diff);
-            animationFrameIdRef.current = requestAnimationFrame(adjustScroll);
-          };
+            const scrollDistance = finalTop - initialTop;
 
-          animationFrameIdRef.current = requestAnimationFrame(adjustScroll);
+            // Smooth scroll to the new position
+            window.scrollTo({
+              top: window.scrollY + scrollDistance,
+              behavior: "smooth",
+            });
+          }, delayBeforeScroll);
 
+          // Clean up function
           const cleanup = () => {
-            console.log(
-              "final element position: " +
-                targetElementRef.current.getBoundingClientRect().top
-            );
-            cancelAnimationFrame(animationFrameIdRef.current);
+            console.log("Scrolling completed");
           };
-
-          setTimeout(cleanup, 300);
 
           return cleanup;
         }
