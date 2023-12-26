@@ -24,7 +24,6 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
   const paddingForScrollAdjustment = remToPixels(10);
 
   useEffect(() => {
-    // Loop through notes on note format change, fetch the first Y that is at least 3rem from the top
     if (notesContainerDivRef.current) {
       const existingNotes = notesContainerDivRef.current.children;
       for (const note of existingNotes) {
@@ -38,6 +37,8 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             targetElementRef.current.getBoundingClientRect().top;
           console.log("initial position y: " + initialTop);
 
+          let animationFrameId;
+
           const adjustScroll = () => {
             const currentTop =
               targetElementRef.current.getBoundingClientRect().top;
@@ -45,17 +46,18 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             if (Math.abs(diff) > 1) {
               console.log("diff of " + diff);
               window.scrollBy(0, diff);
+              animationFrameId = requestAnimationFrame(adjustScroll);
             }
           };
 
-          const intervalId = setInterval(adjustScroll, 0.25);
+          animationFrameId = requestAnimationFrame(adjustScroll);
 
           const cleanup = () => {
             console.log(
               "final element position: " +
                 targetElementRef.current.getBoundingClientRect().top
             );
-            clearInterval(intervalId);
+            cancelAnimationFrame(animationFrameId);
           };
 
           setTimeout(cleanup, 500);
