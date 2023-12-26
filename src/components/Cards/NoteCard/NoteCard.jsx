@@ -24,7 +24,7 @@ const NoteCard = ({
   };
   const wrapperVariantStyles = {
     writer: "flex flex-col gap-5",
-    simple: "flex flex-col gap-2",
+    simple: "flex flex-col gap-2.5",
     "folder-view": "flex flex-col",
   };
 
@@ -39,8 +39,9 @@ const NoteCard = ({
     "folder-view": "text-12 font-300 hidden",
   };
   const lastSavedVariantStyles = {
-    writer: "text-14 font-300 block leading-none",
-    simple: "text-14 font-300 block leading-none",
+    writer: "text-14 font-300 leading-none block",
+    simple:
+      "text-14 font-300 leading-none flex w-full items-center justify-between max-h-4",
     "folder-view": "text-12 font-300 hidden",
   };
 
@@ -106,9 +107,10 @@ const NoteCard = ({
         <span className={contentVariantStyles[currentVariant]}>
           {note_content}
         </span>
-        <span className={lastSavedVariantStyles[currentVariant]}>
+        <div className={lastSavedVariantStyles[currentVariant]}>
           {formatDate(last_saved)}
-        </span>
+          {variant === "simple" && <MoreOptionsDots />}
+        </div>
       </div>
       {noteBackground && noteBackground[currentVariant]}
     </motion.div>
