@@ -10,12 +10,18 @@ import { AnimatePresence } from "framer-motion";
 import MenuOldestIcon from "./Icons/MenuOldestIcon";
 import MenuMagicIcon from "./Icons/MenuMagicIcon";
 import MenuNewestIcon from "./Icons/MenuNewestIcon";
-import { NoteFormatContext } from "@/components/Templates/FolderPageMobile";
+import { UserSetNoteFormatContext } from "@/components/Templates/FolderPageMobile";
+import { AppSetNoteFormatContext } from "@/components/Templates/FolderPageMobile";
 import { NoteOrderContext } from "@/components/Templates/FolderPageMobile";
 
 export default function AllFilterOptions() {
   const { dropDownState, setDropDownState } = useContext(DropDownStateContext);
-  const { noteFormat, setNoteFormat } = useContext(NoteFormatContext);
+  const { userSetNoteFormat, setUserSetNoteFormat } = useContext(
+    UserSetNoteFormatContext
+  );
+  const { appSetNoteFormat, setAppSetNoteFormat } = useContext(
+    AppSetNoteFormatContext
+  );
   const { noteOrder, setNoteOrder } = useContext(NoteOrderContext);
 
   const openDropdownVariants = {
@@ -81,24 +87,24 @@ export default function AllFilterOptions() {
                   optionTitle: "Simple",
                   optionText: "Compact view with headlines",
                   iconComponent: MenuSimpleIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
+                  contextToSet: setUserSetNoteFormat,
+                  contextToGet: appSetNoteFormat,
                 },
                 {
                   selected: true,
                   optionTitle: "Writer",
                   optionText: "Feed of notes, like a blog",
                   iconComponent: MenuWriterIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
+                  contextToSet: setUserSetNoteFormat,
+                  contextToGet: appSetNoteFormat,
                 },
                 {
                   selected: false,
                   optionTitle: "Grid",
                   optionText: "Stack notes in columns",
                   iconComponent: MenuGridIcon,
-                  contextToSet: setNoteFormat,
-                  contextToGet: noteFormat,
+                  contextToSet: setUserSetNoteFormat,
+                  contextToGet: appSetNoteFormat,
                 },
               ]}
             />
