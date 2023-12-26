@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FolderNoteBackground from "./FolderNoteBackground";
 import { motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
+import NoteBackground from "./NoteBackground";
 
 const noteCardName = "";
 
@@ -17,12 +18,12 @@ const NoteCard = ({
 
   const dimensionVariantStyles = {
     writer: noteCardName + " relative",
-    simple: noteCardName + " relative p-4",
+    simple: noteCardName + " relative p-5",
     "folder-view": noteCardName + " relative h-24 p-4",
   };
   const wrapperVariantStyles = {
     writer: "flex flex-col gap-5",
-    simple: "flex flex-col gap-3",
+    simple: "flex flex-col gap-2",
     "folder-view": "flex flex-col",
   };
 
@@ -44,7 +45,7 @@ const NoteCard = ({
 
   const noteBackground = {
     writer: undefined,
-    simple: <FolderNoteBackground />,
+    simple: <NoteBackground />,
     "folder-view": <FolderNoteBackground />,
   };
 

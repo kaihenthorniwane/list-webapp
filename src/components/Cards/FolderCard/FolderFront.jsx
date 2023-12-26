@@ -3,7 +3,7 @@ import React from "react";
 const FolderFront = () => {
   return (
     <div className="flex absolute z-[-1] -left-2 -right-2 bottom-0 no-drag">
-      <img src="/svg/Folder Front Left.svg" draggable="false" />
+      <img src="/svg/FolderCard/Folder Front Left.svg" draggable="false" />
       <div className="folder-svg">
         <svg
           viewBox="0 0 100 146"
@@ -19,7 +19,7 @@ const FolderFront = () => {
           />
         </svg>
       </div>
-      <img src="/svg/Folder Front Right.svg" draggable="false" />
+      <img src="/svg/FolderCard/Folder Front Right.svg" draggable="false" />
     </div>
   );
 };
