@@ -81,7 +81,7 @@ export default function FilterTab({ label, iconType }) {
               scaleY: 0.8,
               transition: { duration: 0.025, ease: "linear" },
             }}
-            style={{ originY: 1 }}
+            style={{ originY: 1, translateZ: 0 }}
           >
             {isSelected && <TabBackground />}
           </motion.div>
