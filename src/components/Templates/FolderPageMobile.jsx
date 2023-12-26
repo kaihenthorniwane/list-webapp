@@ -29,7 +29,6 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
         const boundingBox = note.getBoundingClientRect();
         if (boundingBox.top >= paddingForScrollAdjustment) {
           targetElementRef.current = note; // Set target element ref
-          note.style.backgroundColor = "red"; // Set the background color to red
           console.log(note); // Log the child element
           break; // Break the loop
         }
