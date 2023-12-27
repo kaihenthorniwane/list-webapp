@@ -100,7 +100,7 @@ const NoteCard = ({
           </span>
           {variant === "writer" && (
             <div className="flex mt-1.5 gap-2 flex-shrink-0 align-start">
-              <MoreOptionsDots />
+              <MoreOptionsDots note_id={note_id} />
             </div>
           )}
         </div>
@@ -109,12 +109,12 @@ const NoteCard = ({
         </span>
         <div className={lastSavedVariantStyles[currentVariant]}>
           {formatDate(last_saved)}
-          {variant === "simple" && <MoreOptionsDots />}
+          {variant === "simple" && <MoreOptionsDots note_id={note_id} />}
         </div>
       </div>
       {variant === "grid" && (
         <div className="absolute z-[2] left-3 bottom-1.5">
-          <MoreOptionsDots />
+          <MoreOptionsDots note_id={note_id} />
         </div>
       )}
       {noteBackground && noteBackground[currentVariant]}
