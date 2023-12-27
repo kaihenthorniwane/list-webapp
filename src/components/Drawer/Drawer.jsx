@@ -4,14 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Drawer({ isOpen, children, setContext }) {
   const handleAnimationStart = () => {
     // Action when the animation starts
-    document.documentElement.style.overflow = "hidden";
+    // document.documentElement.style.overflow = "hidden";
     document.body.style.maxHeight = "85vh";
     document.body.style.overflow = "hidden";
   };
 
   const handleExitComplete = () => {
     // Action when the exit animation ends
-    document.documentElement.style.overflow = "auto";
+    // document.documentElement.style.overflow = "auto";
     document.body.style.maxHeight = "none";
     document.body.style.overflow = "auto";
   };
