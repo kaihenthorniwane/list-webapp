@@ -52,6 +52,14 @@ html {
   transform: translateY(0);
 }
 
+.brand-button-transition.lesser-transform:hover > * {
+  transform: translateY(0rem);
+}
+
+.brand-button-transition.lesser-transform:active > * {
+  transform: translateY(0.2rem);
+}
+
 .opacity-button-transition {
   opacity: 1;
 }
