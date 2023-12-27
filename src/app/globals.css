@@ -21,12 +21,12 @@ body {
   font-style: normal;
   overflow: auto;
   margin: 0;
-  max-height: 100vh; /* no more than the height of the viewport*/
+  /* max-height: 100vh; */
 }
 
-html {
-  overflow: hidden; /* This one is important to avoid the propagation */
-}
+/* html {
+  overflow: hidden; 
+} */
 
 .folder-svg > svg {
   width: 100%;

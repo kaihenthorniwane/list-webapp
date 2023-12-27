@@ -14,8 +14,8 @@ export default function FolderNoteRight() {
       <g clipPath="url(#clip0_401_12440)">
         <path d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z" fill="white" />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24 52L25 52L25 6.47956e-09L24 0L24 52Z"
           fill="#111A49"
         />

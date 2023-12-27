@@ -10,7 +10,7 @@ export default function Drawer({ isOpen, children, setContext }) {
 
   const handleExitComplete = () => {
     // Action when the exit animation ends
-    document.body.style.maxHeight = "100vh";
+    document.body.style.maxHeight = "none";
     document.body.style.overflow = "auto";
   };
 
