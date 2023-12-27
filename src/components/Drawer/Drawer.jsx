@@ -14,6 +14,30 @@ export default function Drawer({ isOpen, children, setContext }) {
     document.body.style.overflow = "auto";
   };
 
+  function remToPixels(rem) {
+    return (
+      rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
+  }
+
+  const handleDragEnd = (event, info) => {
+    // Define the threshold for closing the drawer (distance from bottom of the screen)
+    const closeThreshold = remToPixels(10); // You can adjust this value as needed
+
+    // Get the bounding rectangle of the dragged element
+    const boundingRect = event.target.getBoundingClientRect();
+
+    // Calculate the distance from the bottom of the screen
+    const distanceFromBottom = window.innerHeight - boundingRect.top;
+    console.log(window.innerHeight);
+    console.log(boundingRect.top);
+
+    // Check if the distance from the bottom is less than or equal to the threshold
+    if (distanceFromBottom <= closeThreshold) {
+      setContext(false);
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -28,6 +52,7 @@ export default function Drawer({ isOpen, children, setContext }) {
             <motion.div
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
+              onDragEnd={handleDragEnd}
               className="max-w-4xl w-full px-5 pb-5 pt-4 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch gap-6 rounded-tl-[2rem] rounded-tr-[2rem]"
             >
               <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto" />
