@@ -13,6 +13,7 @@ export default function Drawer({ isOpen, children, setContext }) {
     document.body.style.maxHeight = "100vh";
     document.body.style.overflow = "auto";
   };
+
   return (
     <AnimatePresence>
       {isOpen && (

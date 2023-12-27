@@ -51,6 +51,14 @@ html {
   transition-timing-function: cubic-bezier(0.06, 0.9, 0.15, 1);
   transform: translateY(0);
 }
+
+.opacity-button-transition {
+  opacity: 1;
+}
+.opacity-button-transition:active {
+  opacity: 0.25;
+}
+
 .brand-button-transition .note-card-class:nth-child(2) {
   transition-delay: 0.05s;
 }

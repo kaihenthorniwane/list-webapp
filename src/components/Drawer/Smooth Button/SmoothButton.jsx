@@ -7,7 +7,7 @@ export default function SmoothButton({
 }) {
   return (
     <div
-      className="relative w-full brand-button-transition"
+      className="relative w-full brand-button-transition opacity-button-transition"
       onClick={() => {
         setContext(valueToSet);
       }}
