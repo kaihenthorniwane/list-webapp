@@ -63,6 +63,9 @@ export default function Drawer({ isOpen, children, setContext }) {
             </motion.div>
           </motion.div>
           <motion.div
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={0}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5, transition: { ease: brandedBezier } }}
             exit={{
