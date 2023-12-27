@@ -18,7 +18,7 @@ export default function Drawer({ isOpen, children, setContext }) {
       {isOpen && (
         <>
           <motion.div
-            className="fixed z-[100] left-0 right-0 bottom-0"
+            className="fixed z-[100] left-0 right-0 bottom-0 flex justify-center"
             initial={{ translateY: "100%" }}
             animate={{ translateY: 0 }}
             exit={{ translateY: "100%" }}
@@ -27,7 +27,7 @@ export default function Drawer({ isOpen, children, setContext }) {
             <motion.div
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
-              className=" px-5 pb-5 pt-4 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch gap-6 rounded-tl-[2rem] rounded-tr-[2rem]"
+              className="max-w-4xl w-full px-5 pb-5 pt-4 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch gap-6 rounded-tl-[2rem] rounded-tr-[2rem]"
             >
               <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto" />
               {children}
