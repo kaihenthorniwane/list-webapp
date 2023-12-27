@@ -11,15 +11,25 @@ export default function FolderNoteRight() {
         minHeight: "0px",
       }}
     >
-      <mask id="path-1-inside-1_292_9340" fill="white">
-        <path d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z" />
-      </mask>
-      <path d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z" fill="white" />
-      <path
-        d="M24 1.55509e-07L24 52L26 52L26 1.68469e-07L24 1.55509e-07Z"
-        fill="#111A49"
-        mask="url(#path-1-inside-1_292_9340)"
-      />
+      <g clipPath="url(#clip0_401_12440)">
+        <path d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z" fill="white" />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M24 52L25 52L25 6.47956e-09L24 0L24 52Z"
+          fill="#111A49"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_401_12440">
+          <rect
+            width="52"
+            height="25"
+            fill="white"
+            transform="translate(0 52) rotate(-90)"
+          />
+        </clipPath>
+      </defs>
     </svg>
   );
 }
