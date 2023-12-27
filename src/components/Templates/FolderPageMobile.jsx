@@ -40,7 +40,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
           setAppSetNoteFormat(userSetNoteFormat);
 
           // Delay before starting the smooth scroll
-          const delayBeforeScroll = 100; // in milliseconds
+          const delayBeforeScroll = 300; // in milliseconds
 
           setTimeout(() => {
             const finalTop =
