@@ -1,4 +1,5 @@
 import AuthContext from "@/components/AuthContext";
+import React from "react";
 import "./globals.css";
 
 export const metadata = {
