@@ -5,6 +5,7 @@ import FolderTitle from "@/components/Navigation/FolderTitle";
 import { useAllNotes } from "@/contexts/AllNotesContext"; // Adjust the import path as needed
 import FilterBarMobile from "../Navigation/Filter/FilterBarMobile";
 import Drawer from "../Drawer/Drawer";
+import NoteOptionsContents from "../Drawer/Drawer Contents/NoteOptionsContents";
 
 export const UserSetNoteFormatContext = React.createContext();
 export const AppSetNoteFormatContext = React.createContext();
@@ -98,7 +99,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
                 isOpen={noteOptionsDrawerOn}
                 setContext={setNoteOptionsDrawerOn}
               >
-                <div>Drawer test</div>
+                <NoteOptionsContents />
               </Drawer>
               <div className="relative flex flex-col items-center ">
                 <div className="px-5 pt-5 w-full max-w-4xl">
