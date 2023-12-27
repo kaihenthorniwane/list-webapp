@@ -18,6 +18,13 @@ body {
   font-weight: 300;
   font-variation-settings: "SLNT" 0;
   font-style: normal;
+  overflow: auto;
+  margin: 0;
+  max-height: 100vh; /* no more than the height of the viewport*/
+}
+
+html {
+  overflow: hidden; /* This one is important to avoid the propagation */
 }
 
 .folder-svg > svg {
