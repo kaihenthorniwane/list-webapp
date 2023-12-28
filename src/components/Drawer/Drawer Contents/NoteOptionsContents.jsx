@@ -5,6 +5,7 @@ import Drawer from "../Drawer";
 import ShareNoteContents from "./ShareNoteContents";
 import Modal from "@/components/Modal/Modal";
 import DeleteNoteContents from "@/components/Modal/Modal Contents/DeleteNoteContents";
+import MoveNoteContents from "./MoveNoteContents";
 
 export default function NoteOptionsContents({
   note_id,
@@ -38,6 +39,19 @@ export default function NoteOptionsContents({
         <DrawerOption
           iconSrc="/svg/Drawers/NoteOptionDrawer/Move Note.svg"
           text="Move Note"
+          functionToRun={() => {
+            setOverlay(
+              <Drawer>
+                <MoveNoteContents
+                  note_id={note_id}
+                  folder_id={folder_id}
+                  note_title={note_title}
+                  note_content={note_content}
+                  last_saved={last_saved}
+                />
+              </Drawer>
+            );
+          }}
         />
         <DrawerOption
           iconSrc="/svg/Drawers/NoteOptionDrawer/Trash Icon.svg"
