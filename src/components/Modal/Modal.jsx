@@ -25,11 +25,16 @@ export default function Modal({ children }) {
         <>
           <motion.div
             className="fixed z-[100] top-0 left-0 right-0 bottom-0 flex p-5 items-center justify-center"
-            initial={{ scale: 1.05 }}
-            animate={{ scale: 1, transition: { ease: brandedBezier } }}
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              transition: { ease: brandedBezier },
+            }}
             exit={{
               scale: 0.8,
-              transition: { duration: 0.025, ease: "linear" },
+              opacity: 0,
+              transition: { duration: 0.05, ease: "linear" },
             }}
           >
             <div className="max-w-4xl w-full p-7 bg-Brand-White flex flex-col items-stretch gap-6 rounded-[2.75rem]">
