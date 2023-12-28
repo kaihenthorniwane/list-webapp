@@ -62,6 +62,8 @@ export default function Drawer({ children }) {
             transition={{ ease: brandedBezier }}
           >
             <motion.div
+              layout
+              transition={{ duration: 0.2, ease: brandedBezier }}
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
               onDragEnd={handleDragEnd}
@@ -76,12 +78,12 @@ export default function Drawer({ children }) {
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={0} //add dragability to the overlay so it blocks the normal scroll behind it
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.5 }}
             animate={{ opacity: 0.5, transition: { ease: brandedBezier } }}
             exit={{
               opacity: 0,
               transition: {
-                duration: 0.025,
+                duration: 0.05,
                 ease: "linear",
                 onComplete: handleExitComplete,
               },
