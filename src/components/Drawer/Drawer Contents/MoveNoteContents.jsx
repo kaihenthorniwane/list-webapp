@@ -9,6 +9,7 @@ import NoteOptionsContents from "./NoteOptionsContents";
 import { motion } from "framer-motion";
 import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
 import ChooseFolderOption from "./Drawer Components/ChooseFolderOption";
+import { useAllNotes } from "@/contexts/AllNotesContext";
 
 export default function MoveNoteContents({
   note_id,
@@ -23,6 +24,43 @@ export default function MoveNoteContents({
   const { data: session, status } = useSession();
   const [folders, setFolders] = useState([]);
   const [foldersFetched, setFoldersFetched] = useState(false);
+  const { allNotesData, setallNotesData } = useAllNotes();
+
+  // Function to fetch notes
+  const addANote = (folder_id, note_content, note_title) => {
+    const objectWithData = {
+      folder_id: folder_id,
+      note_content: note_content,
+      note_title: note_title,
+    };
+    fetch("/api/addanote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(objectWithData),
+    });
+  };
+
+  // Function to fetch notes
+  const deleteANote = (noteId) => {
+    try {
+      fetch(`/api/deleteanote/${noteId}`);
+      console.log(allNotesData);
+      const firstKey = Object.keys(allNotesData)[0];
+      const arrayNotes = allNotesData[firstKey];
+
+      const newNotesObj = {
+        [firstKey]: arrayNotes.filter((curNote) => noteId !== curNote.note_id),
+      };
+
+      console.log(newNotesObj);
+      setallNotesData(newNotesObj);
+      setIsOn(false);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
+  };
 
   useEffect(() => {
     console.log("status changed to " + status);
@@ -84,7 +122,8 @@ export default function MoveNoteContents({
           <SmoothButtonBlack
             text="Move"
             functionToRun={() => {
-              setIsOn(false);
+              addANote(chosenFolder, note_content, note_title);
+              deleteANote(note_id);
             }}
           />
         ) : (

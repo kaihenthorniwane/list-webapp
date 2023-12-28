@@ -133,6 +133,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
                   <NoteCard
                     key={index}
                     note_id={note.note_id}
+                    folder_id={note.folder_id}
                     note_title={note.note_title}
                     note_content={note.note_content}
                     last_saved={note.last_saved}

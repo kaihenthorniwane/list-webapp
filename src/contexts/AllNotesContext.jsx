@@ -24,6 +24,7 @@ export const AllNotesProvider = ({ children }) => {
   const contextValue = {
     allNotesData,
     fetchAllNotes,
+    setallNotesData,
   };
 
   return (

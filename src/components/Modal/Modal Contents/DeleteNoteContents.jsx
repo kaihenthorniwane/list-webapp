@@ -3,6 +3,7 @@ import SmoothButtonRed from "@/components/Drawer/Smooth Button/SmoothButtonRed";
 import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "@/components/Drawer/Drawer";
 import NoteOptionsContents from "@/components/Drawer/Drawer Contents/NoteOptionsContents";
+import { useAllNotes } from "@/contexts/AllNotesContext";
 
 export default function DeleteNoteContents({
   note_id,
@@ -12,6 +13,27 @@ export default function DeleteNoteContents({
   last_saved,
 }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
+  const { allNotesData, setallNotesData } = useAllNotes();
+
+  // Function to fetch notes
+  const deleteANote = (noteId) => {
+    try {
+      fetch(`/api/deleteanote/${noteId}`);
+      console.log(allNotesData);
+      const firstKey = Object.keys(allNotesData)[0];
+      const arrayNotes = allNotesData[firstKey];
+
+      const newNotesObj = {
+        [firstKey]: arrayNotes.filter((curNote) => noteId !== curNote.note_id),
+      };
+
+      console.log(newNotesObj);
+      setallNotesData(newNotesObj);
+      setIsOn(false);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -25,7 +47,7 @@ export default function DeleteNoteContents({
         <SmoothButtonRed
           text="Delete"
           functionToRun={() => {
-            setIsOn(!isOn);
+            deleteANote(note_id);
           }}
         />
         <SmoothButton
