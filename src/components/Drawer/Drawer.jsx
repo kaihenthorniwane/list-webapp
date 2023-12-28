@@ -28,7 +28,7 @@ export default function Drawer({ children }) {
 
   const handleDragEnd = (event, info) => {
     // Define the threshold for closing the drawer (distance from bottom of the screen)
-    const closeThreshold = remToPixels(10); // You can adjust this value as needed
+    const closeThreshold = remToPixels(5); // You can adjust this value as needed
 
     // Get the bounding rectangle of the dragged element
     const boundingRect = event.target.getBoundingClientRect();
