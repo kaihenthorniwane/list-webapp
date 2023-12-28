@@ -5,7 +5,7 @@ export default function SmoothButtonMiddle() {
       fill="none"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full max-h-smooth-button"
+      className="w-full max-h-smooth-button min-w-0"
     >
       <mask id="path-1-inside-1_388_12415" fill="white">
         <path d="M0 0H167V60H0V0Z" />
