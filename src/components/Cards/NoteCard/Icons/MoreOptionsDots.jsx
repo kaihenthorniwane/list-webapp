@@ -1,10 +1,10 @@
-import { NoteOptionsDrawerContext } from "@/components/Templates/FolderPageMobile";
-import { useContext } from "react";
+import Drawer from "@/components/Drawer/Drawer";
+import NoteOptionsContents from "@/components/Drawer/Drawer Contents/NoteOptionsContents";
+import { useOverlay } from "@/contexts/OverlayContext";
 
 export default function MoreOptionsDots({ note_id }) {
-  const { noteOptionsDrawerOn, setNoteOptionsDrawerOn } = useContext(
-    NoteOptionsDrawerContext
-  );
+  const { isOn, setIsOn, setOverlay } = useOverlay();
+
   return (
     <div className="opacity-button-transition">
       <svg
@@ -14,7 +14,12 @@ export default function MoreOptionsDots({ note_id }) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         onClick={() => {
-          setNoteOptionsDrawerOn(!noteOptionsDrawerOn);
+          setOverlay(
+            <Drawer isOn={isOn} setIsOn={setIsOn}>
+              <NoteOptionsContents setIsOn={setIsOn} />
+            </Drawer>
+          );
+          setIsOn(!isOn);
         }}
       >
         <circle cx="5.90002" cy="13.5" r="1.90002" fill="#111A49" />

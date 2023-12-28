@@ -1,12 +1,7 @@
 import SmoothButton from "../Smooth Button/SmoothButton";
 import DrawerOption from "./Drawer Components/DrawerOption";
-import { NoteOptionsDrawerContext } from "@/components/Templates/FolderPageMobile";
-import { useContext } from "react";
 
-export default function NoteOptionsContents() {
-  const { noteOptionsDrawerOn, setNoteOptionsDrawerOn } = useContext(
-    NoteOptionsDrawerContext
-  );
+export default function NoteOptionsContents({ isOn, setIsOn }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3">
@@ -26,8 +21,9 @@ export default function NoteOptionsContents() {
       </div>
       <SmoothButton
         text="Cancel"
-        setContext={setNoteOptionsDrawerOn}
-        valueToSet={false}
+        functionToRun={() => {
+          setIsOn(isOn);
+        }}
       />
     </div>
   );

@@ -1,7 +1,11 @@
 import { brandedBezier } from "@/utils/animationConstants";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useOverlay } from "@/contexts/OverlayContext";
 
-export default function Drawer({ isOpen, children, setContext }) {
+export default function Drawer({ children }) {
+  const { isOn, setIsOn } = useOverlay();
+
   const handleAnimationStart = () => {
     // Action when the animation starts
     // document.documentElement.style.overflow = "hidden";
@@ -22,6 +26,12 @@ export default function Drawer({ isOpen, children, setContext }) {
     );
   }
 
+  useEffect(() => {
+    console.log("===========================");
+    console.log("===========================");
+    console.log("Drawer here. I see isOn as: " + isOn);
+  }, [isOn]);
+
   const handleDragEnd = (event, info) => {
     // Define the threshold for closing the drawer (distance from bottom of the screen)
     const closeThreshold = remToPixels(10); // You can adjust this value as needed
@@ -36,13 +46,19 @@ export default function Drawer({ isOpen, children, setContext }) {
 
     // Check if the distance from the bottom is less than or equal to the threshold
     if (distanceFromBottom <= closeThreshold) {
-      setContext(false);
+      setIsOn(!isOn);
     }
   };
 
+  // return (
+  //   <div>
+  //     {"According to the Drawer at the time this is rendered, isOn is " + isOn}
+  //   </div>
+  // );
+
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOn && (
         <>
           <motion.div
             className="fixed z-[100] left-0 right-0 bottom-0 flex justify-center"
@@ -65,7 +81,7 @@ export default function Drawer({ isOpen, children, setContext }) {
           <motion.div
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
-            dragElastic={0}
+            dragElastic={0} //add dragability to the overlay so it blocks the normal scroll behind it
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5, transition: { ease: brandedBezier } }}
             exit={{
@@ -77,7 +93,10 @@ export default function Drawer({ isOpen, children, setContext }) {
               },
             }}
             onClick={() => {
-              setContext(false);
+              console.log("###################");
+              console.log("###################");
+              setIsOn(false);
+              console.log("overlay clicked, isOn set to " + isOn);
             }}
             onAnimationStart={handleAnimationStart}
             className="fixed z-[99] w-full h-full bg-Brand-Black opacity-50"
