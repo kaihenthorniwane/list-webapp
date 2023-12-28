@@ -6,7 +6,7 @@ export default function SmoothButtonRight() {
       viewBox="0 0 40 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ minHeight: "60px", minWidth: "40px" }}
+      style={{ minHeight: "60px", minWidth: "40px", marginLeft: "-1px" }}
     >
       <g clipPath="url(#clip0_418_21759)">
         <path
