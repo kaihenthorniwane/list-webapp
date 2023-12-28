@@ -78,11 +78,11 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
     fetchAllNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
   }, [folder_id]);
 
-  useEffect(() => {
-    console.log("-------");
-    console.log("-------");
-    console.log("FolderPageMobile here. I see isOn as: ", isOn);
-  }, [overlay]);
+  // useEffect(() => {
+  //   console.log("-------");
+  //   console.log("-------");
+  //   console.log("FolderPageMobile here. I see isOn as: ", isOn);
+  // }, [overlay]);
 
   //variant styles for wrapper
   const wrapperVariantStyles = {
@@ -132,6 +132,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
                 {notes.map((note, index) => (
                   <NoteCard
                     key={index}
+                    note_id={note.note_id}
                     note_title={note.note_title}
                     note_content={note.note_content}
                     last_saved={note.last_saved}

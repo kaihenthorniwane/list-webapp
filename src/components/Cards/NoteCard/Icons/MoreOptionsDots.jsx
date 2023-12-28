@@ -2,7 +2,13 @@ import Drawer from "@/components/Drawer/Drawer";
 import NoteOptionsContents from "@/components/Drawer/Drawer Contents/NoteOptionsContents";
 import { useOverlay } from "@/contexts/OverlayContext";
 
-export default function MoreOptionsDots({ note_id }) {
+export default function MoreOptionsDots({
+  note_id,
+  folder_id,
+  note_title,
+  note_content,
+  last_saved,
+}) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
 
   return (
@@ -15,8 +21,14 @@ export default function MoreOptionsDots({ note_id }) {
         xmlns="http://www.w3.org/2000/svg"
         onClick={() => {
           setOverlay(
-            <Drawer isOn={isOn} setIsOn={setIsOn}>
-              <NoteOptionsContents setIsOn={setIsOn} />
+            <Drawer>
+              <NoteOptionsContents
+                note_id={note_id}
+                folder_id={folder_id}
+                note_title={note_title}
+                note_content={note_content}
+                last_saved={last_saved}
+              />
             </Drawer>
           );
           setIsOn(!isOn);

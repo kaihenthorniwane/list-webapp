@@ -26,12 +26,6 @@ export default function Drawer({ children }) {
     );
   }
 
-  useEffect(() => {
-    console.log("===========================");
-    console.log("===========================");
-    console.log("Drawer here. I see isOn as: " + isOn);
-  }, [isOn]);
-
   const handleDragEnd = (event, info) => {
     // Define the threshold for closing the drawer (distance from bottom of the screen)
     const closeThreshold = remToPixels(10); // You can adjust this value as needed
@@ -93,10 +87,7 @@ export default function Drawer({ children }) {
               },
             }}
             onClick={() => {
-              console.log("###################");
-              console.log("###################");
               setIsOn(false);
-              console.log("overlay clicked, isOn set to " + isOn);
             }}
             onAnimationStart={handleAnimationStart}
             className="fixed z-[99] w-full h-full bg-Brand-Black opacity-50"
