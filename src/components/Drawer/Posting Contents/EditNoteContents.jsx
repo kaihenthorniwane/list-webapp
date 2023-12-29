@@ -26,7 +26,7 @@ export default function EditNoteContents({
 
   const saveFunctionVariant = {
     "new-note": () => {
-      addANoteAndRefreshOnscreenNotes(folder_id, content, title);
+      addANoteAndRefreshOnscreenNotes(folder_id, title, content);
       setIsOn(false);
     },
   };
