@@ -34,10 +34,17 @@ export default function EditNoteContents({
       editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
       setIsOn(false);
     },
+    "direct-edit-note": () => {
+      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
+      setIsOn(false);
+    },
   };
 
   const cancelFunctionVariant = {
     "new-note": () => {
+      setIsOn(false);
+    },
+    "direct-edit-note": () => {
       setIsOn(false);
     },
     "edit-note": () => {

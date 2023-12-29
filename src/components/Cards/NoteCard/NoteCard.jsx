@@ -30,7 +30,7 @@ const NoteCard = ({
           note_title={note_title}
           note_content={note_content}
           last_saved={last_saved}
-          variant={"edit-note"}
+          variant={"direct-edit-note"}
         />
       </Drawer>
     );
