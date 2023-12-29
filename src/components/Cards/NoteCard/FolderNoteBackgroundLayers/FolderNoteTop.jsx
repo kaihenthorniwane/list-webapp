@@ -14,7 +14,7 @@ export default function FolderNoteTop() {
       <g clipPath="url(#clip0_376_10020)">
         <rect
           x="-50"
-          y="50"
+          y="-50"
           width="600"
           height="100"
           transform="rotate(180 168.34 1)"
