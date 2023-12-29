@@ -6,6 +6,8 @@ import EditableDiv from "./Posting Components/EditableDiv";
 import TextInput from "./Posting Components/TextInput";
 import Drawer from "../Drawer";
 import NoteOptionsContents from "../Drawer Contents/NoteOptionsContents";
+import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
+import { useAllNotes } from "@/contexts/AllNotesContext";
 
 export default function EditNoteContents({
   note_id,
@@ -16,12 +18,20 @@ export default function EditNoteContents({
   variant = "new-note",
 }) {
   const { setIsOn, setOverlay } = useOverlay();
+  const { addANoteAndRefreshOnscreenNotes } = useAllNotes();
   //text states
 
   const [title, setTitle] = useState(note_title);
   const [content, setContent] = useState(note_content);
 
-  const functionVariants = {
+  const saveFunctionVariant = {
+    "new-note": () => {
+      addANoteAndRefreshOnscreenNotes(folder_id, content, title);
+      setIsOn(false);
+    },
+  };
+
+  const cancelFunctionVariant = {
     "new-note": () => {
       setIsOn(false);
     },
@@ -61,7 +71,23 @@ export default function EditNoteContents({
           </div>
         </div>
       </div>
-      <SmoothButton text="Cancel" functionToRun={functionVariants[variant]} />
+
+      <div className="flex gap-2.5">
+        <SmoothButton
+          text="Cancel"
+          functionToRun={cancelFunctionVariant[variant]}
+        />
+        {title.length > 0 && content.length > 0 ? (
+          <SmoothButtonBlack
+            text="Save"
+            functionToRun={saveFunctionVariant[variant]}
+          />
+        ) : (
+          <div className="opacity-25 w-full">
+            <SmoothButtonBlack text="Save" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

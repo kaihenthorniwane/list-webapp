@@ -104,7 +104,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             value={{ userSetNoteFormat, setUserSetNoteFormat }}
           >
             {overlay}
-            <NewNoteButton />
+            <NewNoteButton folder_id={folder_id} />
             <div className="relative flex flex-col items-center ">
               <div className="px-5 pt-5 w-full max-w-4xl">
                 <FolderTitle

@@ -2,7 +2,7 @@ import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "../Drawer";
 import EditNoteContents from "./EditNoteContents";
 
-export default function NewNoteButton() {
+export default function NewNoteButton({ folder_id }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
 
   return (
@@ -11,7 +11,7 @@ export default function NewNoteButton() {
       onClick={() => {
         setOverlay(
           <Drawer>
-            <EditNoteContents />
+            <EditNoteContents folder_id={folder_id} />
           </Drawer>
         );
         setIsOn(true);
