@@ -35,7 +35,7 @@ export default function EditNoteContents({
         <motion.div
           drag="y"
           dragConstraints={{ top: constraints, bottom: 0 }}
-          className="w-full h-[75vh] flex"
+          className="w-full h-[65vh] flex"
           ref={containerRef}
         >
           <div className="flex flex-col w-full" ref={contentRef}>
