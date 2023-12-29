@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FolderNoteBackground from "./FolderNoteBackground";
 import { motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
@@ -20,6 +20,20 @@ const NoteCard = ({
   disableDateFormatting,
 }) => {
   const { isOn, setIsOn, setOverlay } = useOverlay();
+
+  const [textBreakClass, setTextBreakClass] = useState("break-words");
+
+  const isWordTooLong = (title, maxLength = 20) => {
+    return title.split(" ").some((word) => word.length > maxLength);
+  };
+
+  useEffect(() => {
+    if (isWordTooLong(note_title)) {
+      setTextBreakClass("break-all ");
+    } else {
+      setTextBreakClass("break-words ");
+    }
+  }, [note_title]);
 
   const openEditDrawer = () => {
     setOverlay(
@@ -127,7 +141,8 @@ const NoteCard = ({
       //   layout: { duration: 0.3, ease: brandedBezier },
       // }}
       className={
-        "transition-padding duration-300 ease-fast-easing overflow-wrap break-all hyphens-auto " +
+        "transition-padding duration-300 ease-fast-easing overflow-wrap hyphens-auto " +
+        textBreakClass +
         dimensionVariantStyles[currentVariant]
       }
       onClick={onClickVariantFunctions[currentVariant]}
