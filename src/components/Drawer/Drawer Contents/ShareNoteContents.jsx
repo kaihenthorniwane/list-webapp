@@ -30,26 +30,77 @@ export default function ShareNoteContents({
     console.log(maxDrag);
   }, []); // Run once after initial render
 
+  // Function to save note as a .txt file
+  const saveAsTxt = () => {
+    const element = document.createElement("a");
+    const file = new Blob([note_title + "\n\n" + note_content], {
+      type: "text/plain",
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = `${note_title}.txt`;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
+  // Function to copy note content to clipboard
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(note_title + "\n\n" + note_content)
+      .then(() => console.log("Text copied to clipboard"))
+      .catch((err) => console.error("Could not copy text: ", err));
+  };
+
+  // Function to open email client with note content
+  const openEmail = () => {
+    const subject = encodeURIComponent(note_title);
+    const body = encodeURIComponent(note_content);
+    window.open(`mailto:?subject=${subject}&body=${body}`);
+  };
+
+  // Function to share on Twitter
+  const shareOnTwitter = () => {
+    const tweet = encodeURIComponent(
+      `Check out my note: ${note_title} - ${note_content}`
+    );
+    window.open(`https://twitter.com/intent/tweet?text=${tweet}`);
+  };
+
+  // Function to share on Facebook
+  const shareOnFacebook = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        document.location.href
+      )}`
+    );
+  };
+
+  // Share options with corresponding functions
   const shareOptions = [
     {
-      text: "Email",
-      iconSrc: "/svg/Drawers/ShareDrawer/Mail Icon.svg",
+      text: "Save",
+      iconSrc: "/svg/Drawers/ShareDrawer/Save Icon.svg",
+      functionToRun: saveAsTxt,
     },
     {
       text: "Copy",
       iconSrc: "/svg/Drawers/ShareDrawer/Copy Text Icon.svg",
+      functionToRun: copyToClipboard,
     },
     {
-      text: "Save",
-      iconSrc: "/svg/Drawers/ShareDrawer/Save Icon.svg",
+      text: "Email",
+      iconSrc: "/svg/Drawers/ShareDrawer/Mail Icon.svg",
+      functionToRun: openEmail,
     },
     {
       text: "X.com",
       iconSrc: "/svg/Drawers/ShareDrawer/Xcom Icon.svg",
+      functionToRun: shareOnTwitter,
     },
     {
       text: "Facebook",
       iconSrc: "/svg/Drawers/ShareDrawer/Facebook Icon.svg",
+      functionToRun: shareOnFacebook,
     },
   ];
 
@@ -79,6 +130,7 @@ export default function ShareNoteContents({
                 key={index}
                 text={option.text}
                 iconSrc={option.iconSrc}
+                functionToRun={option.functionToRun}
               />
             ))}
           </div>
