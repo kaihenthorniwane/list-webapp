@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { getSession } from "next-auth/react";
+export const dynamic = "force-dynamic";
 
 export async function GET(request, { params }) {
   // Get the session

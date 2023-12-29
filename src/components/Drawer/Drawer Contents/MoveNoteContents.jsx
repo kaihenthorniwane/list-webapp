@@ -90,13 +90,15 @@ export default function MoveNoteContents({
         <div className="flex flex-col gap-3">
           {folders.map((folder) => {
             return (
-              <ChooseFolderOption
-                key={folder.folder_id}
-                text={folder.folder_name}
-                folder_id={folder.folder_id}
-                chosenFolder={chosenFolder}
-                setChosenFolder={setChosenFolder}
-              />
+              folder_id !== folder.folder_id && (
+                <ChooseFolderOption
+                  key={folder.folder_id}
+                  text={folder.folder_name}
+                  folder_id={folder.folder_id}
+                  chosenFolder={chosenFolder}
+                  setChosenFolder={setChosenFolder}
+                />
+              )
             );
           })}
         </div>

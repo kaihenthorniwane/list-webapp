@@ -19,6 +19,16 @@ async function addFoldersAndNotes(userId) {
         RETURNING folder_id;
     `;
 
+  const efficientEndeavorsFolder = await sql`
+      INSERT INTO folders (folder_name, user_id) VALUES ('Efficient Endeavors', ${userId})
+      RETURNING folder_id;
+    `;
+
+  const productiveProjectsFolder = await sql`
+    INSERT INTO folders (folder_name, user_id) VALUES ('Productive Projects', ${userId})
+    RETURNING folder_id;
+    `;
+
   // Extract folder IDs
   const myWorkspaceFolderId = myWorkspaceFolder.rows[0].folder_id;
   const randomThoughtsFolderId = randomThoughtsFolder.rows[0].folder_id;
