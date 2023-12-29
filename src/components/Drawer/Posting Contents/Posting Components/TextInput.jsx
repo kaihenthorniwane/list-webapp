@@ -17,7 +17,7 @@ export default function TextInput({ text, setText, placeholder }) {
       rows="1"
       ref={textareaRef}
       placeholder={placeholder}
-      className="outline-0 resize-none w-full overflow-hidden p-1 -m-1"
+      className="outline-0 resize-none w-full focus:outline-none overflow-hidden p-1 -m-1"
       value={text}
       onChange={handleChange}
     />

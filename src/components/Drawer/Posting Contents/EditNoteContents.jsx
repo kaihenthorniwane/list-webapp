@@ -8,8 +8,8 @@ import TextInput from "./Posting Components/TextInput";
 export default function EditNoteContents({
   note_id,
   folder_id,
-  note_title,
-  note_content,
+  note_title = "",
+  note_content = "",
   last_saved,
 }) {
   const { setIsOn } = useOverlay();
@@ -30,8 +30,8 @@ export default function EditNoteContents({
 
   //text states
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(note_title);
+  const [content, setContent] = useState(note_content);
 
   return (
     <div className="flex flex-col gap-6">
