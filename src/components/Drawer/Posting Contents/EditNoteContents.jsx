@@ -79,6 +79,7 @@ export default function EditNoteContents({
               setText={setContent}
               placeholder={"Write your note"}
               overflowHidden={false}
+              minimumHeight={"20rem"}
             />
           </div>
         </div>

@@ -5,12 +5,13 @@ export default function TextInput({
   setText,
   placeholder,
   overflowHidden = true,
+  minimumHeight = "0",
 }) {
   const textareaRef = useRef(null);
 
   const handleChange = () => {
     // Reset the height to 'auto' to shrink if text is deleted
-    textareaRef.current.style.height = "0";
+    textareaRef.current.style.height = minimumHeight;
 
     // Set the height to scrollHeight to expand as needed
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
