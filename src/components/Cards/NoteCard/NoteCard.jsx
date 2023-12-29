@@ -134,9 +134,7 @@ const NoteCard = ({
     >
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
         <div className="flex leading-tight justify-between gap-2 ">
-          <span
-            className={"w-full shrink " + titleVariantStyles[currentVariant]}
-          >
+          <span className={"grow " + titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
           {variant === "writer" && (
