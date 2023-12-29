@@ -44,6 +44,9 @@ module.exports = {
         "White-Gradient-Down":
           "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
 
+        "White-Gradient-Down-More-White":
+          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9318321078431373) 56%, rgba(255,255,255,0.6265099789915967) 86%, rgba(255,255,255,0.37160801820728295) 93%, rgba(255,255,255,0) 100%);", // custom gradient
+
         "White-Gradient-Right":
           "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)", // custom gradient
 

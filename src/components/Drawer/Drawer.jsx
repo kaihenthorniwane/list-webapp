@@ -76,14 +76,14 @@ export default function Drawer({ children }) {
               onDragEnd={handleDragEnd}
               dragControls={controls}
               dragElastic={0.7}
-              className="max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem]"
+              className="relative max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
             >
               <div
-                className="pt-4 pb-6 -mx-5"
+                className="pt-4 pb-6 -mx-5 bg-White-Gradient-Down-More-White relative z-[1]"
                 onPointerDown={startDrag}
                 style={{ touchAction: "none" }}
               >
-                <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto" />
+                <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto " />
               </div>
               {children}
             </motion.div>
