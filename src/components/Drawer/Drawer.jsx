@@ -1,10 +1,16 @@
 import { brandedBezier } from "@/utils/animationConstants";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useDragControls } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useOverlay } from "@/contexts/OverlayContext";
 
 export default function Drawer({ children }) {
   const { isOn, setIsOn } = useOverlay();
+
+  const controls = useDragControls();
+
+  function startDrag(event) {
+    controls.start(event);
+  }
 
   const handleAnimationStart = () => {
     // Action when the animation starts
@@ -28,7 +34,7 @@ export default function Drawer({ children }) {
 
   const handleDragEnd = (event, info) => {
     // Define the threshold for closing the drawer (distance from bottom of the screen)
-    const closeThreshold = remToPixels(5); // You can adjust this value as needed
+    const closeThreshold = remToPixels(10); // You can adjust this value as needed
 
     // Get the bounding rectangle of the dragged element
     const boundingRect = event.target.getBoundingClientRect();
@@ -65,12 +71,20 @@ export default function Drawer({ children }) {
               layout
               transition={{ duration: 0.2, ease: brandedBezier }}
               drag="y"
+              dragListener={false}
               dragConstraints={{ top: 0, bottom: 0 }}
               onDragEnd={handleDragEnd}
+              dragControls={controls}
               dragElastic={0.7}
-              className="max-w-4xl w-full px-5 pb-5 pt-4 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch gap-6 rounded-tl-[2rem] rounded-tr-[2rem]"
+              className="max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem]"
             >
-              <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto" />
+              <div
+                className="pt-4 pb-6 -mx-5"
+                onPointerDown={startDrag}
+                style={{ touchAction: "none" }}
+              >
+                <div className="w-20 rounded-md bg-Brand-Black h-1 mx-auto" />
+              </div>
               {children}
             </motion.div>
           </motion.div>

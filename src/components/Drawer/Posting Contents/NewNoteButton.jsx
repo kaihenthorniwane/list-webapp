@@ -1,5 +1,6 @@
 import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "../Drawer";
+import EditNoteContents from "./EditNoteContents";
 
 export default function NewNoteButton() {
   const { isOn, setIsOn, setOverlay } = useOverlay();
@@ -10,7 +11,7 @@ export default function NewNoteButton() {
       onClick={() => {
         setOverlay(
           <Drawer>
-            <div>Testing note button</div>
+            <EditNoteContents />
           </Drawer>
         );
         setIsOn(true);
