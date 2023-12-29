@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function TextInput({
   text,
@@ -8,18 +8,20 @@ export default function TextInput({
 }) {
   const textareaRef = useRef(null);
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-
+  const handleChange = () => {
     // Reset the height to 'auto' to shrink if text is deleted
-    textareaRef.current.style.height = "auto";
+    textareaRef.current.style.height = "0";
 
     // Set the height to scrollHeight to expand as needed
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
   };
+
+  // Run handleChange once after the component mounts
+  useEffect(() => {
+    handleChange();
+  }, []);
   return (
     <textarea
-      rows="1"
       ref={textareaRef}
       placeholder={placeholder}
       className={
@@ -27,7 +29,10 @@ export default function TextInput({
         (overflowHidden && "overflow-hidden")
       }
       value={text}
-      onChange={handleChange}
+      onChange={(event) => {
+        setText(event.target.value);
+        handleChange();
+      }}
     />
   );
 }
