@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 import { useOverlay } from "@/contexts/OverlayContext";
 import { motion } from "framer-motion";
-import Drawer from "../Drawer";
-import NoteOptionsContents from "../Drawer Contents/NoteOptionsContents";
 import SmoothButton from "../Smooth Button/SmoothButton";
+import EditableDiv from "./Posting Components/EditableDiv";
+import TextInput from "./Posting Components/TextInput";
 
 export default function EditNoteContents({
   note_id,
@@ -29,6 +28,11 @@ export default function EditNoteContents({
     console.log(maxDrag);
   }, []); // Run once after initial render
 
+  //text states
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3 ">
@@ -38,8 +42,19 @@ export default function EditNoteContents({
           className="w-full h-[65vh] flex"
           ref={containerRef}
         >
-          <div className="flex flex-col w-full" ref={contentRef}>
-            Content goes here
+          <div className="flex flex-col gap-3 w-full" ref={contentRef}>
+            <div className="font-header text-32 leading-none">
+              <TextInput
+                text={title}
+                setText={setTitle}
+                placeholder={"Write your title"}
+              />
+            </div>
+            <TextInput
+              text={content}
+              setText={setContent}
+              placeholder={"Write your note"}
+            />
           </div>
         </motion.div>
       </div>
