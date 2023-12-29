@@ -12,7 +12,14 @@ export default function FolderNoteTop() {
       className="w-full"
     >
       <g clipPath="url(#clip0_376_10020)">
-        <path d="M0 0L168 0L168 25L3.16592e-06 25L0 0Z" fill="white" />
+        <rect
+          x="-50"
+          y="50"
+          width="600"
+          height="100"
+          transform="rotate(180 168.34 1)"
+          fill="white"
+        />
         <rect
           x="-50"
           y="1"
