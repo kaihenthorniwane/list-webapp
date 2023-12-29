@@ -5,6 +5,7 @@ import FolderTitle from "@/components/Navigation/FolderTitle";
 import { useAllNotes } from "@/contexts/AllNotesContext"; // Adjust the import path as needed
 import FilterBarMobile from "../Navigation/Filter/FilterBarMobile";
 import { useOverlay } from "@/contexts/OverlayContext";
+import NewNoteButton from "../Drawer/Posting Contents/NewNoteButton";
 
 export const UserSetNoteFormatContext = React.createContext();
 export const AppSetNoteFormatContext = React.createContext();
@@ -103,6 +104,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             value={{ userSetNoteFormat, setUserSetNoteFormat }}
           >
             {overlay}
+            <NewNoteButton />
             <div className="relative flex flex-col items-center ">
               <div className="px-5 pt-5 w-full max-w-4xl">
                 <FolderTitle
