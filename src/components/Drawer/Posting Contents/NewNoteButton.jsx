@@ -7,7 +7,7 @@ export default function NewNoteButton({ folder_id }) {
 
   return (
     <div
-      className="fixed z-[10] bottom-5 right-5 brand-button-transition opacity-button-transition"
+      className="fixed z-[90] bottom-5 right-5 brand-button-transition opacity-button-transition"
       onClick={() => {
         setOverlay(
           <Drawer>

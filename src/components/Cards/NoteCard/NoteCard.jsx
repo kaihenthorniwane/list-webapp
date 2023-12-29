@@ -127,13 +127,13 @@ const NoteCard = ({
       //   layout: { duration: 0.3, ease: brandedBezier },
       // }}
       className={
-        "transition-padding duration-300 ease-fast-easing" +
+        "transition-padding duration-300 ease-fast-easing overflow-wrap break-word hyphens-auto " +
         dimensionVariantStyles[currentVariant]
       }
       onClick={onClickVariantFunctions[currentVariant]}
     >
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
-        <div className="flex leading-tight justify-between gap-2">
+        <div className="flex leading-tight justify-between gap-2 ">
           <span className={titleVariantStyles[currentVariant]}>
             {note_title}
           </span>
