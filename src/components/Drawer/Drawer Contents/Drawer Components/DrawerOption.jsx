@@ -1,5 +1,5 @@
 export default function DrawerOption({
-  iconSrc,
+  icon,
   text = "Drawer Option",
   color = "rgb(var(--Brand-Black))",
   functionToRun = () => {},
@@ -10,7 +10,7 @@ export default function DrawerOption({
       style={{ color: color }}
       onClick={functionToRun}
     >
-      <img src={iconSrc} />
+      {icon}
       <span className="mt-1">{text}</span>
     </div>
   );

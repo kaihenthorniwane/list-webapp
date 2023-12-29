@@ -7,6 +7,10 @@ import Modal from "@/components/Modal/Modal";
 import DeleteNoteContents from "@/components/Modal/Modal Contents/DeleteNoteContents";
 import MoveNoteContents from "./MoveNoteContents";
 import EditNoteContents from "../Posting Contents/EditNoteContents";
+import ShareNoteIcon from "./Icons/ShareNoteIcon";
+import MoveNoteIcon from "./Icons/MoveNoteIcon";
+import EditNoteIcon from "./Icons/EditNoteIcon";
+import TrashNoteIcon from "./Icons/TrashNoteIcon";
 
 export default function NoteOptionsContents({
   note_id,
@@ -21,7 +25,7 @@ export default function NoteOptionsContents({
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3">
         <DrawerOption
-          iconSrc="/svg/Drawers/NoteOptionDrawer/Share Icon.svg"
+          icon={<ShareNoteIcon />}
           text="Share Note"
           functionToRun={() => {
             setOverlay(
@@ -38,7 +42,7 @@ export default function NoteOptionsContents({
           }}
         />
         <DrawerOption
-          iconSrc="/svg/Drawers/NoteOptionDrawer/Move Note.svg"
+          icon={<MoveNoteIcon />}
           text="Move Note"
           functionToRun={() => {
             setOverlay(
@@ -55,7 +59,7 @@ export default function NoteOptionsContents({
           }}
         />
         <DrawerOption
-          iconSrc="/svg/Drawers/NoteOptionDrawer/Edit Note.svg"
+          icon={<EditNoteIcon />}
           text="Edit Note"
           functionToRun={() => {
             setOverlay(
@@ -73,7 +77,7 @@ export default function NoteOptionsContents({
           }}
         />
         <DrawerOption
-          iconSrc="/svg/Drawers/NoteOptionDrawer/Trash Icon.svg"
+          icon={<TrashNoteIcon />}
           text="Delete Note"
           color="rgb(var(--Brand-Red))"
           functionToRun={() => {
