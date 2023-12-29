@@ -13,21 +13,6 @@ export default function EditNoteContents({
   last_saved,
 }) {
   const { setIsOn } = useOverlay();
-
-  const containerRef = useRef(null);
-  const contentRef = useRef(null);
-  const [constraints, setConstraints] = useState(0);
-
-  useEffect(() => {
-    const containerHeight = containerRef.current.offsetHeight;
-    const contentHeight = contentRef.current.offsetHeight;
-
-    // Calculate the maximum drag distance
-    const maxDrag = contentHeight - containerHeight;
-    setConstraints(-maxDrag);
-    console.log(maxDrag);
-  }, []); // Run once after initial render
-
   //text states
 
   const [title, setTitle] = useState(note_title);
@@ -37,7 +22,7 @@ export default function EditNoteContents({
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3 ">
         <div className="w-full h-[60vh] flex">
-          <div className="flex flex-col gap-3 w-full" ref={contentRef}>
+          <div className="flex flex-col gap-3 w-full">
             <div className="font-header text-32 leading-none">
               <TextInput
                 text={title}
