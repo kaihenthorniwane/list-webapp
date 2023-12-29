@@ -24,7 +24,7 @@ export default function EditNoteContents({
 
     // Calculate the maximum drag distance
     const maxDrag = contentHeight - containerHeight;
-    setConstraints(maxDrag);
+    setConstraints(-maxDrag);
     console.log(maxDrag);
   }, []); // Run once after initial render
 
@@ -36,12 +36,7 @@ export default function EditNoteContents({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3 ">
-        <motion.div
-          drag="y"
-          dragConstraints={{ top: constraints, bottom: 0 }}
-          className="w-full h-[65vh] flex"
-          ref={containerRef}
-        >
+        <div className="w-full h-[60vh] flex">
           <div className="flex flex-col gap-3 w-full" ref={contentRef}>
             <div className="font-header text-32 leading-none">
               <TextInput
@@ -54,9 +49,10 @@ export default function EditNoteContents({
               text={content}
               setText={setContent}
               placeholder={"Write your note"}
+              overflowHidden={false}
             />
           </div>
-        </motion.div>
+        </div>
       </div>
       <SmoothButton
         text="Cancel"

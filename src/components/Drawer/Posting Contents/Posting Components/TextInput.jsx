@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 
-export default function TextInput({ text, setText, placeholder }) {
+export default function TextInput({
+  text,
+  setText,
+  placeholder,
+  overflowHidden = true,
+}) {
   const textareaRef = useRef(null);
 
   const handleChange = (event) => {
@@ -17,7 +22,10 @@ export default function TextInput({ text, setText, placeholder }) {
       rows="1"
       ref={textareaRef}
       placeholder={placeholder}
-      className="outline-0 resize-none w-full focus:outline-none overflow-hidden p-1 -m-1"
+      className={
+        "outline-0 resize-none w-full focus:outline-none p-1 -m-1 " +
+        (overflowHidden && "overflow-hidden")
+      }
       value={text}
       onChange={handleChange}
     />
