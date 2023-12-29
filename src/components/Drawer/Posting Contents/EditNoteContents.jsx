@@ -18,7 +18,8 @@ export default function EditNoteContents({
   variant = "new-note",
 }) {
   const { setIsOn, setOverlay } = useOverlay();
-  const { addANoteAndRefreshOnscreenNotes } = useAllNotes();
+  const { addANoteAndRefreshOnscreenNotes, editANoteAndRefreshOnscreenNotes } =
+    useAllNotes();
   //text states
 
   const [title, setTitle] = useState(note_title);
@@ -27,6 +28,10 @@ export default function EditNoteContents({
   const saveFunctionVariant = {
     "new-note": () => {
       addANoteAndRefreshOnscreenNotes(folder_id, title, content);
+      setIsOn(false);
+    },
+    "edit-note": () => {
+      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
       setIsOn(false);
     },
   };

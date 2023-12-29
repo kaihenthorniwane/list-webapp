@@ -47,12 +47,41 @@ export const AllNotesProvider = ({ children }) => {
     }
   };
 
+  const editANoteAndRefreshOnscreenNotes = async (
+    folder_id,
+    note_id,
+    note_title,
+    note_content
+  ) => {
+    try {
+      const objectWithData = {
+        note_id: note_id,
+        note_content: note_content,
+        note_title: note_title,
+      };
+      fetch("/api/editanote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(objectWithData),
+      });
+
+      const response = await fetch(`/api/getallnotes/${folder_id}`);
+      const data = await response.json();
+      setallNotesData((prevData) => ({ ...prevData, [folder_id]: data }));
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
+  };
+
   // The value that will be supplied to any descendants of this provider
   const contextValue = {
     allNotesData,
     fetchAllNotes,
     setallNotesData,
     addANoteAndRefreshOnscreenNotes,
+    editANoteAndRefreshOnscreenNotes,
   };
 
   return (
