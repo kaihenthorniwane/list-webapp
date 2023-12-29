@@ -12,14 +12,15 @@ export default function MoreOptionsDots({
   const { isOn, setIsOn, setOverlay } = useOverlay();
 
   return (
-    <div className="opacity-button-transition">
+    <div className="opacity-button-transition relative z-[10]">
       <svg
         width="27"
         height="27"
         viewBox="0 0 27 27"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           setOverlay(
             <Drawer>
               <NoteOptionsContents

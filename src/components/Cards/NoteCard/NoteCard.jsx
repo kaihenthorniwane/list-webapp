@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
 import NoteBackground from "./NoteBackground";
 import MoreOptionsDots from "./Icons/MoreOptionsDots";
+import { useOverlay } from "@/contexts/OverlayContext";
+import Drawer from "@/components/Drawer/Drawer";
+import EditNoteContents from "@/components/Drawer/Posting Contents/EditNoteContents";
 
 const noteCardName = "";
 
@@ -16,6 +19,24 @@ const NoteCard = ({
   variant,
   disableDateFormatting,
 }) => {
+  const { isOn, setIsOn, setOverlay } = useOverlay();
+
+  const openEditDrawer = () => {
+    setOverlay(
+      <Drawer>
+        <EditNoteContents
+          note_id={note_id}
+          folder_id={folder_id}
+          note_title={note_title}
+          note_content={note_content}
+          last_saved={last_saved}
+          variant={"edit-note"}
+        />
+      </Drawer>
+    );
+    setIsOn(true);
+  };
+
   const currentVariant = variant || "writer"; //server rendered state
 
   const dimensionVariantStyles = {
@@ -56,6 +77,14 @@ const NoteCard = ({
       "text-14 font-300 leading-none flex w-full items-center justify-between max-h-4",
     "folder-view": "text-12 font-300 hidden",
     grid: "text-14 font-300 leading-none block",
+  };
+
+  const onClickVariantFunctions = {
+    writer: () => {},
+    simple: openEditDrawer,
+    "share-view": () => {},
+    "folder-view": () => {},
+    grid: openEditDrawer,
   };
 
   const noteBackground = {
@@ -101,6 +130,7 @@ const NoteCard = ({
         "transition-padding duration-300 ease-fast-easing" +
         dimensionVariantStyles[currentVariant]
       }
+      onClick={onClickVariantFunctions[currentVariant]}
     >
       <div className={"relative z-1 " + wrapperVariantStyles[currentVariant]}>
         <div className="flex leading-tight justify-between gap-2">
