@@ -1,4 +1,6 @@
 import { sql } from "@vercel/postgres";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export const dynamic = "force-dynamic";
 
@@ -27,9 +29,41 @@ async function fetchNotes(folder_id, attempt = 0) {
 }
 
 export async function POST(request) {
+  // Get the session
+  const session = await getServerSession(authOptions);
+
+  // Check if the user is authenticated
+  if (!session) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   try {
     const data = await request.json();
-    console.log("Received data:", data);
+    const user_id = session.user.id;
+
+    // First, verify the folder belongs to the authenticated user
+    const folderQuery =
+      await sql`SELECT user_id FROM folders WHERE folder_id = ${data.folder_id}`;
+
+    if (
+      folderQuery.rows.length === 0 ||
+      folderQuery.rows[0].user_id !== user_id
+    ) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized user attempted to add note" }),
+        {
+          status: 403,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
 
     // Perform the insert operation
     await sql`

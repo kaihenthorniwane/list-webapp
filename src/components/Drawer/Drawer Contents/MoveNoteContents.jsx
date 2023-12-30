@@ -66,7 +66,7 @@ export default function MoveNoteContents({
     async function fetchFolders() {
       if (status === "authenticated" && !foldersFetched) {
         try {
-          const response = await fetch("/api/getfolders/" + session.userId);
+          const response = await fetch("/api/getfolders/" + session.user.id);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }

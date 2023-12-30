@@ -78,7 +78,7 @@ async function addFoldersAndNotes(userId) {
   }
 }
 
-const handler = NextAuth({
+const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -119,10 +119,8 @@ const handler = NextAuth({
 
       if (dbUser.rows.length > 0) {
         // Add user_id to the session object
-        session.userId = dbUser.rows[0].user_id;
+        session.user.id = dbUser.rows[0].user_id;
       }
-
-      console.log("userid is " + session.userId);
 
       return session;
     },
@@ -132,11 +130,13 @@ const handler = NextAuth({
     // async session({ session, user, token }) {
     //   return session;
     // },
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, user, account, profile }) {
       return token;
     },
   },
   // ...other options
-});
+};
 
-export { handler as GET, handler as POST };
+const handler = NextAuth(authOptions);
+
+export { authOptions, handler as GET, handler as POST };

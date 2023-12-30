@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.7.1",
     "@rive-app/react-canvas": "^4.6.2",
     "@vercel/postgres": "^0.5.1",
     "framer-motion": "^10.16.16",

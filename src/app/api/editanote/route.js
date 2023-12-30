@@ -1,4 +1,6 @@
 import { sql } from "@vercel/postgres";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export const dynamic = "force-dynamic";
 
@@ -37,9 +39,44 @@ async function fetchUpdatedNote(
 }
 
 export async function POST(request) {
+  // Get the session
+  const session = await getServerSession(authOptions);
+
+  // Check if the user is authenticated
+  if (!session) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   try {
     const data = await request.json();
-    console.log("Received data:", data);
+    const user_id = session.user.id;
+
+    // First, verify the note belongs to a folder owned by the authenticated user
+    const noteOwnerQuery = await sql`
+        SELECT folders.user_id
+        FROM notes
+        JOIN folders ON notes.folder_id = folders.folder_id
+        WHERE notes.note_id = ${data.note_id}`;
+
+    if (
+      noteOwnerQuery.rows.length === 0 ||
+      noteOwnerQuery.rows[0].user_id !== user_id
+    ) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized user attempted to edit note" }),
+        {
+          status: 403,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
 
     // Perform the update operation
     await sql`

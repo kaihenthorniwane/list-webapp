@@ -1,37 +1,53 @@
 import { sql } from "@vercel/postgres";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 // Opt out of caching for all data requests in the route segment
 export const dynamic = "force-dynamic";
 
 export async function GET(request, { params }) {
   // Get the session
-  const session = await getSession(request);
-
-  console.log("this is the session:");
-  console.log(session);
+  const session = await getServerSession(authOptions);
 
   // Check if the user is authenticated
-  // if (!session) {
-  //   return new Response(JSON.stringify({ error: "Unauthorized" }), {
-  //     status: 401,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  // }
+  if (!session) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
-  // If authenticated, fetch folders
+  const user_id = session.user.id;
+  const folder_id = params.folder_id; // Assuming 'folder_id' is passed in the route
+  console.log("Requested notes for folder id: " + folder_id);
+
   try {
-    const folder_id = params.folder_id; // Assuming 'user_id' is passed in the route
-    console.log("Requested notes for folder id: " + folder_id);
+    // First, verify the folder belongs to the authenticated user
+    const folderQuery =
+      await sql`SELECT user_id FROM folders WHERE folder_id = ${folder_id}`;
 
-    const dbFolders =
+    if (
+      folderQuery.rows.length === 0 ||
+      folderQuery.rows[0].user_id !== user_id
+    ) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized user attempted to access data" }),
+        {
+          status: 403,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    // If authorized, fetch notes in the folder
+    const dbNotes =
       await sql`SELECT * FROM notes WHERE folder_id = ${folder_id}`;
 
-    // console.log("new folders:");
-    // console.log(dbFolders.rows);
-    return new Response(JSON.stringify(dbFolders.rows), {
+    return new Response(JSON.stringify(dbNotes.rows), {
       headers: {
         "Content-Type": "application/json",
       },
