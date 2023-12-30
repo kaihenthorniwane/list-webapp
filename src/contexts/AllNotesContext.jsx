@@ -31,7 +31,8 @@ export const AllNotesProvider = ({ children }) => {
         note_content: note_content,
         note_title: note_title,
       };
-      fetch("/api/addanote", {
+
+      const response = await fetch("/api/addanote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,11 +40,18 @@ export const AllNotesProvider = ({ children }) => {
         body: JSON.stringify(objectWithData),
       });
 
-      const response = await fetch(`/api/getallnotes/${folder_id}`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       const data = await response.json();
-      setallNotesData((prevData) => ({ ...prevData, [folder_id]: data }));
+
+      console.log(data);
+
+      // Update allNotesData with the new data
+      setallNotesData((prevData) => ({ ...prevData, [folder_id]: data.notes }));
     } catch (error) {
-      console.error("Error fetching notes:", error);
+      console.error("Error adding a note:", error);
     }
   };
 
@@ -59,7 +67,8 @@ export const AllNotesProvider = ({ children }) => {
         note_content: note_content,
         note_title: note_title,
       };
-      fetch("/api/editanote", {
+
+      const response = await fetch("/api/editanote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,11 +76,21 @@ export const AllNotesProvider = ({ children }) => {
         body: JSON.stringify(objectWithData),
       });
 
-      const response = await fetch(`/api/getallnotes/${folder_id}`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       const data = await response.json();
-      setallNotesData((prevData) => ({ ...prevData, [folder_id]: data }));
+
+      // Update allNotesData with the new note data
+      setallNotesData((prevData) => {
+        const updatedNotes = prevData[folder_id].map((note) =>
+          note.note_id === note_id ? data.updatedNote : note
+        );
+        return { ...prevData, [folder_id]: updatedNotes };
+      });
     } catch (error) {
-      console.error("Error fetching notes:", error);
+      console.error("Error updating a note:", error);
     }
   };
 
