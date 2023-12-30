@@ -7,7 +7,6 @@ export default function Drawer({ children }) {
   const { isOn, setIsOn } = useOverlay();
 
   const controls = useDragControls();
-
   function startDrag(event) {
     controls.start(event);
   }
@@ -50,22 +49,35 @@ export default function Drawer({ children }) {
     }
   };
 
-  // return (
-  //   <div>
-  //     {"According to the Drawer at the time this is rendered, isOn is " + isOn}
-  //   </div>
-  // );
+  const motionDivProps =
+    window.innerWidth >= 768
+      ? {
+          initial: { scale: 1.05, opacity: 0 },
+          animate: {
+            scale: 1,
+            opacity: 1,
+            transition: { ease: brandedBezier },
+          },
+          exit: {
+            scale: 0.8,
+            opacity: 0,
+            transition: { duration: 0.05, ease: "linear" },
+          },
+        }
+      : {
+          initial: { translateY: "100%" },
+          animate: { translateY: 0 },
+          exit: { translateY: "100%" },
+          transition: { ease: brandedBezier },
+        };
 
   return (
     <AnimatePresence>
       {isOn && (
         <>
           <motion.div
-            className="fixed z-[100] left-0 right-0 bottom-0 flex justify-center"
-            initial={{ translateY: "100%" }}
-            animate={{ translateY: 0 }}
-            exit={{ translateY: "100%" }}
-            transition={{ ease: brandedBezier }}
+            className="fixed z-[100] left-0 right-0 bottom-0 flex justify-center md:top-0 md:items-center md:p-5"
+            {...motionDivProps}
           >
             <motion.div
               layout
@@ -76,10 +88,10 @@ export default function Drawer({ children }) {
               onDragEnd={handleDragEnd}
               dragControls={controls}
               dragElastic={0.7}
-              className="relative max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
+              className="md:max-w-xl md:p-7 md:m-0 md:rounded-[2.75rem] relative max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
             >
               <div
-                className="pt-4 pb-6 -mx-5 bg-White-Gradient-Down-More-White relative z-[1]"
+                className="pt-4 pb-6 -mx-5 bg-White-Gradient-Down-More-White relative z-[1] md:hidden"
                 onPointerDown={startDrag}
                 style={{ touchAction: "none" }}
               >

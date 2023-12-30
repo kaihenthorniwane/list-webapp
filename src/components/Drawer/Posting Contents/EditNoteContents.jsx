@@ -65,13 +65,14 @@ export default function EditNoteContents({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3 ">
-        <div className="w-full h-[60vh] flex">
+        <div className="w-full h-[60vh] md:h-[35vh] flex">
           <div className="flex flex-col gap-3 w-full">
             <div className="font-header text-32 leading-none">
               <TextInput
                 text={title}
                 setText={setTitle}
                 placeholder={"Write your title"}
+                wideTracking={true}
               />
             </div>
             <TextInput

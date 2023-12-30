@@ -6,6 +6,7 @@ export default function TextInput({
   placeholder,
   overflowHidden = true,
   minimumHeight = "0",
+  wideTracking = false,
 }) {
   const textareaRef = useRef(null);
 
@@ -27,6 +28,7 @@ export default function TextInput({
       placeholder={placeholder}
       className={
         "outline-0 resize-none w-full focus:outline-none p-1 -m-1 " +
+        (wideTracking && "tracking-wide ") +
         (overflowHidden && "overflow-hidden")
       }
       value={text}
