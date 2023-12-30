@@ -96,7 +96,7 @@ export default function Drawer({ children }) {
               onClick={(e) => {
                 e.stopPropagation();
               }}
-              className="md:max-w-xl md:p-7 md:m-0 md:rounded-[2.75rem] relative max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
+              className="md:max-w-xl md:p-7 md:m-0 md:rounded-[2.75rem] relative max-w-3xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
             >
               <div
                 className="pt-4 pb-6 -mx-5 bg-White-Gradient-Down-More-White relative z-[1] md:hidden"

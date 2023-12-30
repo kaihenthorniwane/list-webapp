@@ -1,7 +1,7 @@
 import SmoothButtonBlackBackground from "./SmoothButtonBlackBackground";
 export default function SmoothButtonBlack({
   text = "Smooth Button",
-  functionToRun,
+  functionToRun = () => {},
 }) {
   return (
     <div

@@ -40,6 +40,12 @@ export default function EditNoteContents({
     },
   };
 
+  const actionButtonTextVariant = {
+    "new-note": "Create",
+    "direct-edit-note": "Save",
+    "edit-note": "Save",
+  };
+
   const cancelFunctionVariant = {
     "new-note": () => {
       setIsOn(false);
@@ -91,14 +97,15 @@ export default function EditNoteContents({
           text="Cancel"
           functionToRun={cancelFunctionVariant[variant]}
         />
+
         {title.length > 0 && content.length > 0 ? (
           <SmoothButtonBlack
-            text="Save"
+            text={actionButtonTextVariant[variant]}
             functionToRun={saveFunctionVariant[variant]}
           />
         ) : (
           <div className="opacity-25 w-full">
-            <SmoothButtonBlack text="Save" />
+            <SmoothButtonBlack text={actionButtonTextVariant[variant]} />
           </div>
         )}
       </div>

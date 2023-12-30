@@ -41,7 +41,7 @@ export default function Folders() {
     // If there's a session, render the folder titles
     return (
       <div className="px-5 py-5 flex flex-col items-center overflow-hidden">
-        <div className="w-full max-w-4xl flex flex-col gap-8">
+        <div className="w-full max-w-3xl flex flex-col gap-8">
           <FolderTitle
             headerText={"Folders"}
             crumbNameAndLinkArray={undefined}

@@ -7,11 +7,11 @@ export default function NewNoteButton({ folder_id }) {
 
   return (
     <div
-      className="fixed z-[90] bottom-5 right-5 brand-button-transition opacity-button-transition"
+      className="fixed z-[90] bottom-5 right-5 brand-button-transition opacity-button-transition md:hidden"
       onClick={() => {
         setOverlay(
           <Drawer>
-            <EditNoteContents folder_id={folder_id} />
+            <EditNoteContents folder_id={folder_id} variant={"new-note"} />
           </Drawer>
         );
         setIsOn(true);

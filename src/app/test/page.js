@@ -27,7 +27,7 @@ export default function Folders() {
       <>
         {overlay}
         <div className="px-5 py-5 flex flex-col items-center overflow-hidden">
-          <div className="w-full max-w-4xl flex flex-col gap-8">
+          <div className="w-full max-w-3xl flex flex-col gap-8">
             <FolderTitle
               headerText={"Test Page"}
               crumbNameAndLinkArray={undefined}
