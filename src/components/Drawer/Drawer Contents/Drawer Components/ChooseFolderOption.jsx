@@ -16,7 +16,9 @@ export default function ChooseFolderOption({
       }}
     >
       <SelectFolderRive isSelected={folder_id == chosenFolder} />
-      <span className="mt-1.5 font-600">{text}</span>
+      <span className={"mt-1.5 " + (folder_id == chosenFolder && "font-600")}>
+        {text}
+      </span>
     </div>
   );
 }

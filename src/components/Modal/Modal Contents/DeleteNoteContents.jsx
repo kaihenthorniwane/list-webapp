@@ -4,7 +4,6 @@ import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "@/components/Drawer/Drawer";
 import NoteOptionsContents from "@/components/Drawer/Drawer Contents/NoteOptionsContents";
 import { useAllNotes } from "@/contexts/AllNotesContext";
-import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 
 export default function DeleteNoteContents({
   note_id,
