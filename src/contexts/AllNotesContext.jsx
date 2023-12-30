@@ -7,12 +7,32 @@ const AllNotesContext = createContext();
 export const AllNotesProvider = ({ children }) => {
   const [allNotesData, setallNotesData] = useState({}); // State to store notes
 
-  // Function to fetch notes
-  const fetchAllNotes = async (folderId) => {
+  // // Function to fetch notes
+
+  // Function to fetch and sort notes
+  const fetchAllNotes = async (folderId, noteOrder) => {
     if (!allNotesData[folderId]) {
       try {
         const response = await fetch(`/api/getallnotes/${folderId}`);
-        const data = await response.json();
+        let data = await response.json();
+
+        // Sorting based on noteOrder
+        switch (noteOrder) {
+          case "newest":
+            data.sort(
+              (a, b) => new Date(b.last_saved) - new Date(a.last_saved)
+            );
+            break;
+          case "oldest":
+            data.sort(
+              (a, b) => new Date(a.last_saved) - new Date(b.last_saved)
+            );
+            break;
+          // Add more cases for other sorting criteria here
+        }
+
+        console.log(data);
+
         setallNotesData((prevData) => ({ ...prevData, [folderId]: data }));
       } catch (error) {
         console.error("Error fetching notes:", error);

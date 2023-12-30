@@ -31,6 +31,12 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
     rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   const paddingForScrollAdjustment = remToPixels(8);
 
+  //function to fetch notes
+  useEffect(() => {
+    console.log("folder id: " + folder_id);
+    fetchAllNotes(folder_id, noteOrder); // Fetch and sort notes when the component mounts or folder_id/noteOrder changes
+  }, [folder_id, noteOrder]);
+
   //scrolling function for note layout change
   useEffect(() => {
     if (notesContainerDivRef.current) {
@@ -72,18 +78,6 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
       }
     }
   }, [userSetNoteFormat]);
-
-  //function to fetch notes
-  useEffect(() => {
-    console.log("folder id: " + folder_id);
-    fetchAllNotes(folder_id); // Fetch notes when the component mounts or folder_id changes
-  }, [folder_id]);
-
-  // useEffect(() => {
-  //   console.log("-------");
-  //   console.log("-------");
-  //   console.log("FolderPageMobile here. I see isOn as: ", isOn);
-  // }, [overlay]);
 
   //variant styles for wrapper
   const wrapperVariantStyles = {
