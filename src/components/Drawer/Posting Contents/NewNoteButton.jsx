@@ -4,7 +4,6 @@ import EditNoteContents from "./EditNoteContents";
 
 export default function NewNoteButton({ folder_id }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
-
   return (
     <div
       className="fixed z-[90] bottom-5 right-5 brand-button-transition opacity-button-transition md:hidden"

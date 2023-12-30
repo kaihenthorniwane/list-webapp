@@ -6,7 +6,7 @@ import NewNoteDesktopButton from "@/components/Drawer/Posting Contents/NewNoteDe
 
 export const DropDownStateContext = React.createContext();
 
-export default function FilterBarMobile(folder_id) {
+export default function FilterBarMobile({ folder_id }) {
   const [dropDownState, setDropDownState] = useState("closed");
   const { appSetNoteFormat, setAppSetNoteFormat } = useContext(
     AppSetNoteFormatContext
