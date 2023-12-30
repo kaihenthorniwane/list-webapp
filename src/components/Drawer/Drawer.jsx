@@ -78,6 +78,11 @@ export default function Drawer({ children }) {
           <motion.div
             className="fixed z-[100] left-0 right-0 bottom-0 flex justify-center md:top-0 md:items-center md:p-5"
             {...motionDivProps}
+            onClick={(e) => {
+              if (window.innerWidth >= 768) {
+                setIsOn(false);
+              }
+            }}
           >
             <motion.div
               layout
@@ -88,6 +93,9 @@ export default function Drawer({ children }) {
               onDragEnd={handleDragEnd}
               dragControls={controls}
               dragElastic={0.7}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
               className="md:max-w-xl md:p-7 md:m-0 md:rounded-[2.75rem] relative max-w-4xl w-full px-5 pb-5 pb-[101.25rem] mb-[-100rem]  bg-Brand-White flex flex-col items-stretch rounded-tl-[2rem] rounded-tr-[2rem] overflow-hidden"
             >
               <div
