@@ -11,33 +11,29 @@ export const AllNotesProvider = ({ children }) => {
 
   // Function to fetch and sort notes
   const fetchAllNotes = async (folderId, noteOrder) => {
-    if (!allNotesData[folderId]) {
-      try {
-        const response = await fetch(`/api/getallnotes/${folderId}`);
-        let data = await response.json();
+    // if (!allNotesData[folderId]) {
+    try {
+      const response = await fetch(`/api/getallnotes/${folderId}`);
+      let data = await response.json();
 
-        // Sorting based on noteOrder
-        switch (noteOrder) {
-          case "newest":
-            data.sort(
-              (a, b) => new Date(b.last_saved) - new Date(a.last_saved)
-            );
-            break;
-          case "oldest":
-            data.sort(
-              (a, b) => new Date(a.last_saved) - new Date(b.last_saved)
-            );
-            break;
-          // Add more cases for other sorting criteria here
-        }
-
-        console.log(data);
-
-        setallNotesData((prevData) => ({ ...prevData, [folderId]: data }));
-      } catch (error) {
-        console.error("Error fetching notes:", error);
+      // Sorting based on noteOrder
+      switch (noteOrder) {
+        case "newest":
+          data.sort((a, b) => new Date(b.last_saved) - new Date(a.last_saved));
+          break;
+        case "oldest":
+          data.sort((a, b) => new Date(a.last_saved) - new Date(b.last_saved));
+          break;
+        // Add more cases for other sorting criteria here
       }
+
+      console.log(data);
+
+      setallNotesData((prevData) => ({ ...prevData, [folderId]: data }));
+    } catch (error) {
+      console.error("Error fetching notes:", error);
     }
+    // }
   };
 
   const addANoteAndRefreshOnscreenNotes = async (
