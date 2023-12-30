@@ -56,7 +56,7 @@ const NoteCard = ({
   const dimensionVariantStyles = {
     writer: noteCardName + " relative",
     simple: noteCardName + " relative p-5",
-    "share-view": noteCardName + " relative p-5",
+    "share-view": noteCardName + " relative z-[1] p-5",
     grid: noteCardName + " relative p-4 pb-10",
     "folder-view": noteCardName + " relative h-24 p-4",
   };

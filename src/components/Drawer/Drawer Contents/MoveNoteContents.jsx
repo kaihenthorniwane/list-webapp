@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
 import ChooseFolderOption from "./Drawer Components/ChooseFolderOption";
 import { useAllNotes } from "@/contexts/AllNotesContext";
+import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 
 export default function MoveNoteContents({
   note_id,
@@ -46,7 +47,6 @@ export default function MoveNoteContents({
   const deleteANote = (noteId) => {
     try {
       fetch(`/api/deleteanote/${noteId}`);
-      console.log(allNotesData);
       const firstKey = Object.keys(allNotesData)[0];
       const arrayNotes = allNotesData[firstKey];
 
@@ -86,6 +86,14 @@ export default function MoveNoteContents({
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-3">
+        <NoteCard
+          note_id={note_id}
+          folder_id={folder_id}
+          note_title={note_title}
+          note_content={note_content}
+          last_saved={last_saved}
+          variant="share-view"
+        />
         <span className="text-32 font-header font-400">Move this note:</span>
         <div className="flex flex-col gap-3">
           {folders.map((folder) => {

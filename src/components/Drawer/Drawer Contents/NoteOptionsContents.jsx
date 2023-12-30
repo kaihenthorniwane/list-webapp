@@ -11,6 +11,7 @@ import ShareNoteIcon from "./Icons/ShareNoteIcon";
 import MoveNoteIcon from "./Icons/MoveNoteIcon";
 import EditNoteIcon from "./Icons/EditNoteIcon";
 import TrashNoteIcon from "./Icons/TrashNoteIcon";
+import NoteCard from "@/components/Cards/NoteCard/NoteCard";
 
 export default function NoteOptionsContents({
   note_id,
@@ -23,6 +24,14 @@ export default function NoteOptionsContents({
 
   return (
     <div className="flex flex-col gap-5">
+      <NoteCard
+        note_id={note_id}
+        folder_id={folder_id}
+        note_title={note_title}
+        note_content={note_content}
+        last_saved={last_saved}
+        variant="share-view"
+      />
       <div className="flex flex-col gap-3">
         <DrawerOption
           icon={<ShareNoteIcon />}
