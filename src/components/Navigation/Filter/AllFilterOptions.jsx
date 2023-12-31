@@ -46,7 +46,7 @@ export default function AllFilterOptions() {
         >
           <div
             className={
-              "w-full p-5 max-w-3xl flex gap-10 overflow-hidden relative " +
+              "w-full p-5  max-w-3xl flex gap-10 overflow-hidden relative " +
               (dropDownState == "layout" ? "justify-end" : "justify-start")
             }
           >
