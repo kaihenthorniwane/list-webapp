@@ -6,6 +6,7 @@ import "./globals.css";
 export const metadata = {
   title: "List React App",
   description: "React project by Kai Henthorn-Iwane",
+  metadataBase: new URL("https://list-webapp.vercel.app/"),
 };
 
 export default function RootLayout({ children }) {
