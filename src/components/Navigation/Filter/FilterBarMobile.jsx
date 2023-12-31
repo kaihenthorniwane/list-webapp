@@ -15,12 +15,18 @@ export default function FilterBarMobile({ folder_id }) {
   return (
     <DropDownStateContext.Provider value={{ dropDownState, setDropDownState }}>
       <div className="sticky box-border mt-1 mb-10 top-0 w-full flex flex-col items-center z-[11]">
-        <div className="no-drag w-full px-5 pt-4 max-w-3xl bg-Brand-White relative z-[1] flex md:justify-between">
+        <div className="items-center no-drag w-full px-5 pt-4 max-w-3xl bg-Brand-White relative z-[1] flex md:justify-between">
           <div className=" flex gap-3 ">
             <FilterTab label={"Order"} iconType={"Filter"} />
             <FilterTab label={"Layout"} iconType={appSetNoteFormat} />
           </div>
-          <NewNoteDesktopButton folder_id={folder_id} />
+
+          <div className="max-h-3 items-center hidden md:flex">
+            <NewNoteDesktopButton
+              folder_id={folder_id}
+              dropDownState={dropDownState}
+            />
+          </div>
         </div>
         <AllFilterOptions />
         <div className="absolute top-full w-full h-10 bg-White-Gradient-Down"></div>

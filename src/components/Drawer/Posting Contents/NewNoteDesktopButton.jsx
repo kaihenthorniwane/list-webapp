@@ -3,12 +3,15 @@ import Drawer from "../Drawer";
 import EditNoteContents from "./EditNoteContents";
 import NewNoteDesktopBack from "./NewNoteDesktopBack";
 
-export default function NewNoteDesktopButton({ folder_id }) {
+export default function NewNoteDesktopButton({ folder_id, dropDownState }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
-
+  dropDownState;
   return (
     <div
-      className="hidden md:flex relative pr-5 pl-4 gap-2 items-center text-Brand-White brand-button-transition opacity-button-transition"
+      className={
+        "flex relative pr-5 pl-4 gap-2 items-center text-Brand-White brand-button-transition opacity-button-transition h-[38px] transition-transform ease-fast-easing transform " +
+        (dropDownState !== "closed" && "-translate-y-2 lesser-transform")
+      }
       onClick={() => {
         setOverlay(
           <Drawer>
