@@ -100,7 +100,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
             {overlay}
             <NewNoteButton folder_id={folder_id} />
             <div className="relative flex flex-col items-center ">
-              <div className="px-5 pt-5 w-full max-w-3xl">
+              <div className="mx-5 pt-5 w-full max-w-3xl">
                 <FolderTitle
                   crumbNameAndLinkArray={[
                     {
@@ -120,7 +120,7 @@ export default function FolderPageMobile({ folder_id, folder_name }) {
 
               <div
                 className={
-                  "max-w-3xl w-full px-5 pb-5 " +
+                  "max-w-3xl w-full mx-5 pb-5 " +
                   wrapperVariantStyles[appSetNoteFormat]
                 }
                 ref={notesContainerDivRef}
