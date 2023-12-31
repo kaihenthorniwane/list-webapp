@@ -43,12 +43,12 @@ export default function FolderTitle({ crumbNameAndLinkArray, headerText }) {
         <h1 className="font-header text-44 tracking-wide font-400 leading-none">
           {headerText}
         </h1>
-        <UserProfile
+        {/* <UserProfile
           firstname={sessionInfo.firstname}
           name={sessionInfo.name}
           image={sessionInfo.image}
           email={sessionInfo.email}
-        />
+        /> */}
       </div>
     </div>
   );
