@@ -129,7 +129,7 @@ export default function MoveNoteContents({
           />
         ) : (
           <div className="opacity-25 w-full">
-            <SmoothButtonBlack text="Move" />
+            <SmoothButtonBlack text="Move" disabled={true} />
           </div>
         )}
       </div>

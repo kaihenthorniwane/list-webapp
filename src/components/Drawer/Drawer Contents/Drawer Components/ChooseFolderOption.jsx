@@ -10,7 +10,7 @@ export default function ChooseFolderOption({
 }) {
   return (
     <div
-      className="flex items-center gap-2.5"
+      className="flex items-center gap-2.5 cursor-pointer"
       onClick={() => {
         setChosenFolder(folder_id);
       }}

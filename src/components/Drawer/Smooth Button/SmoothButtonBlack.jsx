@@ -2,10 +2,14 @@ import SmoothButtonBlackBackground from "./SmoothButtonBlackBackground";
 export default function SmoothButtonBlack({
   text = "Smooth Button",
   functionToRun = () => {},
+  disabled = false,
 }) {
   return (
     <div
-      className="relative w-full brand-button-transition opacity-button-transition"
+      className={
+        "relative w-full " +
+        (!disabled && "brand-button-transition opacity-button-transition")
+      }
       onClick={() => {
         functionToRun();
       }}

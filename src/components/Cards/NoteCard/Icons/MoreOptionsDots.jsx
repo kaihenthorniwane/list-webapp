@@ -12,7 +12,7 @@ export default function MoreOptionsDots({
   const { isOn, setIsOn, setOverlay } = useOverlay();
 
   return (
-    <div className="opacity-button-transition relative z-[10]">
+    <div className="opacity-button-transition relative z-[10] cursor-pointer">
       <svg
         width="27"
         height="27"

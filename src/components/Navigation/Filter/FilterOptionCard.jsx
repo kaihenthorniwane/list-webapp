@@ -53,7 +53,10 @@ export default function FilterOptionCard({
 
   return (
     <motion.div
-      className={"w-full no-drag relative"}
+      className={
+        "w-full no-drag relative " +
+        (contextToGet !== optionName && " cursor-pointer")
+      }
       animate={
         contextToGet === optionName ? textStyles["on"] : textStyles["off"]
       }

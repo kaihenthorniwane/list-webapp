@@ -105,7 +105,10 @@ export default function EditNoteContents({
           />
         ) : (
           <div className="opacity-25 w-full">
-            <SmoothButtonBlack text={actionButtonTextVariant[variant]} />
+            <SmoothButtonBlack
+              text={actionButtonTextVariant[variant]}
+              disabled={true}
+            />
           </div>
         )}
       </div>
