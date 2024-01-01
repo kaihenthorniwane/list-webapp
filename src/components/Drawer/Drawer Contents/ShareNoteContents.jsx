@@ -75,6 +75,13 @@ export default function ShareNoteContents({
     );
   };
 
+  // Function to share on WhatsApp
+  const shareOnWhatsApp = () => {
+    const message = `Check out my note: ${note_title} - ${note_content}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl);
+  };
+
   // Share options with corresponding functions
   const shareOptions = [
     {
@@ -91,6 +98,11 @@ export default function ShareNoteContents({
       text: "Email",
       iconSrc: "/svg/Drawers/ShareDrawer/Mail Icon.svg",
       functionToRun: openEmail,
+    },
+    {
+      text: "WhatsApp",
+      iconSrc: "/svg/Drawers/ShareDrawer/WhatsApp Icon.svg",
+      functionToRun: shareOnWhatsApp,
     },
     {
       text: "X.com",
