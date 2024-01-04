@@ -10,7 +10,6 @@ import NewNoteButton from "../Drawer/Posting Contents/NewNoteButton";
 export const UserSetNoteFormatContext = React.createContext();
 export const AppSetNoteFormatContext = React.createContext();
 export const NoteOrderContext = React.createContext();
-export const OverlayContext = React.createContext();
 export const ScrollingEnabledContext = React.createContext();
 
 export default function FolderPageMobile({ folder_id, folder_name }) {

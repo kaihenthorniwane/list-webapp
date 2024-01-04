@@ -35,10 +35,12 @@ module.exports = {
       colors: {
         "Brand-Black": "#111A49",
         "Brand-White": "#FFFFFF",
+        "Brand-Red": "#D41F4A",
       },
       backgroundColor: {
         "Brand-Black": "#111A49",
         "Brand-White": "#FFFFFF",
+        "Brand-Red": "#D41F4A",
       },
       backgroundImage: {
         "White-Gradient-Down":

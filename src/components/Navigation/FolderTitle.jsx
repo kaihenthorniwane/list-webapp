@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumbs from "./Breadcrumbs";
 import { getSession } from "next-auth/react";
-import UserProfile from "../Drawer/Drawer Contents/Drawer Components/UserProfile";
+import UserProfile from "../Drawer/Drawer Contents/Drawer Components/UserProfileSmall";
 
-export default function FolderTitle({ crumbNameAndLinkArray, headerText }) {
+export default function FolderTitle({
+  crumbNameAndLinkArray,
+  headerText,
+  showUserIcon = false,
+}) {
   const [sessionInfo, setSessionInfo] = useState({
     firstname: "",
     name: "",
@@ -43,12 +47,14 @@ export default function FolderTitle({ crumbNameAndLinkArray, headerText }) {
         <h1 className="font-header text-44 tracking-wide font-400 leading-none">
           {headerText}
         </h1>
-        {/* <UserProfile
-          firstname={sessionInfo.firstname}
-          name={sessionInfo.name}
-          image={sessionInfo.image}
-          email={sessionInfo.email}
-        /> */}
+        {showUserIcon && (
+          <UserProfile
+            firstname={sessionInfo.firstname}
+            name={sessionInfo.name}
+            image={sessionInfo.image}
+            email={sessionInfo.email}
+          />
+        )}
       </div>
     </div>
   );
