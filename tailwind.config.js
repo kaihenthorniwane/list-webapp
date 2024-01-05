@@ -68,6 +68,10 @@ module.exports = {
       height: {
         "folder-card": "12.75rem", //Folder card height
         "smooth-button": "3.75rem", //smooth button height
+        30: "7.5rem",
+      },
+      width: {
+        30: "7.5rem", //Folder card height
       },
       maxHeight: {
         "folder-front": "9.125rem", // Folder front height

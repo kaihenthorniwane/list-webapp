@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumbs from "./Breadcrumbs";
 import { getSession } from "next-auth/react";
-import UserProfile from "../Drawer/Drawer Contents/Drawer Components/UserProfileSmall";
+import UserProfile from "../Drawer/Drawer Contents/Drawer Components/UserProfile";
 
 export default function FolderTitle({
   crumbNameAndLinkArray,
