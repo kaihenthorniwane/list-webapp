@@ -15,7 +15,7 @@ export default function UserProfile({
 
   const imageSizesVariants = {
     small: "38px",
-    big: "118px",
+    big: "119px",
   };
 
   const divSizesVariants = {
