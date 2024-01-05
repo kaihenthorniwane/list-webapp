@@ -15,7 +15,7 @@ export default function UserProfile({
 
   const imageSizesVariants = {
     small: "38px",
-    big: "119px",
+    big: "118px",
   };
 
   const divSizesVariants = {
@@ -39,7 +39,7 @@ export default function UserProfile({
   return (
     <div
       className={
-        "flex items-center gap-2 relative " + divSizesVariants[variant]
+        "flex items-center gap-2 relative p-[1px] " + divSizesVariants[variant]
       }
       onClick={clickFunctionVariants[variant]}
     >
@@ -47,7 +47,7 @@ export default function UserProfile({
         src={image}
         height={imageSizesVariants[variant]}
         width={imageSizesVariants[variant]}
-        className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] z-[0]"
+        className="relative z-[0]"
         onLoad={() => {
           setIsImageLoaded(true);
         }}
