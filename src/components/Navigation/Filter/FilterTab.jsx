@@ -7,6 +7,7 @@ import FilterIcon from "./Icons/FilterIcon";
 import WriterIcon from "./Icons/WriterIcon";
 import SimpleIcon from "./Icons/SimpleIcon";
 import GridIcon from "./Icons/GridIcon";
+import DropdownIcon from "./Icons/DropdownIcon";
 
 export default function FilterTab({ label, iconType }) {
   const currentIcon = iconType || "default"; //server rendered state
@@ -63,7 +64,7 @@ export default function FilterTab({ label, iconType }) {
             animate={{ rotate: isSelected ? 180 : 0 }}
             transition={{ duration: 0.5, ease: brandedBezier }}
           >
-            <img src="/svg/Filter/Dropdown Icon.svg" />
+            <DropdownIcon />
           </motion.div>
         </div>
       </div>

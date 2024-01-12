@@ -21,7 +21,7 @@ export default function FolderNoteLeft() {
       <path
         d="M1 52L1 -1.04907e-06L-0.999998 -1.1365e-06L-1 52L1 52Z"
         fill="rgb(var(--Brand-Black))"
-        mask="url(#path-1-inside-1_292_9339)"
+        // mask="url(#path-1-inside-1_292_9339)"
       />
     </svg>
   );

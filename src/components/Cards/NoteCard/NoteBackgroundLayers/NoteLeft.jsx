@@ -22,7 +22,7 @@ export default function NoteLeft() {
         <path
           d="M0.999999 31.9999L1 -2.05444e-06L-1 -2.14186e-06L-1 31.9999L0.999999 31.9999Z"
           fill="rgb(var(--Brand-Black))"
-          // mask="url(#path-1-inside-1_368_10041)"
+          mask="url(#path-1-inside-1_368_10041)"
         />
       </g>
       <defs>
