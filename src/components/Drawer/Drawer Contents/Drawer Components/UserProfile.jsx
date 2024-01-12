@@ -20,8 +20,13 @@ export default function UserProfile({
 
   const divSizesVariants = {
     small:
-      "h-10 w-10 cursor-pointer brand-button-transition opacity-button-transition lesser-transform grayscale hover:grayscale-0  ",
+      "h-10 w-10 cursor-pointer brand-button-transition opacity-button-transition lesser-transform  ",
     big: "h-30 w-30",
+  };
+
+  const imgStyleVariants = {
+    small: " grayscale group-hover:grayscale-0",
+    big: "",
   };
 
   const clickFunctionVariants = {
@@ -39,7 +44,8 @@ export default function UserProfile({
   return (
     <div
       className={
-        "flex items-center gap-2 relative p-[1px] " + divSizesVariants[variant]
+        "flex items-center gap-2 relative group p-[1px] " +
+        divSizesVariants[variant]
       }
       onClick={clickFunctionVariants[variant]}
     >
@@ -47,7 +53,7 @@ export default function UserProfile({
         src={image}
         height={imageSizesVariants[variant]}
         width={imageSizesVariants[variant]}
-        className="relative z-[0]"
+        className={"relative z-[0] " + imgStyleVariants[variant]}
         onLoad={() => {
           setIsImageLoaded(true);
         }}

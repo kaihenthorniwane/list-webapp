@@ -14,7 +14,7 @@ export default function SmoothButtonRedOutlineMiddle() {
       <path
         d="M0 2H167V-2H0V2ZM167 58H0V62H167V58Z"
         fill="#D41F4A"
-        mask="url(#path-1-inside-1_388_12415)"
+        // mask="url(#path-1-inside-1_388_12415)"
       />
     </svg>
   );
