@@ -9,7 +9,7 @@ export default function FilterIcon() {
     >
       <path
         d="M26 8.875L1 8.875M26 17.875L1 17.875"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -22,7 +22,7 @@ export default function FilterIcon() {
         rx="3"
         transform="rotate(90 21.5 5.375)"
         fill="rgb(var(--Brand-White))"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
       />
       <rect
@@ -33,7 +33,7 @@ export default function FilterIcon() {
         rx="3"
         transform="rotate(90 13.5 14.125)"
         fill="rgb(var(--Brand-White))"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
       />
     </svg>

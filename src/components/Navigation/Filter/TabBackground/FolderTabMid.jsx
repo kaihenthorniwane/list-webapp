@@ -15,7 +15,7 @@ export default function FolderTabMid() {
       <path
         d="M76 1H0V-1H76V1Z"
         fill="rgb(var(--Brand-Black))"
-        mask="url(#path-1-inside-1_112_10203)"
+        // mask="url(#path-1-inside-1_112_10203)"
       />
     </svg>
   );

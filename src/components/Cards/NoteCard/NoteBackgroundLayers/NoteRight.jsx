@@ -22,7 +22,7 @@ export default function NoteRight() {
         <path
           d="M47 6.18449e-07L47 32L49 32L49 6.44766e-07L47 6.18449e-07Z"
           fill="rgb(var(--Brand-Black))"
-          mask="url(#path-1-inside-1_368_10043)"
+          // mask="url(#path-1-inside-1_368_10043)"
         />
       </g>
       <defs>

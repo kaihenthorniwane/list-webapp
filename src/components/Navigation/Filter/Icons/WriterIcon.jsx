@@ -9,35 +9,35 @@ export default function WriterIcon() {
     >
       <path
         d="M3.5 4.5H23.5"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.5 9H21.7609"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.5 13.5H23.5"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.5 18H19.1522"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.5 22.5H23.5"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -23,7 +23,7 @@ export default function NoteTop() {
         <path
           d="M4.10887e-06 0.999979L239 1L239 -1L4.28372e-06 -1.00002L4.10887e-06 0.999979Z"
           fill="rgb(var(--Brand-Black))"
-          mask="url(#path-1-inside-1_368_10045)"
+          // mask="url(#path-1-inside-1_368_10045)"
         />
       </g>
       <defs>

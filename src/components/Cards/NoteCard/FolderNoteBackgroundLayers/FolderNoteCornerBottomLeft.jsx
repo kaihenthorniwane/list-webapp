@@ -14,7 +14,7 @@ export default function FolderNoteCornerBottomLeft() {
       />
       <path
         d="M0.499999 -4.17233e-07C0.499999 10.2076 0.5 15.3114 3.09949 18.8893C3.93902 20.0448 4.95519 21.061 6.1107 21.9005C9.68859 24.5 14.7924 24.5 25 24.5"
-        stroke="#111A49"
+        stroke="rgb(var(--Brand-Black))"
       />
     </svg>
   );

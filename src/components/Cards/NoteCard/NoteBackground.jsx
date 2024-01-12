@@ -38,7 +38,7 @@ const NoteBackground = () => {
       <div
         style={{
           gridArea: "2 / 2 / 3 / 3",
-          backgroundColor: "rgb(var(--White))",
+          backgroundColor: "rgb(var(--Brand-White))",
         }}
       />
     </div>

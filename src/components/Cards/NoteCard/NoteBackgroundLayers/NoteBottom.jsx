@@ -20,7 +20,7 @@ export default function NoteBottom() {
         <path
           d="M239 47H0V49H239V47Z"
           fill="rgb(var(--Brand-Black))"
-          mask="url(#path-1-inside-1_368_10047)"
+          // mask="url(#path-1-inside-1_368_10047)"
         />
       </g>
       <defs>
