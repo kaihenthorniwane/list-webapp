@@ -12,12 +12,15 @@ export default function FolderNoteRight() {
         marginRight: "-1px",
       }}
     >
-      <path d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z" fill="white" />
+      <path
+        d="M0 52L1.14121e-06 0L25 1.61989e-07L25 52L0 52Z"
+        fill="rgb(var(--Brand-White))"
+      />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M24 52L25 52L25 6.47956e-09L24 0L24 52Z"
-        fill="#111A49"
+        fill="rgb(var(--Brand-Black))"
       />
     </svg>
   );

@@ -18,7 +18,7 @@ export default function FolderNoteTop() {
           width="600"
           height="100"
           transform="rotate(180 168.34 1)"
-          fill="white"
+          fill="rgb(var(--Brand-White))"
         />
         <rect
           x="-50"
@@ -26,12 +26,12 @@ export default function FolderNoteTop() {
           width="600"
           height="1"
           transform="rotate(180 168.34 1)"
-          fill="#111A49"
+          fill="rgb(var(--Brand-Black))"
         />
       </g>
       <defs>
         <clipPath id="clip0_376_10020">
-          <rect width="600" height="25" fill="white" />
+          <rect width="600" height="25" fill="rgb(var(--Brand-White))" />
         </clipPath>
       </defs>
     </svg>

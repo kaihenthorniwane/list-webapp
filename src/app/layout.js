@@ -1,5 +1,6 @@
 import AuthContext from "@/components/AuthContext";
 import { OverlayProvider } from "@/contexts/OverlayContext";
+import NextThemeProvider from "@/contexts/NextThemeProvider";
 import React from "react";
 import "./globals.css";
 
@@ -12,9 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="text-18">
+      <body className="text-18 bg-Brand-White">
         <AuthContext>
-          <OverlayProvider>{children}</OverlayProvider>
+          <OverlayProvider>
+            <NextThemeProvider>{children}</NextThemeProvider>
+          </OverlayProvider>
         </AuthContext>
       </body>
     </html>

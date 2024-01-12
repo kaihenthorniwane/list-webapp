@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { brandedBezier } from "@/utils/animationConstants";
 
@@ -12,60 +12,37 @@ export default function FilterOptionCard({
 }) {
   const optionName = optionTitle.toString().toLowerCase();
 
-  const getCSSVariableValue = (variableName) => {
-    // Get the value of the CSS variable
-    const value = getComputedStyle(document.documentElement).getPropertyValue(
-      variableName
+  // Determine the icon color based on the context
+  const [iconColor, setIconColor] = useState("rgb(var(--Brand-Black))");
+
+  useEffect(() => {
+    setIconColor(
+      contextToGet === optionName
+        ? "rgb(var(--Brand-White))"
+        : "rgb(var(--Brand-Black))"
     );
-
-    // Return the value, trimmed to remove extra whitespace
-    return value.trim();
-  };
-
-  // Usage
-  const brandBlackValue = getCSSVariableValue("--Brand-Black");
-  const whiteColorValue = getCSSVariableValue("--White");
-
-  const [iconColor, setIconColor] = useState("rgb(" + brandBlackValue + ")");
-
-  const textStyles = {
-    on: {
-      color: "rgb(" + whiteColorValue + ")",
-      transition: {
-        delay: 0,
-        duration: 0,
-        onComplete: () => {
-          setIconColor("rgb(" + whiteColorValue + ")");
-        },
-      },
-    },
-    off: {
-      color: "rgb(" + brandBlackValue + ")",
-      transition: {
-        delay: 0.025,
-        duration: 0,
-        onComplete: () => {
-          setIconColor("rgb(" + brandBlackValue + ")");
-        },
-      },
-    },
-  };
+  }, [contextToGet, optionName]);
 
   return (
     <motion.div
       className={
         "w-full no-drag relative " +
-        (contextToGet !== optionName && " cursor-pointer")
+        (contextToGet !== optionName ? " cursor-pointer" : "")
       }
-      animate={
-        contextToGet === optionName ? textStyles["on"] : textStyles["off"]
-      }
+      animate={{ transition: { delay: 0.025, duration: 0 } }}
       onClick={() => {
         contextToSet(optionName);
       }}
     >
-      <div className="flex flex-col gap-2 relative z-[2]">
-        <div className="flex gap-1 items-center leading-none ">
+      <div
+        className={
+          "flex flex-col gap-2 relative z-[2] " +
+          (contextToGet === optionName
+            ? "text-Brand-White"
+            : "text-Brand-Black")
+        }
+      >
+        <div className="flex gap-1 items-center leading-none">
           {IconComponent && <IconComponent fill={iconColor} />}
           <span className="-mb-1">{optionTitle}</span>
         </div>

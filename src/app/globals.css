@@ -6,11 +6,18 @@
 
 :root {
   --Brand-Black: 17, 26, 73;
+  --Brand-White: 255, 255, 255;
   --Brand-Red: 212, 31, 74;
   --White: 255, 255, 255;
   --Unfinished-Grey: 198, 200, 231;
   --font-header: "degular-variable", sans-serif;
   --font-body: "cofo-sans-variable", sans-serif;
+}
+
+/* New dark theme styles */
+[data-theme="dark"] {
+  --Brand-Black: 255, 255, 255; /* White color */
+  --Brand-White: 17, 26, 73; /* Black color */
 }
 
 body {
@@ -23,10 +30,6 @@ body {
   margin: 0;
   /* max-height: 100vh; */
 }
-
-/* html {
-  overflow: hidden; 
-} */
 
 .folder-svg > svg {
   width: 100%;

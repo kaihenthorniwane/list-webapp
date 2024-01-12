@@ -21,7 +21,7 @@ export default function FilterIcon() {
         height="7.5"
         rx="3"
         transform="rotate(90 21.5 5.375)"
-        fill="white"
+        fill="rgb(var(--Brand-White))"
         stroke="#111A49"
         strokeWidth="1.5"
       />
@@ -32,7 +32,7 @@ export default function FilterIcon() {
         height="7.5"
         rx="3"
         transform="rotate(90 13.5 14.125)"
-        fill="white"
+        fill="rgb(var(--Brand-White))"
         stroke="#111A49"
         strokeWidth="1.5"
       />

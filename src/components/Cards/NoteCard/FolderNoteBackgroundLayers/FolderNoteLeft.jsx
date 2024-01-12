@@ -11,16 +11,16 @@ export default function FolderNoteLeft() {
         minHeight: "0px",
       }}
     >
-      <mask id="path-1-inside-1_292_9339" fill="white">
+      <mask id="path-1-inside-1_292_9339" fill="rgb(var(--Brand-White))">
         <path d="M25 0L25 52L-3.65644e-07 52L1.90735e-06 -1.09278e-06L25 0Z" />
       </mask>
       <path
         d="M25 0L25 52L-3.65644e-07 52L1.90735e-06 -1.09278e-06L25 0Z"
-        fill="white"
+        fill="rgb(var(--Brand-White))"
       />
       <path
         d="M1 52L1 -1.04907e-06L-0.999998 -1.1365e-06L-1 52L1 52Z"
-        fill="#111A49"
+        fill="rgb(var(--Brand-Black))"
         mask="url(#path-1-inside-1_292_9339)"
       />
     </svg>

@@ -12,16 +12,16 @@ export default function NoteLeft() {
       }}
     >
       <g clipPath="url(#clip0_368_10041)">
-        <mask id="path-1-inside-1_368_10041" fill="white">
+        <mask id="path-1-inside-1_368_10041" fill="rgb(var(--Brand-White))">
           <path d="M48 0L48 31.9999L-1.39876e-06 31.9999L0 -2.09815e-06L48 0Z" />
         </mask>
         <path
           d="M48 0L48 31.9999L-1.39876e-06 31.9999L0 -2.09815e-06L48 0Z"
-          fill="white"
+          fill="rgb(var(--Brand-White))"
         />
         <path
           d="M0.999999 31.9999L1 -2.05444e-06L-1 -2.14186e-06L-1 31.9999L0.999999 31.9999Z"
-          fill="#111A49"
+          fill="rgb(var(--Brand-Black))"
           mask="url(#path-1-inside-1_368_10041)"
         />
       </g>
@@ -30,7 +30,7 @@ export default function NoteLeft() {
           <rect
             width="31.9999"
             height="48"
-            fill="white"
+            fill="rgb(var(--Brand-White))"
             transform="translate(48) rotate(90)"
           />
         </clipPath>

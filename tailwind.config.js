@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
@@ -33,33 +34,33 @@ module.exports = {
         700: 700,
       },
       colors: {
-        "Brand-Black": "#111A49",
-        "Brand-White": "#FFFFFF",
-        "Brand-Red": "#D41F4A",
+        "Brand-Black": "rgb(var(--Brand-Black))",
+        "Brand-White": "rgb(var(--Brand-White))",
+        "Brand-Red": "rgb(var(--Brand-Red))",
       },
       backgroundColor: {
-        "Brand-Black": "#111A49",
-        "Brand-White": "#FFFFFF",
-        "Brand-Red": "#D41F4A",
+        "Brand-Black": "rgb(var(--Brand-Black))",
+        "Brand-White": "rgb(var(--Brand-White))",
+        "Brand-Red": "rgb(var(--Brand-Red))",
       },
       backgroundImage: {
         "White-Gradient-Down":
-          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.49205619747899154) 80%, rgba(255,255,255,0) 100%)", // custom gradient
+          "linear-gradient(180deg, rgb(var(--Brand-White)) 0%, rgba(var(--Brand-White), 0.492) 80%, rgba(var(--Brand-White), 0) 100%)", // custom gradient using variable
 
         "White-Gradient-Down-More-White":
-          "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9318321078431373) 56%, rgba(255,255,255,0.6265099789915967) 86%, rgba(255,255,255,0.37160801820728295) 93%, rgba(255,255,255,0) 100%);", // custom gradient
+          "linear-gradient(180deg, rgb(var(--Brand-White)) 0%, rgba(var(--Brand-White), 0.932) 56%, rgba(var(--Brand-White), 0.627) 86%, rgba(var(--Brand-White), 0.372) 93%, rgba(var(--Brand-White), 0) 100%)", // custom gradient using variable
 
         "White-Gradient-Right":
-          "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)", // custom gradient
+          "linear-gradient(90deg, rgb(var(--Brand-White)) 0%, rgba(var(--Brand-White), 0) 100%)", // custom gradient using variable
 
         "White-Gradient-Left":
-          "linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)", // custom gradient
+          "linear-gradient(270deg, rgb(var(--Brand-White)) 0%, rgba(var(--Brand-White), 0) 100%)", // custom gradient using variable
         // You can add more custom gradients here
       },
       // Adding custom text colors
       textColor: {
-        "Brand-Black": "#111A49",
-        "Brand-White": "#FFFFFF",
+        "Brand-Black": "rgb(var(--Brand-Black))",
+        "Brand-White": "rgb(var(--Brand-White))",
       },
       // Adding custom easing (transition timing function)
       transitionTimingFunction: {
@@ -80,6 +81,16 @@ module.exports = {
       },
       minHeight: {
         "smooth-button": "3.75rem", //smooth button height
+      },
+      dark: {
+        colors: {
+          "Brand-Black": "rgb(var(--Brand-White))", // In dark mode, black becomes white
+          "Brand-White": "rgb(var(--Brand-Black))", // In dark mode, white becomes black
+        },
+        backgroundColor: {
+          "Brand-Black": "rgb(var(--Brand-White))", // In dark mode, black becomes white
+          "Brand-White": "rgb(var(--Brand-Black))", // In dark mode, white becomes black
+        },
       },
     },
   },

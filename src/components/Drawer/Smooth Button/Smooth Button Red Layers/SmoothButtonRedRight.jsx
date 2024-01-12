@@ -16,7 +16,7 @@ export default function SmoothButtonRedRight() {
       </g>
       <defs>
         <clipPath id="clip0_404_12965">
-          <rect width="40" height="60" fill="white" />
+          <rect width="40" height="60" fill="rgb(var(--Brand-White))" />
         </clipPath>
       </defs>
     </svg>

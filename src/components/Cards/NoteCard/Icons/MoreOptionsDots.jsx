@@ -35,9 +35,24 @@ export default function MoreOptionsDots({
           setIsOn(!isOn);
         }}
       >
-        <circle cx="5.90002" cy="13.5" r="1.90002" fill="#111A49" />
-        <circle cx="13.5001" cy="13.5" r="1.90002" fill="#111A49" />
-        <circle cx="21.1002" cy="13.5" r="1.90002" fill="#111A49" />
+        <circle
+          cx="5.90002"
+          cy="13.5"
+          r="1.90002"
+          fill="rgb(var(--Brand-Black))"
+        />
+        <circle
+          cx="13.5001"
+          cy="13.5"
+          r="1.90002"
+          fill="rgb(var(--Brand-Black))"
+        />
+        <circle
+          cx="21.1002"
+          cy="13.5"
+          r="1.90002"
+          fill="rgb(var(--Brand-Black))"
+        />
       </svg>
     </div>
   );
