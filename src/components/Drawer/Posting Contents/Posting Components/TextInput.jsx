@@ -27,7 +27,7 @@ export default function TextInput({
       ref={textareaRef}
       placeholder={placeholder}
       className={
-        "outline-0 resize-none w-full focus:outline-none p-1 -m-1 " +
+        "outline-0 bg-Brand-White resize-none w-full focus:outline-none p-1 -m-1 " +
         (wideTracking && "tracking-wide ") +
         (overflowHidden && "overflow-hidden")
       }
