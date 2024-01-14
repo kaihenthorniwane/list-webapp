@@ -9,7 +9,6 @@ import { NotesProvider } from "@/contexts/NotesContext";
 import LoadingScreen from "@/components/Navigation/LoadingScreen";
 // import SignOutButton from "@/components/SignOutButton";
 import { useOverlay } from "@/contexts/OverlayContext";
-import { ThemeButton } from "@/components/ThemeButton";
 
 export default function Folders() {
   const { isOn, overlay } = useOverlay();
@@ -48,7 +47,6 @@ export default function Folders() {
         {overlay}
         <div className="flex flex-col items-center overflow-hidden">
           <div className="p-5 w-full max-w-3xl flex flex-col gap-8">
-            <ThemeButton />
             <FolderTitle
               headerText={"Folders"}
               crumbNameAndLinkArray={undefined}

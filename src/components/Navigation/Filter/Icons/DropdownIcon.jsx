@@ -10,9 +10,9 @@ export default function DropdownIcon() {
       <path
         d="M7 11L13.5 18L20 11"
         stroke="rgb(var(--Brand-Black))"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

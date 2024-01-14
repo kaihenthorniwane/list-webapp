@@ -1,14 +1,34 @@
-"use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 
 export const ThemeButton = () => {
+  const { rive, RiveComponent } = useRive({
+    src: "/riv/darkmode_switch.riv",
+    stateMachines: "Darkmode Switch",
+    autoplay: true,
+  });
+
+  const darkmodeInput = useStateMachineInput(
+    rive,
+    "Darkmode Switch",
+    "Darkmode" // Replace with the actual name of the input in your Rive file
+  );
+
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  // Update the mounted state
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Update Rive's darkmode input whenever the theme changes
+  useEffect(() => {
+    if (darkmodeInput && theme) {
+      darkmodeInput.value = theme === "dark";
+    }
+  }, [theme, darkmodeInput]);
 
   if (!mounted) {
     return null;
@@ -16,10 +36,10 @@ export const ThemeButton = () => {
 
   return (
     <button
-      className={`w-fit absolute right-5 top-2 p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-200 dark:bg-[#212933]`}
+      className="h-10 w-10"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "light" ? "Dark" : "Light"}
+      <RiveComponent />
     </button>
   );
 };

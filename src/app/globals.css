@@ -17,7 +17,8 @@
 /* New dark theme styles */
 [data-theme="dark"] {
   --Brand-Black: 255, 255, 255; /* White color */
-  --Brand-White: 17, 26, 73; /* Black color */
+  --Brand-White: 0, 7, 41; /* Black color */
+  --Brand-Red: 255, 109, 109;
 }
 
 body {

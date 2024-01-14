@@ -7,7 +7,7 @@ export default function SmoothButtonRedMiddle() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-full max-h-smooth-button"
     >
-      <path d="M0 0H167V60H0V0Z" fill="#D41F4A" />
+      <path d="M0 0H167V60H0V0Z" fill="rgb(var(--Brand-Red))" />
     </svg>
   );
 }

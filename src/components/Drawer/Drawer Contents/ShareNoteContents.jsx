@@ -6,6 +6,12 @@ import Drawer from "../Drawer";
 import NoteOptionsContents from "./NoteOptionsContents";
 import ShareOption from "./Drawer Components/ShareOption";
 import { motion } from "framer-motion";
+import SaveIcon from "./Icons/SaveIcon";
+import CopyIcon from "./Icons/CopyIcon";
+import MailIcon from "./Icons/MailIcon";
+import WhatsAppIcon from "./Icons/WhatsAppIcon";
+import XcomIcon from "./Icons/XcomIcon";
+import FacebookIcon from "./Icons/FacebookIcon";
 
 export default function ShareNoteContents({
   note_id,
@@ -86,32 +92,32 @@ export default function ShareNoteContents({
   const shareOptions = [
     {
       text: "Save",
-      iconSrc: "/svg/Drawers/ShareDrawer/Save Icon.svg",
+      IconComponent: SaveIcon, // Component for Save Icon
       functionToRun: saveAsTxt,
     },
     {
       text: "Copy",
-      iconSrc: "/svg/Drawers/ShareDrawer/Copy Text Icon.svg",
+      IconComponent: CopyIcon, // Component for Copy Icon
       functionToRun: copyToClipboard,
     },
     {
       text: "Email",
-      iconSrc: "/svg/Drawers/ShareDrawer/Mail Icon.svg",
+      IconComponent: MailIcon, // Component for Email Icon
       functionToRun: openEmail,
     },
     {
       text: "WhatsApp",
-      iconSrc: "/svg/Drawers/ShareDrawer/WhatsApp Icon.svg",
+      IconComponent: WhatsAppIcon, // Component for WhatsApp Icon
       functionToRun: shareOnWhatsApp,
     },
     {
       text: "X.com",
-      iconSrc: "/svg/Drawers/ShareDrawer/Xcom Icon.svg",
+      IconComponent: XcomIcon, // Component for X.com (Twitter) Icon
       functionToRun: shareOnTwitter,
     },
     {
       text: "Facebook",
-      iconSrc: "/svg/Drawers/ShareDrawer/Facebook Icon.svg",
+      IconComponent: FacebookIcon, // Component for Facebook Icon
       functionToRun: shareOnFacebook,
     },
   ];
@@ -141,7 +147,7 @@ export default function ShareNoteContents({
               <ShareOption
                 key={index}
                 text={option.text}
-                iconSrc={option.iconSrc}
+                IconComponent={option.IconComponent} // Pass the component
                 functionToRun={option.functionToRun}
               />
             ))}

@@ -29,6 +29,21 @@ const FolderBack = () => {
 
       <div className="folder-svg folder-back">
         <svg
+          preserveAspectRatio="none"
+          viewBox="0 0 100 178"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 17H100V178H0V17Z" fill="rgb(var(--Brand-White))" />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M100 18H0V17H100V18ZM100 177H0V178H100V177Z"
+            fill="rgb(var(--Brand-Black))"
+          />
+        </svg>
+
+        {/* <svg
           viewBox="0 0 100 178"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
@@ -46,11 +61,11 @@ const FolderBack = () => {
               <path
                 d="M0 18H100V16H0V18ZM100 177H0V179H100V177Z"
                 fill="rgb(var(--Brand-Black))"
-                mask="url(#path-1-inside-1_197_10316)"
+                // mask="url(#path-1-inside-1_197_10316)"
               />
             </g>
           </g>
-        </svg>
+        </svg> */}
       </div>
       <svg
         width="31"

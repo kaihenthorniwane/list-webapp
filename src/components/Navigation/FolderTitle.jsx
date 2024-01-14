@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Breadcrumbs from "./Breadcrumbs";
 import { getSession } from "next-auth/react";
 import UserProfile from "../Drawer/Drawer Contents/Drawer Components/UserProfile";
+import { ThemeButton } from "../ThemeButton";
 
 export default function FolderTitle({
   crumbNameAndLinkArray,
@@ -48,12 +49,15 @@ export default function FolderTitle({
           {headerText}
         </h1>
         {showUserIcon && (
-          <UserProfile
-            firstname={sessionInfo.firstname}
-            name={sessionInfo.name}
-            image={sessionInfo.image}
-            email={sessionInfo.email}
-          />
+          <div className="flex gap-1.5">
+            <UserProfile
+              firstname={sessionInfo.firstname}
+              name={sessionInfo.name}
+              image={sessionInfo.image}
+              email={sessionInfo.email}
+            />
+            <ThemeButton />
+          </div>
         )}
       </div>
     </div>
