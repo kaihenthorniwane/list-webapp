@@ -15,13 +15,15 @@ export const ThemeButton = () => {
     "Darkmode" // Replace with the actual name of the input in your Rive file
   );
 
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
 
-  // Update the mounted state
+  // Update the mounted state once the theme is resolved
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (resolvedTheme) {
+      setMounted(true);
+    }
+  }, [resolvedTheme]);
 
   // Update Rive's darkmode input whenever the theme changes
   useEffect(() => {
