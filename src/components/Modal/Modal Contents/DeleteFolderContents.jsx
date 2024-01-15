@@ -5,30 +5,11 @@ import Drawer from "@/components/Drawer/Drawer";
 import NoteOptionsContents from "@/components/Drawer/Drawer Contents/NoteOptionsContents";
 import { useAllNotes } from "@/contexts/AllNotesContext";
 import FolderOptionsContents from "@/components/Drawer/Drawer Contents/FolderOptionsContents";
+import { useFolders } from "@/contexts/FolderContext";
 
-export default function DeleteFolderContents({ folder_id }) {
-  const { isOn, setIsOn, setOverlay } = useOverlay();
-  const { allNotesData, setallNotesData } = useAllNotes();
-
-  // Function to fetch notes
-  const deleteANote = (noteId) => {
-    try {
-      fetch(`/api/deleteanote/${noteId}`);
-      console.log(allNotesData);
-      const firstKey = Object.keys(allNotesData)[0];
-      const arrayNotes = allNotesData[firstKey];
-
-      const newNotesObj = {
-        [firstKey]: arrayNotes.filter((curNote) => noteId !== curNote.note_id),
-      };
-
-      console.log(newNotesObj);
-      setallNotesData(newNotesObj);
-      setIsOn(false);
-    } catch (error) {
-      console.error("Error fetching notes:", error);
-    }
-  };
+export default function DeleteFolderContents({ folder_id, folder_name }) {
+  const { setOverlay, setIsOn } = useOverlay();
+  const { deleteAFolder } = useFolders();
 
   return (
     <div className="flex flex-col gap-6">
@@ -42,7 +23,8 @@ export default function DeleteFolderContents({ folder_id }) {
         <SmoothButtonRed
           text="Delete"
           functionToRun={() => {
-            deleteANote(note_id);
+            deleteAFolder(folder_id);
+            setIsOn(false);
           }}
         />
         <SmoothButton
@@ -50,7 +32,10 @@ export default function DeleteFolderContents({ folder_id }) {
           functionToRun={() => {
             setOverlay(
               <Drawer>
-                <FolderOptionsContents />
+                <FolderOptionsContents
+                  folder_id={folder_id}
+                  folder_name={folder_name}
+                />
               </Drawer>
             );
           }}

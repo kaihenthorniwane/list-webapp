@@ -7,6 +7,7 @@ import TrashNoteIcon from "./Icons/TrashNoteIcon";
 import RenameFolderIcon from "./Icons/RenameFolderIcon";
 import { useEffect, useState } from "react";
 import EditFolderTitle from "../Edit Folder Contents/EditFolderTitle";
+import DeleteFolderContents from "@/components/Modal/Modal Contents/DeleteFolderContents";
 
 export default function FolderOptionsContents({ folder_id, folder_name }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
@@ -100,7 +101,14 @@ export default function FolderOptionsContents({ folder_id, folder_name }) {
             text="Delete Folder"
             color="rgb(var(--Brand-Red))"
             functionToRun={() => {
-              setOverlay(<Modal>Testing</Modal>);
+              setOverlay(
+                <Modal>
+                  <DeleteFolderContents
+                    folder_id={folder_id}
+                    folder_name={folder_name}
+                  />
+                </Modal>
+              );
             }}
           />
         </div>

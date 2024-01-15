@@ -92,6 +92,19 @@ export const FolderProvider = ({ children }) => {
     }
   };
 
+  const deleteAFolder = async (folderId) => {
+    try {
+      await fetch(`/api/deleteafolder/${folderId}`);
+      // Filter out the deleted folder from the current state
+      const updatedFolders = folders.filter(
+        (folder) => folder.folder_id !== folderId
+      );
+      setFolders(updatedFolders);
+    } catch (error) {
+      console.error("Error deleting folder:", error);
+    }
+  };
+
   // Use useEffect to fetch folders when the component mounts
   useEffect(() => {
     fetchFolders();
@@ -104,6 +117,7 @@ export const FolderProvider = ({ children }) => {
         setFolders,
         addAFolderAndRefreshOnscreenFolders,
         editAFolderAndRefreshOnscreenFolders,
+        deleteAFolder,
       }}
     >
       {children}
