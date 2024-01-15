@@ -47,16 +47,35 @@ export async function GET(request, { params }) {
     }
 
     // If authorized, perform the DELETE operation
-    const result =
-      await sql`DELETE FROM folders WHERE folder_id = ${folder_id}`;
-    console.log("Number of deleted rows:", result.rowCount);
+
+    // Step 1: Fetch all notes associated with the folder
+    const notesQuery = await sql`
+      SELECT note_id
+      FROM notes
+      WHERE folder_id = ${folder_id}`;
+
+    // Step 2: Delete all notes associated with the folder
+    if (notesQuery.rows.length > 0) {
+      await sql`
+        DELETE FROM notes
+        WHERE folder_id = ${folder_id}`;
+      console.log("Deleted notes in folder:", notesQuery.rows.length);
+    }
+
+    // Step 3: Delete the folder
+    const result = await sql`
+      DELETE FROM folders
+      WHERE folder_id = ${folder_id}`;
+    console.log("Folder deleted:", result.rowCount);
 
     return new Response(
-      JSON.stringify({ success: true, deletedRows: result.rowCount }),
+      JSON.stringify({
+        success: true,
+        deletedNotes: notesQuery.rows.length,
+        deletedFolder: result.rowCount,
+      }),
       {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       }
     );
   } catch (error) {
