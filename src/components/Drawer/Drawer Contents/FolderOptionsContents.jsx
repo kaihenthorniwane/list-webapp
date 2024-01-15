@@ -3,11 +3,8 @@ import DrawerOption from "./Drawer Components/DrawerOption";
 import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "../Drawer";
 import Modal from "@/components/Modal/Modal";
-import DeleteNoteContents from "@/components/Modal/Modal Contents/DeleteNoteContents";
-import EditNoteContents from "../Posting Contents/EditNoteContents";
 import TrashNoteIcon from "./Icons/TrashNoteIcon";
 import RenameFolderIcon from "./Icons/RenameFolderIcon";
-import DeleteFolderContents from "@/components/Modal/Modal Contents/DeleteFolderContents";
 
 export default function FolderOptionsContents({ folder_id, folder_name }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();

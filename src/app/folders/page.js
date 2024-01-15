@@ -10,6 +10,7 @@ import LoadingScreen from "@/components/Navigation/LoadingScreen";
 // import SignOutButton from "@/components/SignOutButton";
 import { useOverlay } from "@/contexts/OverlayContext";
 import Link from "next/link";
+import NewFolderButton from "@/components/Drawer/Edit Folder Contents/NewFolderButton";
 
 export default function Folders() {
   const { isOn, overlay } = useOverlay();
@@ -46,6 +47,7 @@ export default function Folders() {
     return (
       <>
         {overlay}
+        <NewFolderButton />
         <div className="flex flex-col items-center overflow-hidden">
           <div className="p-5 w-full max-w-3xl flex flex-col gap-8">
             <FolderTitle
@@ -54,7 +56,7 @@ export default function Folders() {
               showUserIcon={true}
             />
             <NotesProvider>
-              <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-10">
+              <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-10 mb-20 md:mb-0">
                 {folders.map((folder) => {
                   console.log("folders rendered");
                   return (
@@ -75,11 +77,3 @@ export default function Folders() {
     return <LoadingScreen />;
   }
 }
-
-// if (status === "authenticated") {
-//   return (
-//     <div>
-//       <SignOutButton />
-//     </div>
-//   );
-// }
