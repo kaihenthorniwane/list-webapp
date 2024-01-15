@@ -6,6 +6,7 @@ import Drawer from "../Drawer";
 import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
 import FolderOptionsContents from "../Drawer Contents/FolderOptionsContents";
 import { useFolders } from "@/contexts/FolderContext";
+import FolderIcon from "../Drawer Contents/Icons/FolderIcon";
 
 export default function EditFolderTitle({
   folder_id,
@@ -54,19 +55,19 @@ export default function EditFolderTitle({
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-3 ">
-        <div className="w-full h-[60vh] md:h-[35vh] flex">
-          <div className="flex flex-col gap-3 w-full">
-            <div className="font-header text-32 leading-none">
-              <TextInput
-                text={name}
-                setText={setName}
-                placeholder={"Write the folder name"}
-                wideTracking={true}
-              />
-            </div>
-          </div>
+    <div className="flex flex-col gap-8 mt-6">
+      <div className="flex flex-col items-center gap-5">
+        <FolderIcon />
+        <div className="font-header text-32 leading-none">
+          <TextInput
+            text={name}
+            setText={setName}
+            placeholder={"Write folder name"}
+            fullWidth={false}
+            wideTracking={true}
+            textCenter={true}
+            autoFocus={true}
+          />
         </div>
       </div>
 

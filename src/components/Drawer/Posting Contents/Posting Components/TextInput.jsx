@@ -7,6 +7,8 @@ export default function TextInput({
   overflowHidden = true,
   minimumHeight = "0",
   wideTracking = false,
+  textCenter = false,
+  autoFocus = false,
 }) {
   const textareaRef = useRef(null);
 
@@ -28,14 +30,25 @@ export default function TextInput({
       placeholder={placeholder}
       className={
         "outline-0 bg-Brand-White resize-none w-full focus:outline-none p-1 -m-1 " +
-        (wideTracking && "tracking-wide ") +
-        (overflowHidden && "overflow-hidden")
+        (wideTracking ? "tracking-wide " : "") +
+        (overflowHidden ? "overflow-hidden " : "") +
+        (textCenter ? "text-center" : "")
       }
       value={text}
       onChange={(event) => {
         setText(event.target.value);
         handleChange();
       }}
+      autoFocus={autoFocus}
+      onFocus={
+        autoFocus
+          ? function (e) {
+              var val = e.target.value;
+              e.target.value = "";
+              e.target.value = val;
+            }
+          : () => {}
+      }
     />
   );
 }
