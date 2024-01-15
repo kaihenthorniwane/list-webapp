@@ -9,6 +9,7 @@ import { NotesProvider } from "@/contexts/NotesContext";
 import LoadingScreen from "@/components/Navigation/LoadingScreen";
 // import SignOutButton from "@/components/SignOutButton";
 import { useOverlay } from "@/contexts/OverlayContext";
+import Link from "next/link";
 
 export default function Folders() {
   const { isOn, overlay } = useOverlay();

@@ -4,6 +4,7 @@ import FolderBack from "./FolderBack";
 import FolderFront from "./FolderFront";
 import Link from "next/link";
 import { useNotes } from "@/contexts/NotesContext"; // Adjust the import path as needed
+import MoreOptionsDotsFolder from "./Icons/MoreOptionsDotsFolder";
 
 const FolderCard = ({ folder_id, folder_name }) => {
   const { notesData, fetchNotes } = useNotes(); // Use the custom hook
@@ -38,15 +39,11 @@ const FolderCard = ({ folder_id, folder_name }) => {
     return `rotate(${rotationAngles[noteId]}deg)`; // Replace 'note.id' with the note's unique identifier
   };
 
-  // // Function to get the rotation for a note
-  // const getRotationForNote = (noteId) => {
-  //   return `rotate(4deg)`; // Replace 'note.id' with the note's unique identifier
-  // };
-
   return (
     <Link href={"/folders/" + folder_id}>
       <div className="brand-button-transition">
         <div className=" flex p-6 flex-col justify-end gap-1 relative h-folder-card ">
+          <MoreOptionsDotsFolder />
           <FolderBack />
           <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
             {notes.map((note, index) => (
