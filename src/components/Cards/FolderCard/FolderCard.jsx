@@ -43,7 +43,10 @@ const FolderCard = ({ folder_id, folder_name }) => {
     <Link href={"/folders/" + folder_id}>
       <div className="brand-button-transition">
         <div className=" flex p-6 flex-col justify-end gap-1 relative h-folder-card ">
-          <MoreOptionsDotsFolder />
+          <MoreOptionsDotsFolder
+            folder_id={folder_id}
+            folder_name={folder_name}
+          />
           <FolderBack />
           <div className="px-14 flex absolute z-[-2] justify-between left-0 right-0 top-9 no-drag">
             {notes.map((note, index) => (

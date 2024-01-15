@@ -7,9 +7,7 @@ import SignInGoogle from "@/components/Navigation/SignInGoogle";
 import FolderCard from "@/components/Cards/FolderCard/FolderCard";
 import { NotesProvider } from "@/contexts/NotesContext";
 import LoadingScreen from "@/components/Navigation/LoadingScreen";
-// import SignOutButton from "@/components/SignOutButton";
 import { useOverlay } from "@/contexts/OverlayContext";
-import Link from "next/link";
 import NewFolderButton from "@/components/Drawer/Edit Folder Contents/NewFolderButton";
 
 export default function Folders() {
