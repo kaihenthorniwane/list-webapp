@@ -1,5 +1,6 @@
 import { useOverlay } from "@/contexts/OverlayContext";
 import Drawer from "../Drawer";
+import EditFolderTitle from "./EditFolderTitle";
 
 export default function NewFolderButton() {
   const { isOn, setIsOn, setOverlay } = useOverlay();
@@ -7,7 +8,11 @@ export default function NewFolderButton() {
     <div
       className="fixed z-[90] bottom-5 right-5 brand-button-transition opacity-button-transition md:hidden"
       onClick={() => {
-        setOverlay(<Drawer>Testing</Drawer>);
+        setOverlay(
+          <Drawer>
+            <EditFolderTitle />
+          </Drawer>
+        );
         setIsOn(true);
       }}
     >

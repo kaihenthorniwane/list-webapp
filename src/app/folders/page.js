@@ -9,34 +9,13 @@ import { NotesProvider } from "@/contexts/NotesContext";
 import LoadingScreen from "@/components/Navigation/LoadingScreen";
 import { useOverlay } from "@/contexts/OverlayContext";
 import NewFolderButton from "@/components/Drawer/Edit Folder Contents/NewFolderButton";
+import { useFolders } from "@/contexts/FolderContext";
 
 export default function Folders() {
-  const { isOn, overlay } = useOverlay();
+  const { overlay } = useOverlay();
 
   const { data: session, status } = useSession();
-  const [folders, setFolders] = useState([]);
-  const [foldersFetched, setFoldersFetched] = useState(false);
-
-  useEffect(() => {
-    console.log("status changed to " + status);
-    async function fetchFolders() {
-      if (status === "authenticated" && !foldersFetched) {
-        try {
-          const response = await fetch("/api/getfolders/" + session.user.id);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const folderData = await response.json();
-          setFolders(folderData);
-          setFoldersFetched(true);
-        } catch (error) {
-          console.error("Failed to fetch folders:", error.message);
-        }
-      }
-    }
-
-    fetchFolders();
-  }, [status]);
+  const { folders } = useFolders();
 
   if (status === "unauthenticated") {
     return <SignInGoogle />;

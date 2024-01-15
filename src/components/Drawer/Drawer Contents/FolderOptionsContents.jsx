@@ -6,6 +6,7 @@ import Modal from "@/components/Modal/Modal";
 import TrashNoteIcon from "./Icons/TrashNoteIcon";
 import RenameFolderIcon from "./Icons/RenameFolderIcon";
 import { useEffect, useState } from "react";
+import EditFolderTitle from "../Edit Folder Contents/EditFolderTitle";
 
 export default function FolderOptionsContents({ folder_id, folder_name }) {
   const { isOn, setIsOn, setOverlay } = useOverlay();
@@ -29,7 +30,7 @@ export default function FolderOptionsContents({ folder_id, folder_name }) {
   }, [folder_id]);
 
   return (
-    <div className="flex flex-col gap-8 mt-6">
+    <div className="flex flex-col gap-7 mt-6">
       <div className="flex flex-col items-center gap-5">
         <svg
           width="127"
@@ -83,7 +84,15 @@ export default function FolderOptionsContents({ folder_id, folder_name }) {
             icon={<RenameFolderIcon />}
             text="Rename Folder"
             functionToRun={() => {
-              setOverlay(<Drawer>Testing</Drawer>);
+              setOverlay(
+                <Drawer>
+                  <EditFolderTitle
+                    folder_id={folder_id}
+                    folder_name={folder_name}
+                    variant={"edit-folder"}
+                  />
+                </Drawer>
+              );
             }}
           />
           <DrawerOption

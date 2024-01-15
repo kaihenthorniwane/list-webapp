@@ -1,65 +1,52 @@
 import { useState } from "react";
 import { useOverlay } from "@/contexts/OverlayContext";
 import SmoothButton from "../Smooth Button/SmoothButton";
-import TextInput from "./Posting Components/TextInput";
+import TextInput from "../Posting Contents/Posting Components/TextInput";
 import Drawer from "../Drawer";
-import NoteOptionsContents from "../Drawer Contents/NoteOptionsContents";
 import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
-import { useAllNotes } from "@/contexts/AllNotesContext";
+import FolderOptionsContents from "../Drawer Contents/FolderOptionsContents";
+import { useFolders } from "@/contexts/FolderContext";
 
-export default function EditNoteContents({
-  note_id,
+export default function EditFolderTitle({
   folder_id,
-  note_title = "",
-  note_content = "",
-  last_saved,
-  variant = "new-note",
+  folder_name = "",
+  variant = "new-folder",
 }) {
   const { setIsOn, setOverlay } = useOverlay();
-  const { addANoteAndRefreshOnscreenNotes, editANoteAndRefreshOnscreenNotes } =
-    useAllNotes();
+  const {
+    addAFolderAndRefreshOnscreenFolders,
+    editAFolderAndRefreshOnscreenFolders,
+  } = useFolders();
   //text states
 
-  const [title, setTitle] = useState(note_title);
-  const [content, setContent] = useState(note_content);
+  const [name, setName] = useState(folder_name);
 
   const saveFunctionVariant = {
-    "new-note": () => {
-      addANoteAndRefreshOnscreenNotes(folder_id, title, content);
+    "new-folder": () => {
+      addAFolderAndRefreshOnscreenFolders(name);
       setIsOn(false);
     },
-    "edit-note": () => {
-      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
-      setIsOn(false);
-    },
-    "direct-edit-note": () => {
-      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
+    "edit-folder": () => {
+      editAFolderAndRefreshOnscreenFolders(folder_id, name);
       setIsOn(false);
     },
   };
 
   const actionButtonTextVariant = {
-    "new-note": "Create",
-    "direct-edit-note": "Save",
-    "edit-note": "Save",
+    "new-folder": "Create",
+    "edit-folder": "Update",
   };
 
   const cancelFunctionVariant = {
-    "new-note": () => {
+    "new-folder": () => {
       setIsOn(false);
     },
-    "direct-edit-note": () => {
-      setIsOn(false);
-    },
-    "edit-note": () => {
+    "edit-folder": () => {
       setOverlay(
         <Drawer>
-          <NoteOptionsContents
-            note_id={note_id}
+          <FolderOptionsContents
             folder_id={folder_id}
-            note_title={note_title}
-            note_content={note_content}
-            last_saved={last_saved}
+            folder_name={folder_name}
           />
         </Drawer>
       );
@@ -73,19 +60,12 @@ export default function EditNoteContents({
           <div className="flex flex-col gap-3 w-full">
             <div className="font-header text-32 leading-none">
               <TextInput
-                text={title}
-                setText={setTitle}
-                placeholder={"Write your title"}
+                text={name}
+                setText={setName}
+                placeholder={"Write the folder name"}
                 wideTracking={true}
               />
             </div>
-            <TextInput
-              text={content}
-              setText={setContent}
-              placeholder={"Write your note"}
-              overflowHidden={false}
-              minimumHeight={"20rem"}
-            />
           </div>
         </div>
       </div>
@@ -96,7 +76,7 @@ export default function EditNoteContents({
           functionToRun={cancelFunctionVariant[variant]}
         />
 
-        {title.length > 0 && content.length > 0 ? (
+        {name.length > 0 ? (
           <SmoothButtonBlack
             text={actionButtonTextVariant[variant]}
             functionToRun={saveFunctionVariant[variant]}

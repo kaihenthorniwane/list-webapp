@@ -1,6 +1,7 @@
 import AuthContext from "@/components/AuthContext";
 import { OverlayProvider } from "@/contexts/OverlayContext";
 import NextThemeProvider from "@/contexts/NextThemeProvider";
+import { FolderProvider } from "@/contexts/FolderContext";
 import React from "react";
 import "./globals.css";
 
@@ -15,9 +16,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="text-18 bg-Brand-White">
         <AuthContext>
-          <OverlayProvider>
-            <NextThemeProvider>{children}</NextThemeProvider>
-          </OverlayProvider>
+          <FolderProvider>
+            <OverlayProvider>
+              <NextThemeProvider>{children}</NextThemeProvider>
+            </OverlayProvider>
+          </FolderProvider>
         </AuthContext>
       </body>
     </html>
