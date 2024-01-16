@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useOverlay } from "@/contexts/OverlayContext";
 import SmoothButton from "../Smooth Button/SmoothButton";
 import TextInput from "./Posting Components/TextInput";
@@ -6,6 +6,7 @@ import Drawer from "../Drawer";
 import NoteOptionsContents from "../Drawer Contents/NoteOptionsContents";
 import SmoothButtonBlack from "../Smooth Button/SmoothButtonBlack";
 import { useAllNotes } from "@/contexts/AllNotesContext";
+import { NoteOrderContext } from "@/components/Templates/FolderPageMobile";
 
 export default function EditNoteContents({
   note_id,
@@ -16,6 +17,7 @@ export default function EditNoteContents({
   variant = "new-note",
 }) {
   const { setIsOn, setOverlay } = useOverlay();
+  const { noteOrder } = useContext(NoteOrderContext);
   const { addANoteAndRefreshOnscreenNotes, editANoteAndRefreshOnscreenNotes } =
     useAllNotes();
   //text states
@@ -25,15 +27,27 @@ export default function EditNoteContents({
 
   const saveFunctionVariant = {
     "new-note": () => {
-      addANoteAndRefreshOnscreenNotes(folder_id, title, content);
+      addANoteAndRefreshOnscreenNotes(folder_id, title, content, noteOrder);
       setIsOn(false);
     },
     "edit-note": () => {
-      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
+      editANoteAndRefreshOnscreenNotes(
+        folder_id,
+        note_id,
+        title,
+        content,
+        noteOrder
+      );
       setIsOn(false);
     },
     "direct-edit-note": () => {
-      editANoteAndRefreshOnscreenNotes(folder_id, note_id, title, content);
+      editANoteAndRefreshOnscreenNotes(
+        folder_id,
+        note_id,
+        title,
+        content,
+        noteOrder
+      );
       setIsOn(false);
     },
   };

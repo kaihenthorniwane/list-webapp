@@ -20,6 +20,8 @@ export const FolderProvider = ({ children }) => {
           throw new Error("Network response was not ok");
         }
         const folderData = await response.json();
+        // Sort folders by folder_id
+        folderData.sort((a, b) => a.folder_id - b.folder_id);
         setFolders(folderData);
         setFoldersFetched(true);
       } catch (error) {

@@ -39,7 +39,8 @@ export const AllNotesProvider = ({ children }) => {
   const addANoteAndRefreshOnscreenNotes = async (
     folder_id,
     note_title,
-    note_content
+    note_content,
+    noteOrder // Adding noteOrder parameter
   ) => {
     try {
       const objectWithData = {
@@ -60,12 +61,8 @@ export const AllNotesProvider = ({ children }) => {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
-
-      console.log(data);
-
-      // Update allNotesData with the new data
-      setallNotesData((prevData) => ({ ...prevData, [folder_id]: data.notes }));
+      // No need to parse the response here as we'll fetch all notes again
+      await fetchAllNotes(folder_id, noteOrder); // Using fetchAllNotes to refresh the notes
     } catch (error) {
       console.error("Error adding a note:", error);
     }
@@ -75,7 +72,8 @@ export const AllNotesProvider = ({ children }) => {
     folder_id,
     note_id,
     note_title,
-    note_content
+    note_content,
+    noteOrder // Adding noteOrder parameter
   ) => {
     try {
       const objectWithData = {
@@ -96,15 +94,8 @@ export const AllNotesProvider = ({ children }) => {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
-
-      // Update allNotesData with the new note data
-      setallNotesData((prevData) => {
-        const updatedNotes = prevData[folder_id].map((note) =>
-          note.note_id === note_id ? data.updatedNote : note
-        );
-        return { ...prevData, [folder_id]: updatedNotes };
-      });
+      // No need to parse the response here as we'll fetch all notes again
+      await fetchAllNotes(folder_id, noteOrder); // Using fetchAllNotes to refresh the notes
     } catch (error) {
       console.error("Error updating a note:", error);
     }
