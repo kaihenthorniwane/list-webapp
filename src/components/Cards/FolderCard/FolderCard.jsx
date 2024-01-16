@@ -64,7 +64,7 @@ const FolderCard = ({ folder_id, folder_name }) => {
           </div>
 
           <FolderFront />
-          <span className="relative z-0 font-header text-32 font-400 leading-none">
+          <span className="relative z-0 font-header text-32 font-400 leading-none mr-6">
             {folder_name}
           </span>
         </div>
