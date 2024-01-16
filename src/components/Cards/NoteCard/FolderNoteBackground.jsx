@@ -20,7 +20,7 @@ const FolderNoteBackground = () => {
         width: "100%", // or any specific width
         height: "100%", // or any specific height
       }}
-      className="absolute left-0 top-0 bottom-0 right-0 z-[-1] no-drag"
+      className="absolute left-0 top-0 bottom-0 right-0 z-[-1] no-drag bg-Brand-White rounded-3xl"
     >
       {/* Corners */}
       <FolderNoteCornerTopLeft />
