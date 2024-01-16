@@ -35,7 +35,9 @@ export default function Folders() {
             <NotesProvider>
               <div className="grid sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-10 mb-20 md:mb-0">
                 {folders.map((folder) => {
-                  console.log("folders rendered");
+                  {
+                    /* console.log("folders rendered"); */
+                  }
                   return (
                     <FolderCard
                       key={folder.folder_id}

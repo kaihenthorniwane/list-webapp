@@ -18,7 +18,7 @@ export default function NewNoteDesktopBack() {
         viewBox="0 0 100 38"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        className="w-full -mr-[1px] max-h-[38px] mr-[-2px]"
+        className="w-full -mx-[1px] max-h-[38px]"
       >
         <rect width="100" height="38" fill="rgb(var(--Brand-Black))" />
       </svg>
